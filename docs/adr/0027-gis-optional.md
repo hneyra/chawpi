@@ -69,16 +69,22 @@ val GEOMETRY = FieldType("GEOMETRY")
 class GeometryFieldType(private val json: ObjectMapper) : FieldTypeHandler {
     override val type = GEOMETRY
     override val section = "geometries"
-    override val attributeColumns = mapOf("geometry_type" to String::class.java, "srid" to Integer::class.java, "dimension" to Integer::class.java)
+    override val attributeColumns =
+        mapOf("geometry_type" to String::class.java, "srid" to Integer::class.java, "dimension" to Integer::class.java)
 
     override fun attributesOf(fieldName: String, request: FieldRequest): Map<String, Any?> {
-        if (request.unique) throw ValidationException("Geometry field '$fieldName' cannot be unique", "unique", "has no meaning on a geometry")
-        if (request.defaultValue != null) throw ValidationException("Geometry field '$fieldName' cannot have a default", "defaultValue", "has no meaning on a geometry")
+        if (request.unique) {
+            throw ValidationException("Geometry field '$fieldName' cannot be unique", "unique", "has no meaning on a geometry")
+        }
+        if (request.defaultValue != null) {
+            throw ValidationException("Geometry field '$fieldName' cannot have a default", "defaultValue", "has no meaning on a geometry")
+        }
         val dimension = (request.extensions["dimension"] as Number?)?.toInt() ?: 2
         val srid = (request.extensions["srid"] as Number?)?.toInt() ?: 4326
         validSrid(srid)
         // same checks and messages as sapgis MetadataService.geometryOf
-        return mapOf("geometry_type" to GeometryType.parse(request.extensions["geometryType"] as String?).name, "srid" to srid, "dimension" to dimension)
+        val geometryType = GeometryType.parse(request.extensions["geometryType"] as String?).name
+        return mapOf("geometry_type" to geometryType, "srid" to srid, "dimension" to dimension)
     }
 
     override fun columnType(field: CustomField): String {
@@ -86,17 +92,24 @@ class GeometryFieldType(private val json: ObjectMapper) : FieldTypeHandler {
         return "geometry(${shape(field).columnType(dimension(field))}, ${srid(field)})"
     }
     override fun indexes(obj: CustomObject, table: String, field: CustomField) =
-        listOf("CREATE INDEX ${SqlIdentifier.quote(SqlIdentifier.indexName(obj.physicalTable, field.columnName, "gix"))} ON $table USING GIST (${SqlIdentifier.quote(field.columnName)})")
+        listOf(
+            "CREATE INDEX ${SqlIdentifier.quote(SqlIdentifier.indexName(obj.physicalTable, field.columnName, "gix"))} " +
+                "ON $table USING GIST (${SqlIdentifier.quote(field.columnName)})",
+        )
     override fun select(field: CustomField, column: String) = "ST_AsGeoJSON(ST_Transform($column, 4326)) AS ${SqlIdentifier.quote(readName(field))}"
     override fun readName(field: CustomField) = "${field.columnName}__geojson"
-    override fun bindExpression(field: CustomField, parameter: String) = "ST_Transform(ST_SetSRID(ST_GeomFromGeoJSON(CAST(:$parameter AS text)), 4326), ${srid(field)})"
+    override fun bindExpression(field: CustomField, parameter: String) =
+        "ST_Transform(ST_SetSRID(ST_GeomFromGeoJSON(CAST(:$parameter AS text)), 4326), ${srid(field)})"
     override fun toDatabase(field: CustomField, value: Any?) = json.writeValueAsString(checkShape(field, value))
     override fun javaType(field: CustomField) = String::class.java
     override fun fromDatabase(field: CustomField, value: Any?) = (value as String?)?.let { json.readValue(it, Map::class.java) }
     override fun fieldProperties(field: CustomField) = mapOf("geometry" to field.geometryResponse())
-    override fun objectProperties(definition: ObjectDefinition) = mapOf("geometry" to definition.fields.firstOrNull { it.type == GEOMETRY }?.geometryResponse())
-    override fun unknownSectionKey(key: String, definition: ObjectDefinition) = ValidationException("Unknown geometry '$key'", key, "is not a geometry of '${definition.obj.name}'")
-    override fun rejectFilterOrSort(field: CustomField) = ValidationException("Cannot filter or sort by geometry '${field.name}'", field.name, "use bbox instead")
+    override fun objectProperties(definition: ObjectDefinition) =
+        mapOf("geometry" to definition.fields.firstOrNull { it.type == GEOMETRY }?.geometryResponse())
+    override fun unknownSectionKey(key: String, definition: ObjectDefinition) =
+        ValidationException("Unknown geometry '$key'", key, "is not a geometry of '${definition.obj.name}'")
+    override fun rejectFilterOrSort(field: CustomField) =
+        ValidationException("Cannot filter or sort by geometry '${field.name}'", field.name, "use bbox instead")
 }
 
 class BboxQuery : RecordQueryContributor {
@@ -106,7 +119,8 @@ class BboxQuery : RecordQueryContributor {
         val named = params["geometry"]?.trim()?.ifBlank { null }
         return RecordCriterion { definition, bind ->
             val field = geometryOrFail(definition, named)           // sapgis messages
-            "ST_Intersects(${SqlIdentifier.quote(field.columnName)}, ST_Transform(ST_MakeEnvelope(${bind(box.minX)}, ${bind(box.minY)}, ${bind(box.maxX)}, ${bind(box.maxY)}, 4326), ${srid(field)}))"
+            val envelope = "ST_MakeEnvelope(${bind(box.minX)}, ${bind(box.minY)}, ${bind(box.maxX)}, ${bind(box.maxY)}, 4326)"
+            "ST_Intersects(${SqlIdentifier.quote(field.columnName)}, ST_Transform($envelope, ${srid(field)}))"
         }
     }
 }

@@ -195,7 +195,8 @@ import { workflowModule } from '@chawpi/workflow'
 ```
 
 That order, and the rest of the setup (worker/CSS imports, `@source`), is `@chawpi/core`'s README "Full app"
-section — follow it exactly; this guide only lists the pieces.
+section — follow it exactly; this guide only lists the pieces. [full-sample](../../examples/full-sample/README.md)
+shows the whole setup in a running app.
 
 ## Configure
 
@@ -243,5 +244,10 @@ See [../modules/testing.md](../modules/testing.md).
 
 ## Examples
 
-See [../../examples/README.md](../../examples/README.md): `simple-sample` (core only, plain PostgreSQL),
-`documents-sample`, `gis-sample`, `full-sample`.
+See [../../examples/README.md](../../examples/README.md) for how to run them. Each is a server and a web app built
+the way this guide describes:
+
+- [simple-sample](../../examples/simple-sample/README.md): core only, on plain PostgreSQL.
+- [documents-sample](../../examples/documents-sample/README.md): core plus documents and automation.
+- [gis-sample](../../examples/gis-sample/README.md): core plus gis, with the Perené cadastre model.
+- [full-sample](../../examples/full-sample/README.md): every module, the app of "A full app" above in working form.

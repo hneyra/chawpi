@@ -30,6 +30,14 @@ docker compose -f infra/docker/compose.yml --profile gis up -d # + GeoServer, fo
 docker compose -f infra/docker/compose.yml --profile core up -d # plain postgres on 5433, for core-only samples
 ```
 
+The default service publishes PostGIS on host port 5432. If another Postgres already holds that port, pick
+another one with `CHAWPI_PG_PORT` and point the app at it with `CHAWPI_DB_PORT`:
+
+```bash
+CHAWPI_PG_PORT=5434 docker compose -f infra/docker/compose.yml up -d
+export CHAWPI_DB_PORT=5434
+```
+
 Then run a sample's `server/` and `web/` — see [../../examples/README.md](../../examples/README.md) for
 the current samples and how to start each one.
 

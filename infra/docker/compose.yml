@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: chawpi
       POSTGRES_DB: chawpi
     ports:
-      - "5432:5432"
+      - "${CHAWPI_PG_PORT:-5432}:5432"
     volumes:
       # pg18 images want the mount one level up, data lands in a version subdir
       - postgres-data:/var/lib/postgresql

@@ -2,6 +2,49 @@
 
 Newest first. Architectural reasoning lives in `docs/adr/`; this file records what shipped.
 
+## 2026-09-25 — The libraries are documented, guarded and ready to publish
+
+Every module now has a page saying what it adds, how to switch it on and off, which properties and routes it owns
+and what happens without it, and a guide walks from a core-only app to one with every module. The decisions the
+split took along the way are ADRs: libraries and starters (ADR-024), the frontend registry (ADR-028), one repository
+and one version (ADR-029), the rename (ADR-030), and the short list of places where chawpi deliberately behaves
+differently from the original (ADR-031). Everything else behaves as it did.
+
+CI now builds and tests everything on every pull request: build-logic, every library, the integration tests on
+real containers, every frontend package and sample web, the Perené model, and a headless Playwright smoke of the
+full sample. Before anything is published, two guards check that exactly the twenty Maven artifacts and eleven npm
+packages would go out, and that each npm package points at its own release. tiptap is pinned, so a frozen document
+cannot change under a new editor version.
+
+Library classes keep their `@Service` and `@Component` annotations although nothing component-scans them: the
+kotlin-spring plugin opens only annotated classes, and without it a `@Transactional` service is final and its proxy
+fails at start-up (ADR-024). The cleanup that planned to remove them was dropped. The last check ran everything
+again: 94 core and 300 library integration tests in 22 suites, 16 across the four sample servers, the full-sample
+smoke in a browser, and an app outside the repository compiled against the locally published starters and
+type-checked against the packed npm packages. compose's PostGIS host port is now `CHAWPI_PG_PORT` (default 5432).
+
+## 2026-09-25 — Four sample apps
+
+`examples/` holds four runnable apps, each a Spring Boot server built only from the starters and the BOM and a Vite
+web built only from the `@chawpi/*` packages it needs. `simple-sample` is core alone on plain PostgreSQL, and proves
+an app needs neither PostGIS nor any module. `documents-sample` adds documents and automation, which meet only
+through automation's optional `DocumentIssuer` port. `gis-sample` is core and gis on PostGIS, with `perene/`, a real
+cadastre model of 13 objects, 11 of them spatial, in EPSG:32718. `full-sample` has every module: it is the original
+app assembled from the libraries, and all 95 of the original's routes answer on it, no more and no fewer. A headless
+Playwright smoke logs in, draws a record on the map, issues a document and applies a transition. Samples are never
+published, and each uses its own database.
+
+## 2026-09-25 — The original's API tests run against the libraries
+
+All twenty of the original app's API integration tests now run against apps assembled from the chawpi starters: a
+full app with every module, and a core-only app on plain PostgreSQL that proves the geometry routes are simply
+absent. Each module is also booted alone next to its optional neighbours' absence, and the final schema is compared
+table by table, column by column and constraint by constraint with the original's.
+
+22 suites, 94 core and 300 library integration tests, all green. The schema comparison covers 464 facts (19 tables,
+167 columns, 225 constraints and 53 indexes) and finds no difference in either direction. Two suites pointed at one
+external database now take turns through a suite lock instead of wiping each other's data.
+
 ## 2026-09-25 — The frontend modules become packages
 
 The screens of every optional module left `@chawpi/core` for a package of their own: `@chawpi/views`, `forms`,

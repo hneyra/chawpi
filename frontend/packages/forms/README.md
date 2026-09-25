@@ -2,7 +2,9 @@
 
 Module guide: [docs/modules/forms.md](../../../docs/modules/forms.md).
 
-The form builder: group an object's fields into titled sections and save the layout under a name. Core's `DynamicForm` and the page renderer's FORM component already draw stored forms, so this package only adds the screen that edits them.
+The form builder: group an object's fields into titled sections and save the layout under a name. Core's
+`DynamicForm` and the page renderer's FORM component already draw stored forms, so this package only adds the
+screen that edits them.
 
 ## Install
 
@@ -26,7 +28,8 @@ export function App() {
 }
 ```
 
-Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source "../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
+Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source
+"../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
 
 ## What it adds
 
@@ -47,4 +50,6 @@ Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and 
 Paths are the backend's routes. The frontend reaches them through `apiBaseUrl` (default `/api`), so a proxy that
 mounts the API elsewhere changes the prefix, not these paths.
 
-It needs the chawpi forms backend module (`GET/POST /objects/{object}/forms`, `PUT/DELETE /objects/{object}/forms/{name}`). Saving or resetting a form invalidates the cached record pages, because pages embed forms by name. An absent backend module must answer 404.
+It needs the chawpi forms backend module (`GET/POST /objects/{object}/forms`, `PUT/DELETE
+/objects/{object}/forms/{name}`). Saving or resetting a form invalidates the cached record pages, because
+pages embed forms by name. An absent backend module must answer 404.

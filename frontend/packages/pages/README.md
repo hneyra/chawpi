@@ -2,7 +2,9 @@
 
 Module guide: [docs/modules/pages.md](../../../docs/modules/pages.md).
 
-Drag-and-drop builder for the record detail page of every object: a palette of components, a canvas laid out by the page template, and an inspector for the selected component. Pages it saves are drawn by `@chawpi/core`'s record detail page.
+Drag-and-drop builder for the record detail page of every object: a palette of components, a canvas laid out
+by the page template, and an inspector for the selected component. Pages it saves are drawn by
+`@chawpi/core`'s record detail page.
 
 ## Install
 
@@ -30,7 +32,8 @@ export function App() {
 }
 ```
 
-With gis and workflow installed, the palette also offers MAP and WORKFLOW, and an ACTION can be a TRANSITION. Without them, the builder offers only core's components and NAVIGATE.
+With gis and workflow installed, the palette also offers MAP and WORKFLOW, and an ACTION can be a TRANSITION.
+Without them, the builder offers only core's components and NAVIGATE.
 
 ## What it adds
 
@@ -42,7 +45,8 @@ With gis and workflow installed, the palette also offers MAP and WORKFLOW, and a
 
 ## Module components and actions
 
-The builder knows no module by name. It reads the registry. In the palette, module components are listed after the core ones, in the order their modules were installed.
+The builder knows no module by name. It reads the registry. In the palette, module components are listed after
+the core ones, in the order their modules were installed.
 
 | Registry slot | Builder use |
 |---|---|

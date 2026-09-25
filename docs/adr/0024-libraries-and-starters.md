@@ -29,9 +29,11 @@ imports a module package.
 **Wiring.** Each library registers its `@AutoConfiguration` classes in
 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`. Every bean is declared in an
 auto-configuration `@Bean` method, with `@ConditionalOnMissingBean` where an app may replace it: an app overrides a
-chawpi bean by declaring its own bean of that type. Library code is never component-scanned. So library classes
-carry no `@Service` or `@Component`. `@RestController` stays because WebFlux's handler mapping looks for it on the
-bean, and `@Repository` stays because exception translation keys on it.
+chawpi bean by declaring its own bean of that type. Library code is never component-scanned. Library classes keep
+their stereotype annotations anyway (`@Service`, `@Component`, `@RestController`, `@Repository`): nothing scans them,
+but the kotlin-spring plugin opens only annotated classes, and without it a `@Transactional` service is final and its
+CGLIB proxy fails at startup. `@RestController` is also how WebFlux's handler mapping finds a controller, and
+`@Repository` is what exception translation keys on.
 
 **Switches.** Every module has `chawpi.<module>.enabled`, default `true`. When it is `false`, the module adds no
 beans, no routes and no migration. Core has no switch, because it is the base the others stand on.

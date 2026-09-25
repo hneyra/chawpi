@@ -1,7 +1,7 @@
 # full-sample
 
 chawpi with **every module**: core, views, forms, pages, workflow, automation, documents, gis and the
-assistant (agent), on PostGIS. The same app sapgis was, assembled from the libraries.
+assistant (agent), on PostGIS. The same app as the [original](../../docs/sapgis-origin.md), assembled from the libraries.
 
 | | |
 |---|---|
@@ -69,7 +69,7 @@ It starts the jar and the dev server (or reuses running ones), sets up an object
 field, a workflow and a document type through the api, then logs in, opens the record and its map,
 issues a document and applies a transition through the ui.
 
-## Manual checklist (the sapgis flows)
+## Manual checklist (the original app's flows)
 
 The UI starts in Spanish; the labels below are the Spanish ones (English in brackets).
 

@@ -1,6 +1,6 @@
 import { expect, test, type APIRequestContext } from '@playwright/test'
 
-// sapgis's manual flows, headless: login, an object with a GEOMETRY field, its record with the map,
+// the original app's manual flows, headless: login, an object with a GEOMETRY field, its record with the map,
 // issuing a document and a workflow transition. the object, workflow and document type are set up
 // through the api (the fixture, not the object-builder ui: see the plan's Self-Review "Not in P6");
 // every step a person actually does (login, the map, issuing, the transition) is done through the ui.

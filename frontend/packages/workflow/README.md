@@ -18,7 +18,10 @@ Record workflows for a Chawpi app:
 yarn add @chawpi/core @chawpi/ui @chawpi/workflow
 ```
 
-`@xyflow/react` comes in as a dependency of this package. Its stylesheet is imported by the canvas, so a bundler that handles CSS imports (Vite, webpack with css-loader) needs nothing else. The builder page is loaded lazily by the `workflow:builder` route, not exported directly, so xyflow stays out of your first bundle.
+`@xyflow/react` comes in as a dependency of this package. Its stylesheet is imported by the canvas, so a
+bundler that handles CSS imports (Vite, webpack with css-loader) needs nothing else. The builder page is
+loaded lazily by the `workflow:builder` route, not exported directly, so xyflow stays out of your first
+bundle.
 
 ## Usage
 
@@ -39,11 +42,12 @@ export function App() {
 | route `workflow:builder` | `/automation/workflows` (lazy) |
 | nav | group `automation`, "Workflows" |
 | page component `WORKFLOW` | the record's state and transition buttons; a state pill preview in the page builder |
-| page action `TRANSITION` | a button that fires one named transition; the page builder offers the transitions of the object's workflow, and none while that workflow is disabled |
+| page action `TRANSITION` | a button that fires one named transition; the builder offers the object's workflow transitions, none while it is disabled |
 | object flag `workflow` | `true` when the object has a workflow (core's object editor shows the state column's scope) |
 | i18n namespace | `workflow` (es, en) |
 
-With `@chawpi/pages` installed, a freshly dropped ACTION defaults to TRANSITION, as it did in the original app. Without this module, the page builder offers NAVIGATE only, and a stored TRANSITION button draws nothing.
+With `@chawpi/pages` installed, a freshly dropped ACTION defaults to TRANSITION, as it did in the original
+app. Without this module, the page builder offers NAVIGATE only, and a stored TRANSITION button draws nothing.
 
 ## Options
 

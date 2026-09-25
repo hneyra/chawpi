@@ -2,7 +2,8 @@
 
 Module guide: [docs/modules/agent.md](../../../docs/modules/agent.md).
 
-The assistant screen. Ask about your objects, records and geometries in plain language. The backend agent answers as the signed-in user (it sees only what that user may see) and lists the tools it used on the way.
+The assistant screen. Ask about your objects, records and geometries in plain language. The backend agent
+answers as the signed-in user (it sees only what that user may see) and lists the tools it used on the way.
 
 ## Install
 
@@ -26,7 +27,8 @@ export function App() {
 }
 ```
 
-Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source "../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
+Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source
+"../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
 
 ## What it adds
 
@@ -49,4 +51,6 @@ It also exports `useAgentStatus()` and `useAskAgent()`, for an app that wants to
 Paths are the backend's routes. The frontend reaches them through `apiBaseUrl` (default `/api`), so a proxy that
 mounts the API elsewhere changes the prefix, not these paths.
 
-It needs the chawpi agent backend module (`GET /agent/status`, `POST /agent/ask` with `{ question }`). If the status endpoint answers an error or `enabled: false`, the page says the assistant is not configured and blocks the input. The rest of the app is unaffected.
+It needs the chawpi agent backend module (`GET /agent/status`, `POST /agent/ask` with `{ question }`). If the
+status endpoint answers an error or `enabled: false`, the page says the assistant is not configured and blocks
+the input. The rest of the app is unaffected.

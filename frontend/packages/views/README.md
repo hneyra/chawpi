@@ -2,7 +2,9 @@
 
 Module guide: [docs/modules/views.md](../../../docs/modules/views.md).
 
-The list view builder: pick an object, then save list configurations for it (columns, filters, sort and page size). Core's record list already reads stored views and falls back to a generated one, so this package only adds the screen that edits them.
+The list view builder: pick an object, then save list configurations for it (columns, filters, sort and page
+size). Core's record list already reads stored views and falls back to a generated one, so this package only
+adds the screen that edits them.
 
 ## Install
 
@@ -26,7 +28,8 @@ export function App() {
 }
 ```
 
-Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source "../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
+Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source
+"../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
 
 ## What it adds
 
@@ -47,4 +50,6 @@ Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and 
 Paths are the backend's routes. The frontend reaches them through `apiBaseUrl` (default `/api`), so a proxy that
 mounts the API elsewhere changes the prefix, not these paths.
 
-It needs the chawpi views backend module (`GET/POST /objects/{object}/views`, `PUT/DELETE /objects/{object}/views/{name}`). Without it, the builder has nothing to edit, and core's record list keeps working on its generated view. An absent backend module must answer 404.
+It needs the chawpi views backend module (`GET/POST /objects/{object}/views`, `PUT/DELETE
+/objects/{object}/views/{name}`). Without it, the builder has nothing to edit, and core's record list keeps
+working on its generated view. An absent backend module must answer 404.

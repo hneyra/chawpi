@@ -25,7 +25,8 @@ and UI at runtime.
    ships its own auto-configuration, `chawpi.<module>.enabled` switch, properties and Flyway migrations (ADR-024,
    ADR-025, ADR-026).
 4. **No component scanning of library code**: beans are declared in auto-configurations, with
-   `@ConditionalOnMissingBean` where an app may override them. No `@Service`/`@Component` on library classes.
+   `@ConditionalOnMissingBean` where an app may override them. Stereotypes stay on library classes: kotlin-spring
+   opens only annotated classes, so `@Transactional` proxies need them (ADR-024).
 5. **Multi-tenancy** by `organization_id`; every query filters by the tenant resolved from the JWT.
 6. **Dynamic DDL only through `ObjectSchemaManager`**. Identifiers validated and quoted by `SqlIdentifier`. Values
    always bound, never interpolated.
