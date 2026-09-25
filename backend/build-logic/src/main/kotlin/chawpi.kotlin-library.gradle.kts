@@ -1,0 +1,51 @@
+plugins {
+    `java-library`
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jlleitschuh.gradle.ktlint")
+}
+
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+fun lib(alias: String) = libs.findLibrary(alias).get()
+
+group = "chawpi"
+
+kotlin {
+    jvmToolchain(25)
+    compilerOptions {
+        freeCompilerArgs.add("-Xjsr305=strict")
+    }
+}
+
+java {
+    withSourcesJar()
+}
+
+// ktlint reads the repo .editorconfig
+ktlint {
+    version.set(libs.findVersion("ktlintTool").get().requiredVersion)
+}
+
+// a plain library (no spring-module) still needs a test runner
+dependencies {
+    testImplementation(platform(lib("spring-boot-bom")))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+// unit tests always run; container-backed ones go through integrationTest
+tasks.named<Test>("test") {
+    useJUnitPlatform {
+        excludeTags("integration")
+    }
+}
+
+// format rewrites sources in place: a cache hit would skip the rewrite and leave them unformatted
+tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.KtLintFormatTask>().configureEach {
+    outputs.cacheIf("formats sources in place") { false }
+}
+
+// `ktlintCheck ktlintFormat` in one invocation: check the formatted sources, not the old ones
+tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.KtLintCheckTask>().configureEach {
+    mustRunAfter(tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.KtLintFormatTask>())
+}

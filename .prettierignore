@@ -1,0 +1,23 @@
+# prettier owns frontend code only. docs, adrs and history keep their hand formatting.
+*.md
+docs/
+backend/
+infra/
+gradle/
+.idea/
+.superpowers/
+**/dist/
+**/build/
+**/coverage/
+node_modules/
+yarn.lock
+CHANGELOG.md
+.release-please-manifest.json
+# data copied from the original app, kept byte-identical
+examples/gis-sample/perene/
+
+**/test-results/
+**/playwright-report/
+
+# local harness settings, not part of the repo
+.claude/

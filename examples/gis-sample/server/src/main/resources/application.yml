@@ -1,0 +1,29 @@
+server:
+  # perene/apply.py's default core url is http://localhost:8090
+  port: 8090
+
+spring:
+  application:
+    name: gis-sample
+
+chawpi:
+  database:
+    host: ${CHAWPI_DB_HOST:localhost}
+    # no default on purpose: a PostGIS server (compose's postgres service, a tunnel, ...)
+    port: ${CHAWPI_DB_PORT}
+    # one database per sample: another sample's modules leave field types this one cannot read
+    name: ${CHAWPI_DB_NAME:chawpi_gis}
+    username: ${CHAWPI_DB_USERNAME:chawpi}
+    password: ${CHAWPI_DB_PASSWORD:chawpi}
+  seed:
+    # admin@chawpi.local / admin. a demo convenience: never on in a real deployment
+    dev: ${CHAWPI_SEED_DEV:true}
+  security:
+    jwt:
+      # sample only. a real deployment sets CHAWPI_JWT_SECRET (>= 32 bytes)
+      secret: ${CHAWPI_JWT_SECRET:gis-sample-only-secret-change-me-0123456789}
+  gis:
+    geoserver:
+      # optional: docker compose -f infra/docker/compose.yml --profile gis up -d, then CHAWPI_GEOSERVER_ENABLED=true
+      enabled: ${CHAWPI_GEOSERVER_ENABLED:false}
+      url: ${CHAWPI_GEOSERVER_URL:http://localhost:8081/geoserver}

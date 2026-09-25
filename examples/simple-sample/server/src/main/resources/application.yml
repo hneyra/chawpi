@@ -1,0 +1,22 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: simple-sample
+
+chawpi:
+  database:
+    host: ${CHAWPI_DB_HOST:localhost}
+    # compose's plain postgres: docker compose -f infra/docker/compose.yml --profile core up -d postgres-plain
+    port: ${CHAWPI_DB_PORT:5433}
+    name: ${CHAWPI_DB_NAME:chawpi}
+    username: ${CHAWPI_DB_USERNAME:chawpi}
+    password: ${CHAWPI_DB_PASSWORD:chawpi}
+  seed:
+    # admin@chawpi.local / admin. a demo convenience: never on in a real deployment
+    dev: ${CHAWPI_SEED_DEV:true}
+  security:
+    jwt:
+      # sample only. a real deployment sets CHAWPI_JWT_SECRET (>= 32 bytes)
+      secret: ${CHAWPI_JWT_SECRET:simple-sample-only-secret-change-me-0123456789}

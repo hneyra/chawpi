@@ -1,0 +1,21 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
+        "paths": {
+            "@chawpi/ui": ["../ui/src/index.ts"],
+            "@chawpi/core": ["../core/src/index.ts"],
+            "@chawpi/testing": ["../testing/src/index.ts"],
+            "@chawpi/gis": ["../gis/src/index.ts"],
+            "@chawpi/workflow": ["../workflow/src/index.ts"],
+            "@chawpi/automation": ["../automation/src/index.ts"],
+            "@chawpi/documents": ["../documents/src/index.ts"],
+            "@chawpi/pages": ["../pages/src/index.ts"],
+            "@chawpi/views": ["../views/src/index.ts"],
+            "@chawpi/forms": ["../forms/src/index.ts"],
+            "@chawpi/agent": ["../agent/src/index.ts"]
+        }
+    },
+    "include": ["src", "vite.config.ts"]
+}

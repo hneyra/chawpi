@@ -50,7 +50,7 @@ chawpi/
     full-sample/     {server, web}   every module
   infra/docker/                   compose (postgres+postgis+pgvector, geoserver), renamed chawpi
   docs/  adr/ architecture/ domain/ api/ gis/ security/ development/ modules/ superpowers/ HISTORY.md
-  .github/workflows/ci.yml, release.yml
+  .github/workflows/ci.yml, publish.yml
 ```
 
 Git history: fresh start (user decision). Files are copied from `../sapgis` (not merged); sapgis
@@ -160,6 +160,18 @@ interface ChawpiModule {
   `DynamicForm` resolves field renderers through registry (no static MapLibre import); lazy routes.
 - Unused deps (`@dnd-kit/sortable`, `@dnd-kit/modifiers`) dropped.
 - Consumer Tailwind: `@import "@chawpi/ui/theme.css"` + `@source "../node_modules/@chawpi"`; documented.
+
+## Commits, versioning and releases
+- **Conventional Commits enforced**: local `commit-msg` hook (husky + commitlint
+  `@commitlint/config-conventional`, scopes free); CI `commitlint` job on every PR commit range and a
+  PR-title check (`amannn/action-semantic-pull-request`).
+- **Versioning**: `release-please` (manifest mode, one lockstep version for every Maven and npm
+  library, aligned by `chawpi-bom`). It keeps a release PR with bumped versions (`gradle.properties`
+  `version=`, every `frontend/packages/*/package.json`) and `CHANGELOG.md`; merging it tags `vX.Y.Z`
+  and creates the GitHub Release.
+- **Publishing**: `publish.yml` runs on `release: published` and publishes every Maven artifact
+  (`./gradlew publish -Pversion=<tag>`) and every `@chawpi/*` npm package to GitHub Packages.
+  Examples, `chawpi-integration-tests` and `@chawpi/*` private tooling are never published.
 
 ## Tests
 - Unit tests stay in each module (backend JUnit/Mockito, frontend vitest) — all sapgis tests ported.

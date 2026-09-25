@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+@import '@chawpi/ui/theme.css';
+/* the @chawpi packages ship class names, not css, so tailwind scans them. this monorepo hoists them
+   to the root node_modules; an app of its own writes @source '../node_modules/@chawpi'; */
+@source '../../../../node_modules/@chawpi';

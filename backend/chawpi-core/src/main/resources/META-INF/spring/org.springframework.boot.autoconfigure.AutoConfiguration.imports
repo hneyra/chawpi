@@ -1,0 +1,5 @@
+chawpi.core.autoconfigure.ChawpiPlatformAutoConfiguration
+chawpi.core.autoconfigure.ChawpiSecurityAutoConfiguration
+chawpi.core.autoconfigure.ChawpiMetadataAutoConfiguration
+chawpi.core.autoconfigure.ChawpiDataAutoConfiguration
+chawpi.core.autoconfigure.ChawpiAdminAutoConfiguration
