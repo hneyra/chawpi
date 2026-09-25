@@ -53,8 +53,8 @@ chawpi/
   .github/workflows/ci.yml, release.yml
 ```
 
-Git history: import sapgis history (`git fetch ../sapgis`, merge `--allow-unrelated-histories`), then
-restructure with `git mv` so blame/log follow files. Nothing from sapgis is deleted.
+Git history: fresh start (user decision). Files are copied from `../sapgis` (not merged); sapgis
+stays the historical reference. Nothing from sapgis is lost.
 
 ## Backend design
 
@@ -188,7 +188,7 @@ interface ChawpiModule {
 2. `superpowers:writing-plans` → one plan per phase; execute each with
    `superpowers:subagent-driven-development` (fresh subagent per task, review between tasks), in an
    isolated worktree branch.
-   - P0 import sapgis history, scaffold monorepo, build-logic, BOM, rename, docs/ADRs copy
+   - P0 copy sapgis content (no history), scaffold monorepo, build-logic, BOM, rename, docs/ADRs copy
    - P1 backend core + SPIs + migrations rebaseline + chawpi-test
    - P2 backend modules (views, forms, pages, workflow, automation, documents, gis, agent) + starters
    - P3 chawpi-integration-tests (all ITs green, core-only + full)
