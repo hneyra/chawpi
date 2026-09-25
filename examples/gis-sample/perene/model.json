@@ -1,0 +1,1313 @@
+{
+  "name": "perene-ecf",
+  "description": "Catastro fiscal (ECF) del distrito de Perené, Junín — 120302_MD_Perene_ECF.gdb",
+  "srid": 32718,
+  "enums": {
+    "fuente": [
+      "CARTOGRAFIA COFOPRI",
+      "CARTOGRAFIA MUNICIPAL",
+      "REPORTE COFOPRI",
+      "LISTADO ARANCELARIO",
+      "PLANO ARANCELARIO"
+    ],
+    "tipo_unidad_urbana": [
+      "ASENTAMIENTO HUMANO",
+      "AGRUPACION",
+      "CONJUNTO HABITACIONAL",
+      "CONJUNTO RESIDENCIAL",
+      "PUEBLO JOVEN",
+      "URBANIZACION",
+      "URBANIZACION POPULAR",
+      "CERCADO",
+      "ASOCIACION",
+      "COOPERATIVA",
+      "LOTIZACION",
+      "CASERIO",
+      "UNIDAD VECINAL",
+      "BARRIO",
+      "FUNDO",
+      "ASOCIACION DE VIVIENDA",
+      "COOPERATIVA DE VIVIENDA",
+      "ASOCIACION PRO VIVIENDA",
+      "ZONA",
+      "CENTRO POBLADO",
+      "SECTOR",
+      "PUEBLO TRADICIONAL",
+      "ZONA URBANA",
+      "URBANIZACION POPULAR DE INTERES SOCIAL",
+      "SIN HABILITACION",
+      "POSESION INFORMAL",
+      "PROGRAMA DE VIVIENDA",
+      "PROGRAMA MUNICIPAL DE VIVIENDA",
+      "PROGRAMA DE ADJUDICACION DE LOTES",
+      "COMPLEJO HABITACIONAL",
+      "LOTE UNICO",
+      "URBANIZACION PRO VIVIENDA DE INTERES SOCIAL",
+      "ASOCIACION PRO VIVIENDA DE INTERES SOCIAL",
+      "ASOCIACION PRO VIVIENDA UNIDAD VECINAL",
+      "ASOCIACION DE VIVIENDA E INTERES SOCIAL",
+      "ASOCIACION POPULAR URBANIZADORA",
+      "ZONA INDUSTRIAL",
+      "ASOCIACION DE VIVIENDA DE INTERES SOCIAL",
+      "ASOCIACION DE VIVIENDA POPULAR DE INTERES SOCIAL",
+      "BALNEARIO",
+      "RESINDENCIAL",
+      "PROYECTO INTEGRAL DE LAS JUNTAS VECINALES",
+      "PROGRAMA",
+      "ASENTAMIENTO POBLACIONAL",
+      "SIN TIPO"
+    ],
+    "tipo_via": [
+      "AVENIDA",
+      "CALLE",
+      "JIRON",
+      "PASAJE",
+      "ALAMEDA",
+      "CARRETERA",
+      "PROLONGACION",
+      "PASEO",
+      "MALECON",
+      "CAMINO",
+      "PLAZA",
+      "PLAZUELA"
+    ],
+    "condicion": [
+      "Formal",
+      "Informal"
+    ],
+    "estado": [
+      "ACTIVO",
+      "INACTIVO"
+    ],
+    "tipo_lote": [
+      "Regular",
+      "Mediterraneo",
+      "Uso Comun"
+    ],
+    "tipo_predio": [
+      "REGULAR",
+      "MATRIZ",
+      "AIRES"
+    ],
+    "vinculacion": [
+      "NO VALIDADO",
+      "VALIDADO"
+    ],
+    "colindancia": [
+      "Predio Urbano",
+      "Predio Rustico o Agricola",
+      "Quebrada",
+      "Canales o Similares",
+      "Zona de Riesgo",
+      "Rio",
+      "Limite Distrital"
+    ],
+    "material_via": [
+      "DE TIERRA",
+      "DE AFIRMADO",
+      "DE EMPEDRADO",
+      "DE ASFALTO",
+      "DE CONCRETO"
+    ],
+    "servicios": [
+      "ADL-CON AGUA CON DESAGUE CON LUZ",
+      "AD-CON AGUA CON DESAGUE SIN LUZ",
+      "AL-CON AGUA SIN DESAGUE CON LUZ",
+      "A-CON AGUA SIN DESAGUE SIN LUZ",
+      "DL-SIN AGUA CON DESAGUE CON LUZ",
+      "D-SIN AGUA CON DESAGUE SIN LUZ",
+      "L-SIN AGUA SIN DESAGUE CON LUZ",
+      "SN-SIN AGUA SIN DESAGUE SIN LUZ"
+    ],
+    "tipo_equipamiento": [
+      "EDUCATIVO",
+      "SALUD",
+      "RECREATIVO O DEPORTIVO",
+      "CULTURAL",
+      "COMERCIAL",
+      "ADMINISTRATIVO",
+      "SEGURIDAD",
+      "USOS ESPECIALES"
+    ],
+    "grupo_uso": [
+      "VIVIENDA",
+      "COMERCIO",
+      "OTROS FINES",
+      "SERVICIOS COMUNALES",
+      "USO DEPORTES",
+      "AREA DESTINADA A EDUCACION"
+    ],
+    "estado_via": [
+      "Definido",
+      "Por definir"
+    ],
+    "tipo_documento": [
+      "DNI",
+      "OT"
+    ]
+  },
+  "objects": [
+    {
+      "name": "sector",
+      "label": "Sector",
+      "pluralLabel": "Sectores",
+      "description": "Sector catastral del distrito, unidad territorial base de la nomenclatura.",
+      "source": "CF_SECTOR_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "OBJECTID"
+        },
+        {
+          "name": "codigo",
+          "label": "Código",
+          "type": "TEXT",
+          "required": true,
+          "unique": true,
+          "source": "COD_SECT"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTIPOLYGON",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "unidad_urbana",
+      "label": "Unidad urbana",
+      "pluralLabel": "Unidades urbanas",
+      "description": "Habilitación urbana o asentamiento (AA.HH., urbanización, asociación, etc.).",
+      "source": "CF_UNIDADES_URBANAS_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "OBJECTID"
+        },
+        {
+          "name": "codigo",
+          "label": "Código",
+          "type": "TEXT",
+          "required": true,
+          "unique": true,
+          "source": "COD_UU"
+        },
+        {
+          "name": "nombre",
+          "label": "Nombre",
+          "type": "TEXT",
+          "required": true,
+          "source": "NOM_UU"
+        },
+        {
+          "name": "tipo",
+          "label": "Tipo",
+          "type": "ENUM",
+          "enum": "tipo_unidad_urbana",
+          "source": "TIPO_UU"
+        },
+        {
+          "name": "partida",
+          "label": "Partida",
+          "type": "TEXT",
+          "source": "PARTIDA"
+        },
+        {
+          "name": "tipo_resolucion",
+          "label": "Tipo de resolución",
+          "type": "TEXT",
+          "source": "TIP_RES"
+        },
+        {
+          "name": "resolucion",
+          "label": "Resolución",
+          "type": "TEXT",
+          "source": "RESOLU"
+        },
+        {
+          "name": "condicion",
+          "label": "Condición",
+          "type": "ENUM",
+          "enum": "condicion",
+          "source": "CONDIC"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTIPOLYGON",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "via",
+      "label": "Vía",
+      "pluralLabel": "Vías",
+      "description": "Eje vial (calle, avenida, jirón, etc.) del distrito.",
+      "source": "CF_EJE_VIAL_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_VIA"
+        },
+        {
+          "name": "codigo",
+          "label": "Código",
+          "type": "TEXT",
+          "required": true,
+          "unique": true,
+          "source": "COD_VIA"
+        },
+        {
+          "name": "tipo",
+          "label": "Tipo",
+          "type": "ENUM",
+          "enum": "tipo_via",
+          "source": "TIP_VIA"
+        },
+        {
+          "name": "nombre",
+          "label": "Nombre",
+          "type": "TEXT",
+          "required": true,
+          "source": "NOM_VIA"
+        },
+        {
+          "name": "cantidad_segmentos",
+          "label": "Cantidad de segmentos",
+          "type": "INTEGER",
+          "source": "CANT_SEG"
+        },
+        {
+          "name": "condicion",
+          "label": "Condición",
+          "type": "ENUM",
+          "enum": "condicion",
+          "source": "CONDIC"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTILINESTRING",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "manzana_catastral",
+      "label": "Manzana catastral",
+      "pluralLabel": "Manzanas catastrales",
+      "description": "Manzana según la cartografía catastral (CF_SECTOR / COD_SECT + COD_MZN).",
+      "source": "CF_MANZANA_CAT_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_MZN_C"
+        },
+        {
+          "name": "cod_sect",
+          "label": "Código de sector",
+          "type": "TEXT",
+          "source": "COD_SECT"
+        },
+        {
+          "name": "cod_mzn",
+          "label": "Código de manzana",
+          "type": "TEXT",
+          "required": true,
+          "source": "COD_MZN"
+        },
+        {
+          "name": "anio_cartografia",
+          "label": "Año de cartografía",
+          "type": "INTEGER",
+          "source": "ANO_CART"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTIPOLYGON",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "manzana_urbana",
+      "label": "Manzana urbana",
+      "pluralLabel": "Manzanas urbanas",
+      "description": "Manzana según la habilitación urbana (unidad urbana) a la que pertenece.",
+      "source": "CF_MANZANA_URB_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_MZN_U"
+        },
+        {
+          "name": "cod_sect",
+          "label": "Código de sector",
+          "type": "TEXT",
+          "source": "COD_SECT"
+        },
+        {
+          "name": "cod_mzn",
+          "label": "Código de manzana",
+          "type": "TEXT",
+          "source": "COD_MZN"
+        },
+        {
+          "name": "mzn_urb",
+          "label": "Manzana urbana",
+          "type": "TEXT",
+          "required": true,
+          "source": "MZN_URB"
+        },
+        {
+          "name": "cod_uu",
+          "label": "Código de unidad urbana",
+          "type": "TEXT",
+          "source": "COD_UU"
+        },
+        {
+          "name": "anio_cartografia",
+          "label": "Año de cartografía",
+          "type": "INTEGER",
+          "source": "ANO_CART"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTIPOLYGON",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "segmento_via",
+      "label": "Segmento vial",
+      "pluralLabel": "Segmentos viales",
+      "description": "Tramo (cuadra) de una vía dentro de un sector.",
+      "source": "CF_SEG_VIAL_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_SVIA"
+        },
+        {
+          "name": "cod_via",
+          "label": "Código de vía",
+          "type": "TEXT",
+          "source": "COD_VIA"
+        },
+        {
+          "name": "cod_sect",
+          "label": "Código de sector",
+          "type": "TEXT",
+          "source": "COD_SECT"
+        },
+        {
+          "name": "cod_segmento",
+          "label": "Código de segmento",
+          "type": "TEXT",
+          "required": true,
+          "source": "COD_SEGM"
+        },
+        {
+          "name": "tipo_via",
+          "label": "Tipo de vía",
+          "type": "ENUM",
+          "enum": "tipo_via",
+          "source": "TIP_VIA"
+        },
+        {
+          "name": "nombre_via",
+          "label": "Nombre de vía",
+          "type": "TEXT",
+          "source": "NOM_VIA"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTILINESTRING",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "frente_arancelario",
+      "label": "Frente arancelario",
+      "pluralLabel": "Frentes arancelarios",
+      "description": "Frente de manzana con valor arancelario, usado para tasar predios.",
+      "source": "CF_ARANCEL_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_ARANC"
+        },
+        {
+          "name": "cod_uu",
+          "label": "Código de unidad urbana",
+          "type": "TEXT",
+          "source": "COD_UU"
+        },
+        {
+          "name": "cod_sect",
+          "label": "Código de sector",
+          "type": "TEXT",
+          "source": "COD_SECT"
+        },
+        {
+          "name": "cod_mzn",
+          "label": "Código de manzana",
+          "type": "TEXT",
+          "source": "COD_MZN"
+        },
+        {
+          "name": "frente_manzana",
+          "label": "Frente de manzana",
+          "type": "TEXT",
+          "source": "F_MZN"
+        },
+        {
+          "name": "mzn_urb",
+          "label": "Manzana urbana",
+          "type": "TEXT",
+          "source": "MZN_URB"
+        },
+        {
+          "name": "cod_via",
+          "label": "Código de vía",
+          "type": "TEXT",
+          "source": "COD_VIA"
+        },
+        {
+          "name": "tipo_via",
+          "label": "Tipo de vía",
+          "type": "ENUM",
+          "enum": "tipo_via",
+          "source": "TIP_VIA"
+        },
+        {
+          "name": "nombre_via",
+          "label": "Nombre de vía",
+          "type": "TEXT",
+          "source": "NOM_VIA"
+        },
+        {
+          "name": "anio_ejecucion",
+          "label": "Año de ejecución",
+          "type": "INTEGER",
+          "source": "ANO_EJEC"
+        },
+        {
+          "name": "valor_arancel",
+          "label": "Valor de arancel",
+          "type": "DECIMAL",
+          "source": "VAL_ACT"
+        },
+        {
+          "name": "tipo_resolucion",
+          "label": "Tipo de resolución",
+          "type": "TEXT",
+          "source": "TIP_RES"
+        },
+        {
+          "name": "resolucion",
+          "label": "Resolución",
+          "type": "TEXT",
+          "source": "RESOLU"
+        },
+        {
+          "name": "condicion",
+          "label": "Condición",
+          "type": "ENUM",
+          "enum": "condicion",
+          "source": "CONDIC"
+        },
+        {
+          "name": "colindancia",
+          "label": "Colindancia",
+          "type": "ENUM",
+          "enum": "colindancia",
+          "source": "COLING"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTILINESTRING",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "lote",
+      "label": "Lote",
+      "pluralLabel": "Lotes",
+      "description": "Lote catastral, subdivisión de una manzana.",
+      "source": "CF_LOTES_POL_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_LOTE_P"
+        },
+        {
+          "name": "cod_sect",
+          "label": "Código de sector",
+          "type": "TEXT",
+          "source": "COD_SECT"
+        },
+        {
+          "name": "cod_mzn",
+          "label": "Código de manzana",
+          "type": "TEXT",
+          "source": "COD_MZN"
+        },
+        {
+          "name": "cod_lote",
+          "label": "Código de lote",
+          "type": "TEXT",
+          "required": true,
+          "source": "COD_LOTE"
+        },
+        {
+          "name": "cod_uu",
+          "label": "Código de unidad urbana",
+          "type": "TEXT",
+          "source": "COD_UU"
+        },
+        {
+          "name": "cod_via",
+          "label": "Código de vía",
+          "type": "TEXT",
+          "source": "COD_VIA"
+        },
+        {
+          "name": "mzn_urb",
+          "label": "Manzana urbana",
+          "type": "TEXT",
+          "source": "MZN_URB"
+        },
+        {
+          "name": "lot_urb",
+          "label": "Lote urbano",
+          "type": "TEXT",
+          "source": "LOT_URB"
+        },
+        {
+          "name": "tipo_via",
+          "label": "Tipo de vía",
+          "type": "ENUM",
+          "enum": "tipo_via",
+          "source": "TIP_VIA"
+        },
+        {
+          "name": "nombre_via",
+          "label": "Nombre de vía",
+          "type": "TEXT",
+          "source": "NOM_VIA"
+        },
+        {
+          "name": "partida",
+          "label": "Partida",
+          "type": "TEXT",
+          "source": "PARTIDA"
+        },
+        {
+          "name": "tipo_lote",
+          "label": "Tipo de lote",
+          "type": "ENUM",
+          "enum": "tipo_lote",
+          "source": "TIP_LOT"
+        },
+        {
+          "name": "anio_cartografia",
+          "label": "Año de cartografía",
+          "type": "INTEGER",
+          "source": "ANO_CART"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTIPOLYGON",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "predio",
+      "label": "Predio",
+      "pluralLabel": "Predios",
+      "description": "Predio catastral (punto), unidad fiscal principal.",
+      "source": "CF_PREDIO_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_PRED"
+        },
+        {
+          "name": "codigo",
+          "label": "Código",
+          "type": "TEXT",
+          "required": true,
+          "unique": true,
+          "source": "COD_PRE"
+        },
+        {
+          "name": "cod_sect",
+          "label": "Código de sector",
+          "type": "TEXT",
+          "source": "COD_SECT"
+        },
+        {
+          "name": "cod_mzn",
+          "label": "Código de manzana",
+          "type": "TEXT",
+          "source": "COD_MZN"
+        },
+        {
+          "name": "cod_lote",
+          "label": "Código de lote",
+          "type": "TEXT",
+          "source": "COD_LOTE"
+        },
+        {
+          "name": "cod_uu",
+          "label": "Código de unidad urbana",
+          "type": "TEXT",
+          "source": "COD_UU"
+        },
+        {
+          "name": "mzn_urb",
+          "label": "Manzana urbana",
+          "type": "TEXT",
+          "source": "MZN_URB"
+        },
+        {
+          "name": "lot_urb",
+          "label": "Lote urbano",
+          "type": "TEXT",
+          "source": "LOT_URB"
+        },
+        {
+          "name": "tipo_via",
+          "label": "Tipo de vía",
+          "type": "ENUM",
+          "enum": "tipo_via",
+          "source": "TIP_VIA"
+        },
+        {
+          "name": "nombre_via",
+          "label": "Nombre de vía",
+          "type": "TEXT",
+          "source": "NOM_VIA"
+        },
+        {
+          "name": "direccion",
+          "label": "Dirección",
+          "type": "TEXT",
+          "source": "DIR_URB"
+        },
+        {
+          "name": "direccion_completa",
+          "label": "Dirección completa",
+          "type": "TEXT",
+          "source": "DIREC_COM"
+        },
+        {
+          "name": "partida",
+          "label": "Partida",
+          "type": "TEXT",
+          "source": "PARTIDA"
+        },
+        {
+          "name": "anio_cartografia",
+          "label": "Año de cartografía",
+          "type": "INTEGER",
+          "source": "ANO_CART"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "estado",
+          "label": "Estado",
+          "type": "ENUM",
+          "enum": "estado",
+          "source": "ESTADO"
+        },
+        {
+          "name": "tipo_predio",
+          "label": "Tipo de predio",
+          "type": "ENUM",
+          "enum": "tipo_predio",
+          "source": "TIPO_PRED"
+        },
+        {
+          "name": "vinculacion",
+          "label": "Vinculación",
+          "type": "ENUM",
+          "enum": "vinculacion",
+          "source": "OBS_VINC"
+        },
+        {
+          "name": "valor_arancel",
+          "label": "Valor de arancel",
+          "type": "DECIMAL",
+          "source": "VAL_ACT"
+        },
+        {
+          "name": "area_terreno",
+          "label": "Área de terreno",
+          "type": "DECIMAL",
+          "source": "Area_terreno"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "POINT",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "valoracion",
+      "label": "Valoración arancelaria",
+      "pluralLabel": "Valoraciones arancelarias",
+      "description": "Historial anual de valor arancelario y condiciones de vía de un frente arancelario.",
+      "source": "TB_VALORACION_HIST + CAL_VL_ARANCEL_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "OBJECTID"
+        },
+        {
+          "name": "anio",
+          "label": "Año",
+          "type": "INTEGER",
+          "required": true,
+          "source": "ANO_EJEC"
+        },
+        {
+          "name": "valor_arancel",
+          "label": "Valor de arancel",
+          "type": "DECIMAL",
+          "source": "VAL_ACT | ARANCEL_<yyyy>"
+        },
+        {
+          "name": "material_via",
+          "label": "Material de vía",
+          "type": "ENUM",
+          "enum": "material_via",
+          "source": "MATERIAL_<yyyy>"
+        },
+        {
+          "name": "servicios",
+          "label": "Servicios",
+          "type": "ENUM",
+          "enum": "servicios",
+          "source": "SERVICIOS_<yyyy>"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        }
+      ]
+    },
+    {
+      "name": "parque",
+      "label": "Parque",
+      "pluralLabel": "Parques",
+      "description": "Área verde o parque público del distrito.",
+      "source": "CF_PARQUES_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_PARQ"
+        },
+        {
+          "name": "cod_sect",
+          "label": "Código de sector",
+          "type": "TEXT",
+          "source": "COD_SECT"
+        },
+        {
+          "name": "cod_mzn",
+          "label": "Código de manzana",
+          "type": "TEXT",
+          "source": "COD_MZN"
+        },
+        {
+          "name": "mzn_urb",
+          "label": "Manzana urbana",
+          "type": "TEXT",
+          "source": "MZN_URB"
+        },
+        {
+          "name": "tipo",
+          "label": "Tipo",
+          "type": "TEXT",
+          "source": "TIP_PARQ"
+        },
+        {
+          "name": "nombre",
+          "label": "Nombre",
+          "type": "TEXT",
+          "required": true,
+          "source": "NOM_PARQ"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "MULTIPOLYGON",
+          "source": "Shape"
+        }
+      ]
+    },
+    {
+      "name": "equipamiento",
+      "label": "Equipamiento",
+      "pluralLabel": "Equipamientos",
+      "description": "Equipamiento urbano (educativo, salud, recreativo, etc.).",
+      "source": "CF_EQUIPAMIENTO_18",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "ID_EQUIP"
+        },
+        {
+          "name": "tipo",
+          "label": "Tipo",
+          "type": "ENUM",
+          "enum": "tipo_equipamiento",
+          "source": "TIP_EQUIP"
+        },
+        {
+          "name": "clase",
+          "label": "Clase",
+          "type": "TEXT",
+          "source": "CLAS_EQUIP"
+        },
+        {
+          "name": "nombre",
+          "label": "Nombre",
+          "type": "TEXT",
+          "source": "NOM_EQUIP"
+        },
+        {
+          "name": "fuente",
+          "label": "Fuente",
+          "type": "ENUM",
+          "enum": "fuente",
+          "source": "FUENTE"
+        },
+        {
+          "name": "geom",
+          "label": "Geometría",
+          "type": "GEOMETRY",
+          "geometryType": "POINT",
+          "source": "SHAPE"
+        }
+      ]
+    },
+    {
+      "name": "padron",
+      "label": "Padrón",
+      "pluralLabel": "Padrón de predios",
+      "description": "Padrón municipal de predios (contribuyentes), cruzado con predio por dirección.",
+      "source": "PADRON_PREDIOS",
+      "fields": [
+        {
+          "name": "id_gdb",
+          "label": "ID GDB",
+          "type": "INTEGER",
+          "unique": true,
+          "source": "OBJECTID"
+        },
+        {
+          "name": "tipo_uu",
+          "label": "Tipo de unidad urbana",
+          "type": "ENUM",
+          "enum": "tipo_unidad_urbana",
+          "source": "TIPO_UU"
+        },
+        {
+          "name": "nombre_uu",
+          "label": "Nombre de unidad urbana",
+          "type": "TEXT",
+          "source": "NOM_UU"
+        },
+        {
+          "name": "mzn_urb",
+          "label": "Manzana urbana",
+          "type": "TEXT",
+          "source": "MZN_URB"
+        },
+        {
+          "name": "lot_urb",
+          "label": "Lote urbano",
+          "type": "TEXT",
+          "source": "LOT_URB"
+        },
+        {
+          "name": "tipo_via",
+          "label": "Tipo de vía",
+          "type": "ENUM",
+          "enum": "tipo_via",
+          "source": "TIP_VIA"
+        },
+        {
+          "name": "nombre_via",
+          "label": "Nombre de vía",
+          "type": "TEXT",
+          "source": "NOM_VIA"
+        },
+        {
+          "name": "direccion",
+          "label": "Dirección",
+          "type": "TEXT",
+          "source": "LLAVE"
+        },
+        {
+          "name": "direccion_completa",
+          "label": "Dirección completa",
+          "type": "TEXT",
+          "source": "llave_2"
+        },
+        {
+          "name": "grupo_uso",
+          "label": "Grupo de uso",
+          "type": "ENUM",
+          "enum": "grupo_uso",
+          "source": "Grupo_uso_desc"
+        },
+        {
+          "name": "area_terreno",
+          "label": "Área de terreno",
+          "type": "DECIMAL",
+          "source": "Area_Terreno"
+        },
+        {
+          "name": "tipo_documento",
+          "label": "Tipo de documento",
+          "type": "ENUM",
+          "enum": "tipo_documento",
+          "source": "TIP_DOC (trim)"
+        },
+        {
+          "name": "documento",
+          "label": "Documento",
+          "type": "TEXT",
+          "source": "DOC_IDEN"
+        },
+        {
+          "name": "nombres",
+          "label": "Nombres",
+          "type": "TEXT",
+          "source": "NOMBRE"
+        },
+        {
+          "name": "apellido_paterno",
+          "label": "Apellido paterno",
+          "type": "TEXT",
+          "source": "AP_PAT"
+        },
+        {
+          "name": "apellido_materno",
+          "label": "Apellido materno",
+          "type": "TEXT",
+          "source": "AP_MAT"
+        },
+        {
+          "name": "partida",
+          "label": "Partida",
+          "type": "TEXT",
+          "source": "PARTIDA"
+        },
+        {
+          "name": "lote_mediterraneo",
+          "label": "Lote mediterráneo",
+          "type": "BOOLEAN",
+          "source": "LOTE_MEDITERRANEO"
+        },
+        {
+          "name": "estado_via",
+          "label": "Estado de vía",
+          "type": "ENUM",
+          "enum": "estado_via",
+          "source": "ESTADO_VIA"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "name": "manzana_catastral_sector",
+      "label": "Sector",
+      "inverseLabel": "Manzanas catastrales",
+      "source": "manzana_catastral",
+      "target": "sector",
+      "fieldName": "sector",
+      "required": false
+    },
+    {
+      "name": "manzana_urbana_sector",
+      "label": "Sector",
+      "inverseLabel": "Manzanas urbanas",
+      "source": "manzana_urbana",
+      "target": "sector",
+      "fieldName": "sector",
+      "required": false
+    },
+    {
+      "name": "manzana_urbana_unidad_urbana",
+      "label": "Unidad urbana",
+      "inverseLabel": "Manzanas urbanas",
+      "source": "manzana_urbana",
+      "target": "unidad_urbana",
+      "fieldName": "unidad_urbana",
+      "required": false
+    },
+    {
+      "name": "segmento_via_via",
+      "label": "Vía",
+      "inverseLabel": "Segmentos viales",
+      "source": "segmento_via",
+      "target": "via",
+      "fieldName": "via",
+      "required": false
+    },
+    {
+      "name": "segmento_via_sector",
+      "label": "Sector",
+      "inverseLabel": "Segmentos viales",
+      "source": "segmento_via",
+      "target": "sector",
+      "fieldName": "sector",
+      "required": false
+    },
+    {
+      "name": "frente_arancelario_segmento_via",
+      "label": "Segmento vial",
+      "inverseLabel": "Frentes arancelarios",
+      "source": "frente_arancelario",
+      "target": "segmento_via",
+      "fieldName": "segmento_via",
+      "required": false
+    },
+    {
+      "name": "frente_aranc_manzana_catastral",
+      "label": "Manzana catastral",
+      "inverseLabel": "Frentes arancelarios",
+      "source": "frente_arancelario",
+      "target": "manzana_catastral",
+      "fieldName": "manzana_catastral",
+      "required": false
+    },
+    {
+      "name": "frente_arancelario_unidad_urbana",
+      "label": "Unidad urbana",
+      "inverseLabel": "Frentes arancelarios",
+      "source": "frente_arancelario",
+      "target": "unidad_urbana",
+      "fieldName": "unidad_urbana",
+      "required": false
+    },
+    {
+      "name": "lote_manzana_catastral",
+      "label": "Manzana catastral",
+      "inverseLabel": "Lotes",
+      "source": "lote",
+      "target": "manzana_catastral",
+      "fieldName": "manzana_catastral",
+      "required": false
+    },
+    {
+      "name": "lote_unidad_urbana",
+      "label": "Unidad urbana",
+      "inverseLabel": "Lotes",
+      "source": "lote",
+      "target": "unidad_urbana",
+      "fieldName": "unidad_urbana",
+      "required": false
+    },
+    {
+      "name": "lote_frente_arancelario",
+      "label": "Frente arancelario",
+      "inverseLabel": "Lotes",
+      "source": "lote",
+      "target": "frente_arancelario",
+      "fieldName": "frente_arancelario",
+      "required": false
+    },
+    {
+      "name": "predio_lote",
+      "label": "Lote",
+      "inverseLabel": "Predios",
+      "source": "predio",
+      "target": "lote",
+      "fieldName": "lote",
+      "required": false
+    },
+    {
+      "name": "predio_manzana_catastral",
+      "label": "Manzana catastral",
+      "inverseLabel": "Predios",
+      "source": "predio",
+      "target": "manzana_catastral",
+      "fieldName": "manzana_catastral",
+      "required": false
+    },
+    {
+      "name": "predio_frente_arancelario",
+      "label": "Frente arancelario",
+      "inverseLabel": "Predios",
+      "source": "predio",
+      "target": "frente_arancelario",
+      "fieldName": "frente_arancelario",
+      "required": false
+    },
+    {
+      "name": "valoracion_frente_arancelario",
+      "label": "Frente arancelario",
+      "inverseLabel": "Valoraciones arancelarias",
+      "source": "valoracion",
+      "target": "frente_arancelario",
+      "fieldName": "frente_arancelario",
+      "required": true
+    },
+    {
+      "name": "parque_sector",
+      "label": "Sector",
+      "inverseLabel": "Parques",
+      "source": "parque",
+      "target": "sector",
+      "fieldName": "sector",
+      "required": false
+    },
+    {
+      "name": "padron_predio",
+      "label": "Predio",
+      "inverseLabel": "Padrón de predios",
+      "source": "padron",
+      "target": "predio",
+      "fieldName": "predio",
+      "required": false
+    }
+  ]
+}

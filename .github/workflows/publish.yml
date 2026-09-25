@@ -1,0 +1,82 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  # both ecosystems' guards run here, before either upload. one failed guard blocks both
+  # uploads (maven and npm below both `needs: guards`) so a release never half-publishes.
+  guards:
+    name: Release guards (Maven + npm)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Release guard (Maven)
+        run: |
+          ./gradlew publishToMavenLocal --no-daemon -Pversion="${GITHUB_REF_NAME#v}" -Dmaven.repo.local="$RUNNER_TEMP/m2"
+          .github/scripts/check-maven-publications.sh "$RUNNER_TEMP/m2"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: yarn
+      - run: yarn install --frozen-lockfile && yarn build
+      - name: Release guard (npm)
+        run: node frontend/tooling/check-release.mjs --pack "${GITHUB_REF_NAME#v}"
+
+  maven:
+    name: Maven libraries
+    needs: guards
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Publish to GitHub Packages
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew publish --no-daemon -Pversion="${GITHUB_REF_NAME#v}"
+
+  npm:
+    name: npm packages
+    needs: guards
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: yarn
+          registry-url: https://npm.pkg.github.com
+          scope: '@chawpi'
+      - run: yarn install --frozen-lockfile && yarn build
+      - name: Publish every public @chawpi package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          # dry run on a copy first: the exact set, internal ranges pinned, entry points in every tarball
+          node frontend/tooling/check-release.mjs --pack "$version"
+          # bumps every package's own version AND internal @chawpi/* dep ranges; plain
+          # `npm version` per package would leave internal deps pointing at the old version.
+          node frontend/tooling/set-version.mjs "$version"
+          for dir in frontend/packages/*/; do
+            if [ "$(node -p "require('./$dir/package.json').private === true")" = "true" ]; then continue; fi
+            (cd "$dir" && npm publish)
+          done

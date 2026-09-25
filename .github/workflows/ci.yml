@@ -1,0 +1,173 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend build
+    runs-on: ubuntu-latest
+    # a hung gradle or test jvm must not burn the default 6 h
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: build-logic tests
+        run: ./gradlew -p backend/build-logic test --no-daemon
+      # ktlint + unit + architecture tests of every library, starter and sample server
+      - name: Build
+        run: ./gradlew build --no-daemon
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-test-reports
+          path: '**/build/reports/tests/'
+
+  integration:
+    name: Integration tests
+    runs-on: ubuntu-latest
+    # a hung testcontainers pull or wait must not burn the default 6 h
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+      # github runners have a local docker daemon: testcontainers starts postgres:18 and
+      # postgis/postgis:18-3.6 per suite. no CHAWPI_TEST_DB_* here, on purpose.
+      # pull once up front: two suites must not race the same pull into their startup timeout
+      - name: Pull database images
+        run: docker pull -q postgres:18 && docker pull -q postgis/postgis:18-3.6
+      # every library, chawpi-integration-tests (its integrationTest depends on every suite) and every
+      # sample server apply chawpi.integration-test, so the one task name reaches all of them.
+      # one container per test jvm: two workers keep a 4-cpu runner to two databases at a time.
+      - name: Integration tests
+        run: ./gradlew integrationTest --no-daemon --max-workers=2
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-test-reports
+          path: '**/build/reports/tests/'
+
+  frontend:
+    name: Frontend
+    runs-on: ubuntu-latest
+    # a hung yarn install or vite build must not burn the default 6 h
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn format:check
+      - run: yarn test:tooling
+      - run: yarn lint
+      - run: yarn test
+      # every package, then every sample web against the packages' dist
+      - run: yarn build
+      - name: Release guard (npm)
+        run: node frontend/tooling/check-release.mjs --pack 0.0.0-ci
+
+  examples:
+    name: Examples
+    runs-on: ubuntu-latest
+    # a hung unittest run must not burn the default 6 h
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Perené model
+        working-directory: examples/gis-sample/perene
+        run: python -m unittest -v
+
+  e2e:
+    name: End-to-end (full-sample)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      # the sample's own database, created by the image. published on 5433, never 5432: the
+      # sample has no default port, so the one below is the only one it can reach.
+      postgres:
+        image: postgis/postgis:18-3.6
+        env:
+          POSTGRES_DB: chawpi_full
+          POSTGRES_USER: chawpi
+          POSTGRES_PASSWORD: chawpi
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd "pg_isready -U chawpi -d chawpi_full"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      # playwright starts the jar and the dev server itself, never reuses running ones
+      CI: '1'
+      CHAWPI_DB_HOST: localhost
+      CHAWPI_DB_PORT: '5433'
+      CHAWPI_DB_NAME: chawpi_full
+      CHAWPI_DB_USERNAME: chawpi
+      CHAWPI_DB_PASSWORD: chawpi
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+      # build/libs/app.jar, the fixed name playwright.config.ts starts
+      - name: Server jar
+        run: ./gradlew :full-sample-server:bootJar --no-daemon
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      # the dev server resolves @chawpi/* through their dist
+      - run: yarn build
+      - name: Headless browser
+        working-directory: examples/full-sample/web
+        run: npx playwright install --with-deps chromium
+      - name: Playwright smoke
+        run: yarn workspace full-sample-web e2e
+      - name: Upload playwright traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-test-results
+          path: examples/full-sample/web/test-results/
+
+  publish-dry-run:
+    name: Publish dry run (Maven)
+    runs-on: ubuntu-latest
+    # a hung gradle publish must not burn the default 6 h
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Publish to a throwaway local repository
+        run: ./gradlew publishToMavenLocal --no-daemon -Pversion=0.0.0-ci -Dmaven.repo.local="$RUNNER_TEMP/m2"
+      - name: Release guard (Maven)
+        run: .github/scripts/check-maven-publications.sh "$RUNNER_TEMP/m2"

@@ -1,0 +1,66 @@
+name: chawpi
+
+services:
+  postgres:
+    build:
+      context: ./postgres
+    image: chawpi/postgres:18-postgis-pgvector
+    container_name: chawpi-postgres
+    environment:
+      POSTGRES_USER: chawpi
+      POSTGRES_PASSWORD: chawpi
+      POSTGRES_DB: chawpi
+    ports:
+      - "${CHAWPI_PG_PORT:-5432}:5432"
+    volumes:
+      # pg18 images want the mount one level up, data lands in a version subdir
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U chawpi -d chawpi" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  geoserver:
+    image: docker.osgeo.org/geoserver:3.0.1
+    container_name: chawpi-geoserver
+    profiles: ['gis']
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      GEOSERVER_ADMIN_USER: admin
+      GEOSERVER_ADMIN_PASSWORD: geoserver
+      SKIP_DEMO_DATA: "true"
+      INSTALL_EXTENSIONS: "false"
+      # the ui previews a published layer by pulling WMS tiles straight from here, which is a
+      # different origin than the vite dev server. local development only; k3s fronts both.
+      CORS_ENABLED: "true"
+      CORS_ALLOWED_ORIGINS: "*"
+      CORS_ALLOWED_METHODS: "GET,POST,HEAD,OPTIONS"
+      CORS_ALLOWED_HEADERS: "*"
+    ports:
+      - "8081:8080"
+    volumes:
+      - geoserver-data:/opt/geoserver_data
+
+  # core only: plain postgres, no postgis. proves the core does not need it.
+  postgres-plain:
+    image: postgres:18
+    container_name: chawpi-postgres-plain
+    profiles: ['core']
+    environment:
+      POSTGRES_USER: chawpi
+      POSTGRES_PASSWORD: chawpi
+      POSTGRES_DB: chawpi
+    ports:
+      - '5433:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U chawpi -d chawpi']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  postgres-data:
+  geoserver-data:
