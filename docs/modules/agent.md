@@ -47,7 +47,7 @@ Frontend routes and slots:
 | Property | Default | Meaning |
 |---|---|---|
 | `chawpi.agent.enabled` | `true` | `false` removes the agent beans, routes and menu entry |
-| `chawpi.agent.api-key` | `` (empty) | the model provider's API key |
+| `chawpi.agent.api-key` | *(empty)* | the model provider's API key |
 | `chawpi.agent.model` | `claude-haiku-4-5` | the model name passed to Embabel |
 | `chawpi.agent.max-tokens` | `16000` | clamped to 1024–64000 before it reaches the model |
 | `chawpi.agent.max-iterations` | `8` | clamped to 1–16; how many actions one run may take before the platform stops it |

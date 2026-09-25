@@ -42,8 +42,9 @@ beans, no routes and no migration. Core has no switch, because it is the base th
 lowest-precedence defaults: database coordinates from `CHAWPI_DB_*`, the R2DBC URL and pool, and RFC 7807 problem
 details. It never adds a JWT secret: a library must not ship one that works.
 
-**Property classes.** A module's switch lives in `Chawpi<Module>Properties` in `chawpi.<module>.autoconfigure`.
-Settings that the module's own code reads live beside that code: `AgentProperties` (`chawpi.agent`),
+**Property classes.** A module's switch lives in `Chawpi<Module>Properties` in `chawpi.<module>.autoconfigure`,
+except agent and automation, whose switch is the `enabled` field of their own settings class. Settings that the
+module's own code reads live beside that code: `AgentProperties` (`chawpi.agent`),
 `AutomationProperties` (`chawpi.automation`), `GeoServerProperties` (`chawpi.gis.geoserver`). Moving them into
 `autoconfigure` would make domain code import its own wiring. Core's classes (`ChawpiDatabaseProperties`,
 `JwtProperties`, `ChawpiWebProperties`) live in `chawpi.core.platform`, the bottom of core's layering.

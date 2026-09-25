@@ -66,6 +66,8 @@ jobs:
   frontend:
     name: Frontend
     runs-on: ubuntu-latest
+    # a hung yarn install or vite build must not burn the default 6 h
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -85,6 +87,8 @@ jobs:
   examples:
     name: Examples
     runs-on: ubuntu-latest
+    # a hung unittest run must not burn the default 6 h
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -154,6 +158,8 @@ jobs:
   publish-dry-run:
     name: Publish dry run (Maven)
     runs-on: ubuntu-latest
+    # a hung gradle publish must not burn the default 6 h
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4

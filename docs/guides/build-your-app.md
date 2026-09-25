@@ -78,16 +78,20 @@ One rule that only matters once, and matters a lot: **your app must not live in 
 (ADR-024). `@ChawpiApplication` component-scans from your application class's package downward; if that package is
 `chawpi` or a sub-package, the scan also reaches the library's own controllers and registers them a second time.
 
-This gets you `/api/objects`, `/api/records`, identity, audit and admin, already routed — see
+This gets you `/api/objects`, `/api/objects/{object}/records`, identity, audit and admin, already routed — see
 [../api/rest.md](../api/rest.md) for the full surface.
 
 ## A minimal app: frontend
 
+`"*"` is a repository-internal convention (ADR-029): inside the workspace, Yarn links the packages regardless of the
+range. A consumer outside the repository pins the version instead, matching the `chawpi-bom` version used on the
+backend:
+
 ```json
 {
   "dependencies": {
-    "@chawpi/core": "*",
-    "@chawpi/ui": "*",
+    "@chawpi/core": "0.1.0",
+    "@chawpi/ui": "0.1.0",
     "@tanstack/react-query": "^5.103.1",
     "i18next": "^26.4.2",
     "react": "^19.3.0",
@@ -146,8 +150,9 @@ below).
 `documents` implements it, and installing only one of the two still works — the call is optional. `gis` needs a
 PostGIS-enabled PostgreSQL; `terra-draw` and its adapter come as regular dependencies of
 `@chawpi/gis`, but `maplibre-gl` is a peer you add yourself, and `gisModule` takes a `workerUrl` pointing at
-MapLibre's worker script — see [gis.md](../modules/gis.md) for the exact recipe. `pages` also needs `forms` on the
-frontend if you use the `FORM` page component outside a metadata-defined page. `agent` falls back to
+MapLibre's worker script — see [gis.md](../modules/gis.md) for the exact recipe. `pages`' backend starter brings in
+`chawpi-forms`; the frontend needs no `@chawpi/forms` package, because `@chawpi/core` draws the `FORM` page
+component itself. `agent` falls back to
 `ANTHROPIC_API_KEY` for `chawpi.agent.api-key`; another Embabel provider starter works too, see
 [agent.md](../modules/agent.md).
 
@@ -215,7 +220,9 @@ The settings apps change most, each under `chawpi.*` (environment `CHAWPI_*`):
 
 ## Override a bean
 
-Every chawpi bean is `@ConditionalOnMissingBean`, so an app overrides one by declaring its own bean of that type:
+Every chawpi bean an app may replace is `@ConditionalOnMissingBean`, so an app overrides one by declaring its own
+bean of that type. The exception is the two beans that run schema migrations at start-up, `chawpiCoreMigration` and
+`chawpiCoreSeedMigration`: they are not conditional, because every module's migration must be in the list.
 
 ```kotlin
 @Configuration

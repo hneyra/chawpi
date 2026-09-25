@@ -23,6 +23,18 @@ again: 94 core and 300 library integration tests in 22 suites, 16 across the fou
 smoke in a browser, and an app outside the repository compiled against the locally published starters and
 type-checked against the packed npm packages. compose's PostGIS host port is now `CHAWPI_PG_PORT` (default 5432).
 
+**Open items.** A handful of points from earlier phase ledgers stay open rather than fixed. The outside-the-repo
+consumer check still runs by hand, not from a script in `publish.yml` or elsewhere, so BOM resolution and a compile
+against the published artifacts are not reproduced in CI. Schema parity is proved on P3's full test app, not on
+full-sample; full-sample applies the same starters and the same migrations, so the proof carries over. The
+full-sample Playwright smoke leaves its `e2e…` object, workflow and document type in whatever database it runs
+against. The absent-module probes in simple-sample and gis-sample cover only some routes, not the full surface. The
+`chawpi-test-wipe` advisory lock in `ChawpiTestDatabase.kt` is redundant now that a suite lock already serializes the
+two suites sharing one external database. AdminService stays unsplit at 550 lines — a ruling recorded only in the P7
+plan until this entry. MULTI* geometry still cannot be saved from the UI; that stays backlog. And two paragraphs up,
+"the integration tests on real containers" and the full-sample smoke describe CI jobs that are written and reviewed
+but have not yet run on GitHub Actions: their first green run there, not this entry, is the proof.
+
 ## 2026-09-25 — Four sample apps
 
 `examples/` holds four runnable apps, each a Spring Boot server built only from the starters and the BOM and a Vite

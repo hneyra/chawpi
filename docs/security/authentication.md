@@ -7,7 +7,9 @@
 ```
 sub    user id
 org    organization id  (the tenant)
+email  the user's email
 roles  ["ADMIN", …]
+iss    chawpi.security.jwt.issuer (`chawpi` by default)
 exp    now + chawpi.security.jwt.ttl (8h by default)
 ```
 

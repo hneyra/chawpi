@@ -69,6 +69,10 @@ It starts the jar and the dev server (or reuses running ones), sets up an object
 field, a workflow and a document type through the api, then logs in, opens the record and its map,
 issues a document and applies a transition through the ui.
 
+The smoke does not clean up after itself: its `e2e…` object, workflow, document type and the records it
+creates are left behind in `chawpi_full` (or whatever database `CHAWPI_DB_NAME` points at). Re-running it
+against the same database is fine, but do not point it at a database you care about.
+
 ## Manual checklist (the original app's flows)
 
 The UI starts in Spanish; the labels below are the Spanish ones (English in brackets).

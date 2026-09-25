@@ -13,7 +13,7 @@ installed (its starter is on the classpath and `chawpi.<module>.enabled` is not 
 |---|---|---|
 | views | `/api/metadata/objects/{object}/views`, `/api/objects/{object}/views/**` | [views.md](../modules/views.md) |
 | forms | `/api/metadata/objects/{object}/forms`, `/api/objects/{object}/forms/**` | [forms.md](../modules/forms.md) |
-| pages | /api/metadata/objects/{object}/pages, /api/metadata/page-templates, /api/objects/{object}/pages/**, /api/pages/** | [pages.md](../modules/pages.md) |
+| pages | `/api/metadata/{objects/{object}/pages,page-templates}`, `/api/{objects/{object}/pages,pages}/**` | [pages.md](../modules/pages.md) |
 | workflow | `/api/objects/{object}/workflow`, `/api/objects/{object}/records/{id}/transitions/**` | [workflow.md](../modules/workflow.md) |
 | automation | `/api/automation-runs`, `/api/objects/{object}/automations/**` | [automation.md](../modules/automation.md) |
 | documents | `/api/documents/{id}`, `/api/objects/{object}/{document-types,records/{id}/documents}/**` | [documents.md](../modules/documents.md) |
