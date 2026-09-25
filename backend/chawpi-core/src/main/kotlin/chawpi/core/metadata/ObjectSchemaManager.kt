@@ -7,9 +7,11 @@ import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.reactive.asFlow
 import kotlinx.coroutines.reactive.awaitFirstOrNull
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.stereotype.Component
 import java.util.UUID
 
 // the only place that runs DDL. metadata in, physical table out. ADR-004.
+@Component
 class ObjectSchemaManager(
     private val db: DatabaseClient,
     private val schemas: ChawpiSchemas,

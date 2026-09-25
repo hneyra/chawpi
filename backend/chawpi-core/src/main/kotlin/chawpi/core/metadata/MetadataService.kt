@@ -8,9 +8,11 @@ import chawpi.core.identity.AccessPolicy
 import chawpi.core.identity.CurrentUser
 import chawpi.core.platform.SqlIdentifier
 import chawpi.core.platform.SystemColumns
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 
+@Service
 class MetadataService(
     private val objects: CustomObjectRepository,
     private val fields: CustomFieldRepository,

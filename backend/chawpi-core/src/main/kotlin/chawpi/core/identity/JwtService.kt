@@ -6,6 +6,7 @@ import com.nimbusds.jose.JWSHeader
 import com.nimbusds.jose.crypto.MACSigner
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.SignedJWT
+import org.springframework.stereotype.Service
 import java.time.Instant
 import java.util.Date
 
@@ -15,6 +16,7 @@ data class IssuedToken(
 )
 
 // HS256, symmetric. swap for OIDC later without touching the permission model. ADR-010.
+@Service
 class JwtService(
     private val properties: JwtProperties,
     chawpiJwtKey: ChawpiJwtKey

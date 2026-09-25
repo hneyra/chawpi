@@ -5,10 +5,12 @@ import chawpi.core.platform.Rows
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.reactive.asFlow
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.stereotype.Service
 import java.util.UUID
 
 // role names for features that reference a role without administering one (a module's transition
 // rules, say). administering roles still goes through AdminService and MANAGE_ORGANIZATION.
+@Service
 class RoleDirectory(
     private val db: DatabaseClient,
     private val schemas: ChawpiSchemas

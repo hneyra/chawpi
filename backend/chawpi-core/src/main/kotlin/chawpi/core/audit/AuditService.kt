@@ -3,12 +3,14 @@ package chawpi.core.audit
 import chawpi.core.platform.ChawpiSchemas
 import kotlinx.coroutines.reactive.awaitSingle
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.stereotype.Service
 import tools.jackson.databind.ObjectMapper
 import java.util.UUID
 
 // ISSUE is written by a module; the audit_log CHECK accepts it once that module's migration ran (R10)
 enum class AuditOperation { CREATE, UPDATE, DELETE, ISSUE }
 
+@Service
 class AuditService(
     private val db: DatabaseClient,
     private val objectMapper: ObjectMapper,

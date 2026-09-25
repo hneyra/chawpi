@@ -1,9 +1,11 @@
 package chawpi.core.metadata
 
+import org.springframework.stereotype.Component
 import java.util.UUID
 
 // metadata -> api. relation fields store a target id and the api speaks object names; installed
 // field types add their own keys (R5).
+@Component
 class MetadataMapper(
     private val objects: CustomObjectRepository,
     private val types: FieldTypeRegistry

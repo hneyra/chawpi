@@ -6,6 +6,7 @@ import chawpi.core.common.NotFoundException
 import chawpi.core.common.ValidationException
 import chawpi.core.identity.CurrentUser
 import chawpi.core.platform.SqlIdentifier
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 
@@ -37,6 +38,7 @@ data class RelatedSide(
     val many: Boolean
 )
 
+@Service
 class RelationshipService(
     private val relationships: RelationshipRepository,
     private val objects: CustomObjectRepository,

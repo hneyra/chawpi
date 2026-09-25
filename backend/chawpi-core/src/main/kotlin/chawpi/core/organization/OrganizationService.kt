@@ -11,6 +11,7 @@ import chawpi.core.platform.ChawpiSchemas
 import kotlinx.coroutines.reactive.awaitSingle
 import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.Instant
 import java.util.UUID
@@ -22,6 +23,7 @@ data class OrganizationResponse(
     val createdAt: Instant?
 )
 
+@Service
 class OrganizationService(
     private val organizations: OrganizationRepository,
     private val objects: CustomObjectRepository,

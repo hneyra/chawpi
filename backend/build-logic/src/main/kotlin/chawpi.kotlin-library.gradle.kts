@@ -49,3 +49,11 @@ tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.KtLintFormatTask>().configure
 tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.KtLintCheckTask>().configureEach {
     mustRunAfter(tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.KtLintFormatTask>())
 }
+
+// the per-source-set "ktlint<SourceSet>Format" report task (ktlint-gradle's GenerateReportsTask) sits
+// downstream of the rewrite above and is @CacheableTask by default: same reasoning, same fix
+tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.GenerateReportsTask>().configureEach {
+    if (name.endsWith("Format")) {
+        outputs.cacheIf("part of the format task group, not just the report") { false }
+    }
+}

@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.reactive.asFlow
 import kotlinx.coroutines.reactive.awaitFirstOrNull
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.stereotype.Service
 import java.util.UUID
 
 // what one caller may do with the fields of one object.
@@ -26,6 +27,7 @@ class FieldAccess(
 }
 
 // field- and record-level rules. ADMIN bypasses everything, as does a role with no rule.
+@Service
 class AccessPolicy(
     private val db: DatabaseClient,
     private val schemas: ChawpiSchemas

@@ -2,6 +2,7 @@ package chawpi.core.metadata
 
 import chawpi.core.common.Actions
 import chawpi.core.identity.CurrentUser
+import org.springframework.stereotype.Service
 
 // actions per object name. only objects the caller may READ are listed, like GET /api/objects.
 data class CallerPermissionsResponse(
@@ -11,6 +12,7 @@ data class CallerPermissionsResponse(
 
 // the answer a client needs to hide actions it would only be refused. asking it grants nothing:
 // every write is still checked by the service that performs it.
+@Service
 class CallerPermissionsService(
     private val objects: CustomObjectRepository,
     private val currentUser: CurrentUser

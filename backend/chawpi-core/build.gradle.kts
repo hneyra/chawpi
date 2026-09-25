@@ -19,7 +19,10 @@ dependencies {
     implementation(libs.flyway.core)
 
     testImplementation(libs.spring.boot.starter.webflux.test)
-    testImplementation(project(":chawpi-test"))
+    // chawpi-test exposes chawpi-core as api: drop it here, or core's own classes and imports land on the test classpath twice
+    testImplementation(project(":chawpi-test")) {
+        exclude(group = "chawpi", module = "chawpi-core")
+    }
     testRuntimeOnly(libs.r2dbc.postgresql)
     testRuntimeOnly(libs.postgresql.jdbc)
     testRuntimeOnly(libs.flyway.postgresql)

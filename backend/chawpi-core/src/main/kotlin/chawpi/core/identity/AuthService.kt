@@ -2,6 +2,7 @@ package chawpi.core.identity
 
 import chawpi.core.common.UnauthorizedException
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.stereotype.Service
 import java.time.Instant
 
 data class LoginResponse(
@@ -18,6 +19,7 @@ data class UserSummary(
     val roles: List<String>
 )
 
+@Service
 class AuthService(
     private val users: UserRepository,
     private val roleQueries: RoleQueries,

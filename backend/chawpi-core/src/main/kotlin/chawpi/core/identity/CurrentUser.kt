@@ -5,6 +5,7 @@ import chawpi.core.common.UnauthorizedException
 import kotlinx.coroutines.reactive.awaitFirstOrNull
 import org.springframework.security.core.context.ReactiveSecurityContextHolder
 import org.springframework.security.oauth2.jwt.Jwt
+import org.springframework.stereotype.Component
 import java.util.UUID
 
 data class AuthenticatedUser(
@@ -21,6 +22,7 @@ data class AuthenticatedUser(
 }
 
 // tenant comes from the token, never from the request body. every query filters by it.
+@Component
 class CurrentUser(
     private val roleQueries: RoleQueries
 ) {

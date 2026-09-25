@@ -17,11 +17,13 @@ import kotlinx.coroutines.reactive.awaitFirstOrNull
 import kotlinx.coroutines.reactive.awaitSingle
 import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 
 // users, roles and the rules attached to them. every entry point is MANAGE_ORGANIZATION,
 // every query is pinned to the caller's tenant.
+@Service
 class AdminService(
     private val db: DatabaseClient,
     private val metadata: MetadataService,

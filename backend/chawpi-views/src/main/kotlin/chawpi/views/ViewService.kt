@@ -7,6 +7,7 @@ import chawpi.core.common.ValidationException
 import chawpi.core.identity.CurrentUser
 import chawpi.core.metadata.MetadataService
 import chawpi.core.metadata.ObjectDefinition
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 
@@ -46,6 +47,7 @@ data class ResolvedView(
 // the name that always resolves, stored or not
 const val DEFAULT_VIEW_NAME = "default"
 
+@Service
 class ViewService(
     private val views: ViewRepository,
     private val metadata: MetadataService,

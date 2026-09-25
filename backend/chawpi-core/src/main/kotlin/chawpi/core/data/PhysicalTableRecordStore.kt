@@ -16,10 +16,12 @@ import kotlinx.coroutines.reactive.asFlow
 import kotlinx.coroutines.reactive.awaitFirstOrNull
 import kotlinx.coroutines.reactive.awaitSingle
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.stereotype.Component
 import java.util.UUID
 
 // one physical table per object (ADR-004). every column goes through its type's handler, so a
 // module type brings its own select and bind sql and core never learns what it stores.
+@Component
 class PhysicalTableRecordStore(
     private val db: DatabaseClient,
     private val schemas: ChawpiSchemas,

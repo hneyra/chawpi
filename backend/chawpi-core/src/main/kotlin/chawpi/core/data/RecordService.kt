@@ -21,6 +21,7 @@ import chawpi.core.metadata.writableBy
 import com.fasterxml.jackson.annotation.JsonAnyGetter
 import com.fasterxml.jackson.annotation.JsonAnySetter
 import com.fasterxml.jackson.annotation.JsonIgnore
+import org.springframework.stereotype.Service
 import java.time.Instant
 import java.util.UUID
 
@@ -61,6 +62,7 @@ data class RecordResponse(
     fun flattened(): Map<String, Map<String, Any?>> = sections
 }
 
+@Service
 class RecordService(
     private val metadata: MetadataService,
     private val store: RecordStore,

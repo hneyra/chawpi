@@ -7,6 +7,7 @@ import chawpi.core.common.ValidationException
 import chawpi.core.identity.CurrentUser
 import chawpi.core.metadata.MetadataService
 import chawpi.core.metadata.ObjectDefinition
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 
@@ -41,6 +42,7 @@ data class ResolvedForm(
 // the name that always resolves, stored or not
 const val DEFAULT_FORM_NAME = "default"
 
+@Service
 class FormService(
     private val forms: FormRepository,
     private val metadata: MetadataService,

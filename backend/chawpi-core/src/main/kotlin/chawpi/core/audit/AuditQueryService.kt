@@ -12,6 +12,7 @@ import chawpi.core.platform.Rows
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.reactive.asFlow
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.stereotype.Service
 import tools.jackson.core.type.TypeReference
 import tools.jackson.databind.ObjectMapper
 import java.time.Instant
@@ -41,6 +42,7 @@ private data class AuditRow(
     val documentId: UUID?
 )
 
+@Service
 class AuditQueryService(
     private val db: DatabaseClient,
     private val objectMapper: ObjectMapper,

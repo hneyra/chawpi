@@ -3,6 +3,7 @@ package chawpi.core.metadata
 import chawpi.core.identity.CurrentUser
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
+import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -36,6 +37,7 @@ data class RelatedSideResponse(
     val many: Boolean
 )
 
+@Component
 class RelationshipMapper(
     private val objects: CustomObjectRepository,
     private val fields: CustomFieldRepository

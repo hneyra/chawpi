@@ -24,11 +24,13 @@ import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.reactive.asFlow
 import kotlinx.coroutines.reactive.awaitSingle
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 
 // records on the other side of a relationship. metadata owns the relationship; walking its
 // records is a record matter, so it lives here.
+@Service
 class RelatedRecordService(
     private val relationships: RelationshipRepository,
     private val relationshipService: RelationshipService,
