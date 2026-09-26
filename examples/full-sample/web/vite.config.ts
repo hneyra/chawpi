@@ -20,6 +20,6 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     // e2e/ is playwright's (yarn e2e), not vitest's
     include: ['src/**/*.test.tsx'],
-    alias: Object.fromEntries(modules.map((name) => [`@chawpi/${name}`, source(name)]))
+    alias: Object.fromEntries(modules.map((name) => [`@hneyra/${name}`, source(name)]))
   }
 })

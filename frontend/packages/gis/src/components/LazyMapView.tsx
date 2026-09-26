@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { cn } from '@chawpi/ui'
+import { cn } from '@hneyra/ui'
 import type { MapViewProps } from './MapView'
 
 export type { MapViewProps, WmsLayerSpec } from './MapView'

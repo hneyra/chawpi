@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { api } from '../../../api/client'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
 import type { ObjectDefinition, Paged, RecordItem } from '../../../types/metadata'
 
 interface RelationFieldProps {

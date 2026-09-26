@@ -1,14 +1,14 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
-import { coreModule, type ChawpiModule, type FieldMeta, type ObjectDefinition } from '@chawpi/core'
-import { renderWithProviders } from '@chawpi/testing'
+import { coreModule, type ChawpiModule, type FieldMeta, type ObjectDefinition } from '@hneyra/core'
+import { renderWithProviders } from '@hneyra/testing'
 import { pagesModule } from '../module'
 import { pinModule, stampModule } from '../test/fakeModules'
 import { Inspector } from './Inspector'
 import type { Node } from './pageTree'
 
-vi.mock('@chawpi/ui', async (importOriginal) => ({ ...(await importOriginal<typeof import('@chawpi/ui')>()), ...(await import('../test/uiDoubles')) }))
+vi.mock('@hneyra/ui', async (importOriginal) => ({ ...(await importOriginal<typeof import('@hneyra/ui')>()), ...(await import('../test/uiDoubles')) }))
 
 const field: FieldMeta = {
   id: 'f1',

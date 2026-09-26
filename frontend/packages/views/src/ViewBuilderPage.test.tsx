@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
-import { coreModule, type FieldMeta, type ObjectDefinition, type View } from '@chawpi/core'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
+import { coreModule, type FieldMeta, type ObjectDefinition, type View } from '@hneyra/core'
 import { viewsModule } from './module'
 import { ViewBuilderPage } from './ViewBuilderPage'
 
-vi.mock('@chawpi/ui', async (importOriginal) => ({ ...(await importOriginal<typeof import('@chawpi/ui')>()), ...(await import('./test/nativeSelect')) }))
+vi.mock('@hneyra/ui', async (importOriginal) => ({ ...(await importOriginal<typeof import('@hneyra/ui')>()), ...(await import('./test/nativeSelect')) }))
 
 function field(name: string, label: string, position: number): FieldMeta {
   return {

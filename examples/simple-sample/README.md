@@ -6,7 +6,7 @@ history, users, roles and permissions. It proves every module, GIS included, is 
 | | |
 |---|---|
 | Server | `server/`, project `:simple-sample-server`, port 8091. Dependencies: `chawpi-bom` + `chawpi-spring-boot-starter` |
-| Web | `web/`, workspace `simple-sample-web`, port 5171. Dependencies: `@chawpi/core`, `@chawpi/ui` |
+| Web | `web/`, workspace `simple-sample-web`, port 5171. Dependencies: `@hneyra/core`, `@hneyra/ui` |
 | Login | `admin@chawpi.local` / `admin` (dev seed, `CHAWPI_SEED_DEV=true` by default here) |
 
 ## Run
@@ -20,7 +20,7 @@ docker compose -f infra/docker/compose.yml --profile core up -d postgres-plain
 # 2. the server
 ./gradlew :simple-sample-server:bootRun
 
-# 3. the web (the first time: yarn install && yarn build, to build the @chawpi packages)
+# 3. the web (the first time: yarn install && yarn build, to build the @hneyra packages)
 yarn workspace simple-sample-web dev          # http://localhost:5171, /api proxied to :8091
 ```
 

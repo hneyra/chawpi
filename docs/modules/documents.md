@@ -11,7 +11,7 @@ implementation("chawpi:chawpi-spring-boot-starter-documents")
 ```
 
 ```bash
-yarn add @chawpi/documents
+yarn add @hneyra/documents
 ```
 
 ```tsx
@@ -84,7 +84,7 @@ revisited.
 
 ## Frontend package
 
-`@chawpi/documents`: `documentsModule(options)`, with `options.basePath` (default `''`) prefixing both routes.
+`@hneyra/documents`: `documentsModule(options)`, with `options.basePath` (default `''`) prefixing both routes.
 Main exports from `index.ts`: `documentsModule`, `documentsMessages`, `DocumentView`, `IssuedDocumentLink`,
 `RecordDocuments`, the query hooks (`useDocumentTypes`, `useSaveDocumentType`, `useDeleteDocumentType`,
 `useRecordDocuments`, `useIssueDocument`, `useIssuedDocument`), and the `DocumentType`/`IssuedDocument`/
@@ -94,7 +94,7 @@ Main exports from `index.ts`: `documentsModule`, `documentsMessages`, `DocumentV
 bundle: `TemplateEditor` is only reachable through the `documents:types` route's lazy import, never from `index.ts`
 ([ADR-028](../adr/0028-frontend-module-registry.md)).
 
-`print.css` ships as `dist/print.css` (package export `@chawpi/documents/print.css`) and is imported once, anywhere
+`print.css` ships as `dist/print.css` (package export `@hneyra/documents/print.css`) and is imported once, anywhere
 in the app, per the package README. It is plain, unlayered CSS on purpose, so it wins over Tailwind's preflight
 without `!important`; it gives the printed sheet its A4 page, heading sizes, table reflow and the visible ARCHIVED
 mark.

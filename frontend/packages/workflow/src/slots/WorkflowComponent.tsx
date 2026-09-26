@@ -1,4 +1,4 @@
-import type { PageComponentProps } from '@chawpi/core'
+import type { PageComponentProps } from '@hneyra/core'
 import { WorkflowPanel } from '../WorkflowPanel'
 
 // a WORKFLOW node on a record page: the panel of that record, of that object

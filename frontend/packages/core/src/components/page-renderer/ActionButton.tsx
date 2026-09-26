@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Button } from '@chawpi/ui'
+import { Button } from '@hneyra/ui'
 import { useChawpiLinks, useRegistry } from '../../app/context'
 import type { PageComponent } from '../../types/metadata'
 

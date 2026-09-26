@@ -1,5 +1,5 @@
 {
-    "name": "@chawpi/documents",
+    "name": "@hneyra/documents",
     "version": "0.1.0",
     "description": "Chawpi documents module: document types, template editor, issued documents and print page",
     "type": "module",
@@ -36,8 +36,8 @@
         "@tiptap/starter-kit": "3.31.3"
     },
     "peerDependencies": {
-        "@chawpi/core": "*",
-        "@chawpi/ui": "*",
+        "@hneyra/core": "*",
+        "@hneyra/ui": "*",
         "@tanstack/react-query": "^5.103.1",
         "i18next": "^26.4.2",
         "react": "^19.3.0",

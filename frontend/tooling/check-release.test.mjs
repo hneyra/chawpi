@@ -8,7 +8,7 @@ import { test } from 'node:test'
 
 import { checkReleaseConfig, packDryRun } from './check-release.mjs'
 
-const EXPECTED = ['@chawpi/a', '@chawpi/b']
+const EXPECTED = ['@hneyra/a', '@hneyra/b']
 
 function write(root, path, contents) {
   const full = join(root, path)
@@ -28,9 +28,9 @@ function fixture() {
     peerDependencies: deps
   })
   write(root, 'package.json', { name: 'root', private: true, workspaces: ['frontend/packages/*', 'examples/*/web'] })
-  write(root, 'frontend/packages/a/package.json', lib('@chawpi/a'))
-  write(root, 'frontend/packages/b/package.json', lib('@chawpi/b', { '@chawpi/a': '*', react: '^19.3.0' }))
-  write(root, 'frontend/packages/smoke/package.json', { name: '@chawpi/smoke', version: '0.1.0', private: true })
+  write(root, 'frontend/packages/a/package.json', lib('@hneyra/a'))
+  write(root, 'frontend/packages/b/package.json', lib('@hneyra/b', { '@hneyra/a': '*', react: '^19.3.0' }))
+  write(root, 'frontend/packages/smoke/package.json', { name: '@hneyra/smoke', version: '0.1.0', private: true })
   write(root, 'examples/one/web/package.json', { name: 'one-web', version: '0.1.0', private: true })
   write(root, 'release-please-config.json', {
     packages: {
@@ -61,10 +61,10 @@ test('a consistent repo has no problems', () => {
 test('a private package that loses its flag would leak', () => {
   const root = fixture()
   try {
-    write(root, 'frontend/packages/smoke/package.json', { name: '@chawpi/smoke', version: '0.1.0' })
+    write(root, 'frontend/packages/smoke/package.json', { name: '@hneyra/smoke', version: '0.1.0' })
     const problems = checkReleaseConfig(root, EXPECTED)
     assert.ok(
-      problems.some((p) => p.includes('@chawpi/smoke would be published')),
+      problems.some((p) => p.includes('@hneyra/smoke would be published')),
       problems.join('\n')
     )
   } finally {
@@ -75,7 +75,7 @@ test('a private package that loses its flag would leak', () => {
 test('an expected package that goes missing or private is reported', () => {
   const root = fixture()
   try {
-    assert.ok(checkReleaseConfig(root, [...EXPECTED, '@chawpi/c']).some((p) => p.includes('@chawpi/c is expected')))
+    assert.ok(checkReleaseConfig(root, [...EXPECTED, '@hneyra/c']).some((p) => p.includes('@hneyra/c is expected')))
   } finally {
     rmSync(root, { recursive: true, force: true })
   }
@@ -108,7 +108,7 @@ test('pack dry run pins internal ranges to the release and leaves the repo untou
   try {
     assert.deepEqual(packDryRun(root, '1.2.3', { pack: packAll }), [])
     const b = JSON.parse(readFileSync(join(root, 'frontend/packages/b/package.json'), 'utf8'))
-    assert.equal(b.peerDependencies['@chawpi/a'], '*')
+    assert.equal(b.peerDependencies['@hneyra/a'], '*')
     assert.equal(b.version, '0.1.0')
   } finally {
     rmSync(root, { recursive: true, force: true })
@@ -120,7 +120,7 @@ test('pack dry run reports a tarball without its entry points', () => {
   try {
     const problems = packDryRun(root, '1.2.3', { pack: () => ['package.json'] })
     assert.ok(
-      problems.some((p) => p.includes('@chawpi/a tarball lacks dist/index.js')),
+      problems.some((p) => p.includes('@hneyra/a tarball lacks dist/index.js')),
       problems.join('\n')
     )
     assert.ok(problems.some((p) => p.includes('dist/index.d.ts')))

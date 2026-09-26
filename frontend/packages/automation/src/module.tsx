@@ -1,5 +1,5 @@
 import { ListChecks, Zap } from 'lucide-react'
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 import { automationMessages } from './i18n'
 
 export const AUTOMATION_MODULE_ID = 'automation'

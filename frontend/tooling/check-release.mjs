@@ -13,17 +13,17 @@ import { setVersion } from './set-version.mjs'
 
 // the public set, by name. a new package fails the check until someone adds it here on purpose.
 export const EXPECTED_PUBLIC = [
-  '@chawpi/agent',
-  '@chawpi/automation',
-  '@chawpi/core',
-  '@chawpi/documents',
-  '@chawpi/forms',
-  '@chawpi/gis',
-  '@chawpi/pages',
-  '@chawpi/testing',
-  '@chawpi/ui',
-  '@chawpi/views',
-  '@chawpi/workflow'
+  '@hneyra/agent',
+  '@hneyra/automation',
+  '@hneyra/core',
+  '@hneyra/documents',
+  '@hneyra/forms',
+  '@hneyra/gis',
+  '@hneyra/pages',
+  '@hneyra/testing',
+  '@hneyra/ui',
+  '@hneyra/views',
+  '@hneyra/workflow'
 ]
 
 const DEP_FIELDS = ['dependencies', 'peerDependencies', 'optionalDependencies']
@@ -104,7 +104,7 @@ export function packDryRun(repoRoot, version, { pack = npmPack } = {}) {
       if (pkg.version !== version) problems.push(`${pkg.name} has version ${pkg.version}, expected ${version}`)
       for (const field of DEP_FIELDS) {
         for (const [name, range] of Object.entries(pkg[field] ?? {})) {
-          if (name.startsWith('@chawpi/') && range !== version) problems.push(`${pkg.name} ${field} ${name}@${range}, expected ${version}`)
+          if (name.startsWith('@hneyra/') && range !== version) problems.push(`${pkg.name} ${field} ${name}@${range}, expected ${version}`)
         }
       }
       const files = pack(dir)

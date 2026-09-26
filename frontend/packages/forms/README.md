@@ -1,4 +1,4 @@
-# @chawpi/forms
+# @hneyra/forms
 
 Module guide: [docs/modules/forms.md](../../../docs/modules/forms.md).
 
@@ -10,26 +10,26 @@ screen that edits them.
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```
-yarn add @chawpi/core @chawpi/ui @chawpi/forms
+yarn add @hneyra/core @hneyra/ui @hneyra/forms
 ```
 
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { formsModule } from '@chawpi/forms'
+import { ChawpiApp } from '@hneyra/core'
+import { formsModule } from '@hneyra/forms'
 
 export function App() {
   return <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'My App' }} modules={[formsModule()]} />
 }
 ```
 
-Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source
-"../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
+Tailwind: the app's stylesheet already has `@import "@hneyra/ui/theme.css"` and `@source
+"../node_modules/@hneyra"` (see `@hneyra/ui`), which covers this package's classes too.
 
 ## What it adds
 

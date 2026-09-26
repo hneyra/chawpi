@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Button } from '@chawpi/ui'
-import { Label } from '@chawpi/ui'
+import { Button } from '@hneyra/ui'
+import { Label } from '@hneyra/ui'
 import { MapView } from './LazyMapView'
 import { drawModeFor } from '../lib/geo'
 import type { GeoJsonGeometry } from '../types'

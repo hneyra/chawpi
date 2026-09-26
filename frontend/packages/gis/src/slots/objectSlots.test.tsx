@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { gisModule } from '../module'
 import { flat, predio } from '../test/fixtures'
 import { GeoObjectsCard, GeometryCell, GeometryTileDetail } from './objectSlots'

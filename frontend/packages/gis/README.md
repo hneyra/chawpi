@@ -1,4 +1,4 @@
-# @chawpi/gis
+# @hneyra/gis
 
 Module guide: [docs/modules/gis.md](../../../docs/modules/gis.md).
 
@@ -9,26 +9,26 @@ MAP component for record pages. MapLibre and terra-draw load only when a map is 
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```bash
-yarn add @chawpi/core @chawpi/ui @chawpi/gis
+yarn add @hneyra/core @hneyra/ui @hneyra/gis
 yarn add maplibre-gl@6.10.0
 ```
 
-`terra-draw` and `terra-draw-maplibre-gl-adapter` are regular dependencies of `@chawpi/gis`, not
-peers: do not add them yourself. `maplibre-gl` is also a regular dependency of `@chawpi/gis`, but
-add it to your app too, pinned to the exact same `6.10.0` @chawpi/gis ships: your app imports its
+`terra-draw` and `terra-draw-maplibre-gl-adapter` are regular dependencies of `@hneyra/gis`, not
+peers: do not add them yourself. `maplibre-gl` is also a regular dependency of `@hneyra/gis`, but
+add it to your app too, pinned to the exact same `6.10.0` @hneyra/gis ships: your app imports its
 CSS and worker script directly (below), and yarn/pnpm/PnP hoisting a single shared copy is not
 guaranteed, so an unpinned or mismatched version can leave the app running a different maplibre-gl
-than the one @chawpi/gis's `MapView` uses.
+than the one @hneyra/gis's `MapView` uses.
 
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { gisModule } from '@chawpi/gis'
+import { ChawpiApp } from '@hneyra/core'
+import { gisModule } from '@hneyra/gis'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import 'maplibre-gl/dist/maplibre-gl.css'
 

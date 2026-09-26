@@ -23,7 +23,7 @@ export const CORE_ROUTE_PATHS = {
 export type CoreRouteId = keyof typeof CORE_ROUTE_PATHS
 
 // modules extend this by declaration merging to type `to()`'s route keys precisely, e.g.:
-//   declare module '@chawpi/core' { interface ChawpiRouteMap { 'gis:map': true } }
+//   declare module '@hneyra/core' { interface ChawpiRouteMap { 'gis:map': true } }
 // empty by default, so `to()` falls back to plain strings until something opts in.
 export interface ChawpiRouteMap {}
 

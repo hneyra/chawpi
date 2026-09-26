@@ -1,4 +1,4 @@
-import { CORE_PAGE_COMPONENT_TYPES, useRegistry, type PageActionDefinition, type PageComponent, type PageComponentType } from '@chawpi/core'
+import { CORE_PAGE_COMPONENT_TYPES, useRegistry, type PageActionDefinition, type PageComponent, type PageComponentType } from '@hneyra/core'
 import { useTranslation } from 'react-i18next'
 
 // core's own kind. it goes last, so a module's kind is the default a fresh ACTION gets: with

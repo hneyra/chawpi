@@ -1,6 +1,6 @@
-import { automationModule } from '@chawpi/automation'
-import { ChawpiApp } from '@chawpi/core'
-import { documentsModule } from '@chawpi/documents'
+import { automationModule } from '@hneyra/automation'
+import { ChawpiApp } from '@hneyra/core'
+import { documentsModule } from '@hneyra/documents'
 
 // core plus two modules: document templates and issuing, and the automations that can issue them
 export function App() {

@@ -1,7 +1,7 @@
 # Examples
 
 Each sample is a runnable app made of a `server/` (Spring Boot, built only from the chawpi starters
-and `chawpi-bom`) and a `web/` (Vite + React, built only from the `@chawpi/*` packages it needs).
+and `chawpi-bom`) and a `web/` (Vite + React, built only from the `@hneyra/*` packages it needs).
 Samples are never published.
 
 | Sample | Modules | Database (compose) | Ports: server, web |
@@ -14,7 +14,7 @@ Samples are never published.
 Every sample:
 
 ```bash
-yarn install && yarn build                      # once: builds the @chawpi/* packages the webs import
+yarn install && yarn build                      # once: builds the @hneyra/* packages the webs import
 ./gradlew :<sample>-server:bootRun              # CHAWPI_DB_HOST/PORT/NAME/USERNAME/PASSWORD pick the database
 yarn workspace <sample>-web dev                 # proxies /api to the server
 ```

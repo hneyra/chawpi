@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { annotationModule, sketchModule } from '../../test/fakeModules'
 import type { RelatedSide } from '../../types/metadata'
 import { RelatedList } from './RelatedList'

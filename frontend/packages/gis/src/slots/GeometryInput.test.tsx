@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
-import { DynamicForm, type RecordPayload } from '@chawpi/core'
-import { renderWithProviders } from '@chawpi/testing'
+import { DynamicForm, type RecordPayload } from '@hneyra/core'
+import { renderWithProviders } from '@hneyra/testing'
 import { gisModule } from '../module'
 import { point, polygon, predio, recordOf } from '../test/fixtures'
 

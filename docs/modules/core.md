@@ -14,7 +14,7 @@ The starter is core plus what an app runs on: the R2DBC and JDBC PostgreSQL driv
 (`/actuator/health` is already public in core's security chain).
 
 ```bash
-yarn add @chawpi/core @chawpi/ui
+yarn add @hneyra/core @hneyra/ui
 ```
 
 ```tsx
@@ -154,23 +154,23 @@ with several schemas in one database the extension resolves from whichever schem
 
 ## Frontend package
 
-`@chawpi/core`: `ChawpiApp`, the config type and defaults from `config.ts` (`apiBaseUrl` `/api`, `appName` unset,
+`@hneyra/core`: `ChawpiApp`, the config type and defaults from `config.ts` (`apiBaseUrl` `/api`, `appName` unset,
 `storagePrefix` `chawpi`, `defaultLoginEmail` `''`, plus `languages`, `appTagline` and `basename`), the registry
 types (`ChawpiModule` and its contribution types), `createRegistry`, `useChawpiLinks` (route building, `to()`/`has()`
 for module routes, and typed helpers for every core screen) and `useAuth`. i18n namespace `core`; core's own strings
 are always reachable through `fallbackNS`.
 
-`@chawpi/ui`: the shared primitives (`Button`, `Card*`, `Dialog*`, `Input`, `Textarea`, `Label`, `Select*`,
+`@hneyra/ui`: the shared primitives (`Button`, `Card*`, `Dialog*`, `Input`, `Textarea`, `Label`, `Select*`,
 `Table`/`Th`/`Td`/`Badge`, `Tabs`), the `cn()` class merger, and the Tailwind 4 theme (`theme.css`). An app's
 Tailwind entry point consumes it as:
 
 ```css
 @import 'tailwindcss';
-@import '@chawpi/ui/theme.css';
-@source '../node_modules/@chawpi';
+@import '@hneyra/ui/theme.css';
+@source '../node_modules/@hneyra';
 ```
 
-`@source` must see every `@chawpi/*` package's class names, not only `@chawpi/ui`'s own.
+`@source` must see every `@hneyra/*` package's class names, not only `@hneyra/ui`'s own.
 
 See [../../frontend/packages/core/README.md](../../frontend/packages/core/README.md) and
 [../../frontend/packages/ui/README.md](../../frontend/packages/ui/README.md) for the full API.

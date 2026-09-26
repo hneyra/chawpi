@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest'
-import { ApiError, createApiClient } from '@chawpi/core'
+import { ApiError, createApiClient } from '@hneyra/core'
 import { jsonResponse, mockFetch, type FetchMock } from './fetch'
 
 let mock: FetchMock | null = null

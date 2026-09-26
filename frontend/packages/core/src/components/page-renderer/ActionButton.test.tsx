@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { ActionButton } from './ActionButton'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { noteModule } from '../../test/fakeModules'
 import type { PageComponent } from '../../types/metadata'
 

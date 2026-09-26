@@ -2,13 +2,13 @@ import type { ReactNode } from 'react'
 import { screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { coreModule, type ObjectDefinition, type PageComponent } from '@chawpi/core'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { coreModule, type ObjectDefinition, type PageComponent } from '@hneyra/core'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import { workflowModule } from '../module'
 import { TransitionSettings } from './TransitionSettings'
 
-vi.mock('@chawpi/ui', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@chawpi/ui')>()),
+vi.mock('@hneyra/ui', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@hneyra/ui')>()),
   SelectTrigger: () => null,
   SelectValue: () => null,
   SelectContent: ({ children }: { children?: ReactNode }) => <>{children}</>,

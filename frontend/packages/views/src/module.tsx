@@ -1,4 +1,4 @@
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 import { Columns3 } from 'lucide-react'
 import { viewsMessages } from './i18n'
 

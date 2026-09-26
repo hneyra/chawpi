@@ -36,7 +36,7 @@ Modules: views, forms, pages, workflow, automation, documents, gis, agent — on
 
 ```
 backend/    Gradle libraries: chawpi-core, chawpi-<module>, starters, chawpi-bom, chawpi-test
-frontend/   npm packages: @chawpi/ui, @chawpi/core, @chawpi/<module>, @chawpi/testing
+frontend/   npm packages: @hneyra/ui, @hneyra/core, @hneyra/<module>, @hneyra/testing
 examples/   runnable sample apps (server + web)
 infra/      docker compose for local development
 docs/       architecture, modules, guides, domain, api, gis, security, development, adr, HISTORY.md

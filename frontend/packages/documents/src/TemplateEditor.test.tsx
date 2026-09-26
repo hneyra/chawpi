@@ -6,7 +6,7 @@ import { describe, expect, it, vi } from 'vitest'
 // radix's select cannot be driven in jsdom (pointer-events: none on its trigger), so it is doubled
 // by a real <select>, the same way PageBuilderPage.test.tsx does it. the inserters are menus here,
 // so the double carries the placeholder as its accessible name.
-vi.mock('@chawpi/ui', async (importOriginal) => {
+vi.mock('@hneyra/ui', async (importOriginal) => {
   const placeholderOf = (children: ReactNode): string => {
     let found = ''
     const walk = (node: unknown) => {
@@ -22,7 +22,7 @@ vi.mock('@chawpi/ui', async (importOriginal) => {
     return found
   }
   return {
-    ...(await importOriginal<typeof import('@chawpi/ui')>()),
+    ...(await importOriginal<typeof import('@hneyra/ui')>()),
     SelectTrigger: ({ children }: { children?: ReactNode }) => <>{children}</>,
     SelectValue: ({ placeholder }: { placeholder?: string }) => <>{placeholder}</>,
     SelectContent: ({ children }: { children?: ReactNode }) => <>{children}</>,
@@ -37,9 +37,9 @@ vi.mock('@chawpi/ui', async (importOriginal) => {
 })
 
 import { EMPTY_TEMPLATE, TemplateEditor } from './TemplateEditor'
-import { renderWithProviders } from '@chawpi/testing'
-import { coreModule } from '@chawpi/core'
-import type { FieldMeta, ObjectDefinition, RelatedSide } from '@chawpi/core'
+import { renderWithProviders } from '@hneyra/testing'
+import { coreModule } from '@hneyra/core'
+import type { FieldMeta, ObjectDefinition, RelatedSide } from '@hneyra/core'
 import type { TemplateNode } from './types'
 import { documentsModule } from './module'
 

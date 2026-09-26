@@ -1,4 +1,4 @@
-# @chawpi/ui
+# @hneyra/ui
 
 Module guide: [docs/modules/core.md](../../../docs/modules/core.md) (ui has no module doc of its own).
 
@@ -12,11 +12,11 @@ Peer dependencies: `react`, `react-dom`, `react-i18next` (the dialog's close lab
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```
-yarn add @chawpi/ui
+yarn add @hneyra/ui
 ```
 
 ## Tailwind (required)
@@ -26,9 +26,9 @@ The packages ship class names, not compiled CSS. Your app's Tailwind 4 build mus
 ```css
 /* src/index.css */
 @import 'tailwindcss';
-@import '@chawpi/ui/theme.css';
-@source '../node_modules/@chawpi';
+@import '@hneyra/ui/theme.css';
+@source '../node_modules/@hneyra';
 ```
 
-`@source` is relative to the css file. Point it at the `node_modules/@chawpi` folder your app
+`@source` is relative to the css file. Point it at the `node_modules/@hneyra` folder your app
 resolves (in a monorepo, often the root `node_modules`).

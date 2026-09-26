@@ -1,7 +1,7 @@
 import { Map as MapIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import type { DashboardCardProps, ObjectDetailProps } from '@chawpi/core'
-import { Badge, Card, CardBody } from '@chawpi/ui'
+import type { DashboardCardProps, ObjectDetailProps } from '@hneyra/core'
+import { Badge, Card, CardBody } from '@hneyra/ui'
 import { objectGeometry } from '../types'
 
 // dashboard: how many objects are spatial

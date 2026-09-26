@@ -2,7 +2,7 @@
     "name": "documents-sample-web",
     "version": "0.1.0",
     "private": true,
-    "description": "documents-sample web: @chawpi/core, @chawpi/documents and @chawpi/automation",
+    "description": "documents-sample web: @hneyra/core, @hneyra/documents and @hneyra/automation",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -13,10 +13,10 @@
         "typecheck": "tsc -p tsconfig.json"
     },
     "dependencies": {
-        "@chawpi/automation": "*",
-        "@chawpi/core": "*",
-        "@chawpi/documents": "*",
-        "@chawpi/ui": "*",
+        "@hneyra/automation": "*",
+        "@hneyra/core": "*",
+        "@hneyra/documents": "*",
+        "@hneyra/ui": "*",
         "@tanstack/react-query": "5.103.1",
         "i18next": "26.4.2",
         "react": "19.3.0",
@@ -25,7 +25,7 @@
         "react-router": "8.4.0"
     },
     "devDependencies": {
-        "@chawpi/testing": "*",
+        "@hneyra/testing": "*",
         "@tailwindcss/vite": "4.3.3",
         "@testing-library/dom": "10.4.1",
         "@testing-library/jest-dom": "7.0.1",

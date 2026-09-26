@@ -19,15 +19,15 @@ test('every module peers on core and ui at any version, in lockstep with core', 
   )
   for (const spec of MODULES) {
     const pkg = moduleManifest(spec, core)
-    assert.equal(pkg.name, `@chawpi/${spec.name}`)
+    assert.equal(pkg.name, `@hneyra/${spec.name}`)
     assert.equal(pkg.version, core.version)
-    assert.equal(pkg.peerDependencies['@chawpi/core'], '*')
-    assert.equal(pkg.peerDependencies['@chawpi/ui'], '*')
+    assert.equal(pkg.peerDependencies['@hneyra/core'], '*')
+    assert.equal(pkg.peerDependencies['@hneyra/ui'], '*')
     assert.equal(pkg.peerDependencies.react, core.peerDependencies.react)
     assert.equal(pkg.dependencies['lucide-react'], core.dependencies['lucide-react'])
     // set-version.mjs never bumps devDependencies, so an internal range there would go stale
     assert.deepEqual(
-      Object.keys(pkg.devDependencies).filter((name) => name.startsWith('@chawpi/')),
+      Object.keys(pkg.devDependencies).filter((name) => name.startsWith('@hneyra/')),
       []
     )
   }

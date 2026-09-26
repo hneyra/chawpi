@@ -15,10 +15,10 @@ function writePackage(root, dir, manifest) {
 
 function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'run-ordered-'))
-  writePackage(root, 'frontend/packages/testing', { name: '@chawpi/testing', peerDependencies: { '@chawpi/core': '*' } })
-  writePackage(root, 'frontend/packages/core', { name: '@chawpi/core', dependencies: { '@chawpi/ui': '*', react: '19.3.0' } })
-  writePackage(root, 'frontend/packages/ui', { name: '@chawpi/ui', devDependencies: { '@chawpi/testing': '*' } })
-  writePackage(root, 'examples/simple-sample/web', { name: 'simple-sample-web', dependencies: { '@chawpi/core': '*' } })
+  writePackage(root, 'frontend/packages/testing', { name: '@hneyra/testing', peerDependencies: { '@hneyra/core': '*' } })
+  writePackage(root, 'frontend/packages/core', { name: '@hneyra/core', dependencies: { '@hneyra/ui': '*', react: '19.3.0' } })
+  writePackage(root, 'frontend/packages/ui', { name: '@hneyra/ui', devDependencies: { '@hneyra/testing': '*' } })
+  writePackage(root, 'examples/simple-sample/web', { name: 'simple-sample-web', dependencies: { '@hneyra/core': '*' } })
   // a folder without package.json is not a workspace
   mkdirSync(join(root, 'examples/gis-sample/web'), { recursive: true })
   return root
@@ -38,9 +38,9 @@ test('orders dependencies first and ignores devDependencies', () => {
   const root = fixture()
   try {
     const order = buildOrder(readWorkspaces(root, ['frontend/packages/*', 'examples/*/web'])).map((pkg) => pkg.name)
-    assert.ok(order.indexOf('@chawpi/ui') < order.indexOf('@chawpi/core'))
-    assert.ok(order.indexOf('@chawpi/core') < order.indexOf('@chawpi/testing'))
-    assert.ok(order.indexOf('@chawpi/core') < order.indexOf('simple-sample-web'))
+    assert.ok(order.indexOf('@hneyra/ui') < order.indexOf('@hneyra/core'))
+    assert.ok(order.indexOf('@hneyra/core') < order.indexOf('@hneyra/testing'))
+    assert.ok(order.indexOf('@hneyra/core') < order.indexOf('simple-sample-web'))
     assert.equal(order.length, 4)
   } finally {
     rmSync(root, { recursive: true, force: true })

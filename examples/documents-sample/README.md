@@ -8,7 +8,7 @@ automation's optional `DocumentIssuer` port: drop either starter and the other s
 | | |
 |---|---|
 | Server | `server/`, project `:documents-sample-server`, port 8092. Dependencies: `chawpi-bom`, `chawpi-spring-boot-starter`, `-documents`, `-automation` |
-| Web | `web/`, workspace `documents-sample-web`, port 5172. Dependencies: `@chawpi/core`, `@chawpi/ui`, `@chawpi/documents`, `@chawpi/automation` |
+| Web | `web/`, workspace `documents-sample-web`, port 5172. Dependencies: `@hneyra/core`, `@hneyra/ui`, `@hneyra/documents`, `@hneyra/automation` |
 | Login | `admin@chawpi.local` / `admin` (dev seed, `CHAWPI_SEED_DEV=true` by default here) |
 
 ## Run
@@ -24,7 +24,7 @@ docker exec chawpi-postgres createdb -U chawpi chawpi_documents
 # 2. the server. CHAWPI_DB_PORT has no default: compose publishes postgres on 5432, so say it
 CHAWPI_DB_PORT=5432 ./gradlew :documents-sample-server:bootRun
 
-# 3. the web (the first time: yarn install && yarn build, to build the @chawpi packages)
+# 3. the web (the first time: yarn install && yarn build, to build the @hneyra packages)
 yarn workspace documents-sample-web dev       # http://localhost:5172, /api proxied to :8092
 ```
 

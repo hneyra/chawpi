@@ -1,5 +1,5 @@
 {
-    "name": "@chawpi/views",
+    "name": "@hneyra/views",
     "version": "0.1.0",
     "description": "Chawpi list view builder module",
     "type": "module",
@@ -30,8 +30,8 @@
         "lucide-react": "^1.47.0"
     },
     "peerDependencies": {
-        "@chawpi/core": "*",
-        "@chawpi/ui": "*",
+        "@hneyra/core": "*",
+        "@hneyra/ui": "*",
         "@tanstack/react-query": "^5.103.1",
         "i18next": "^26.4.2",
         "react": "^19.3.0",

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // runs one package script in every workspace, dependencies first. yarn 1 `workspaces run` goes in
-// folder order, but a package's declaration build reads its @chawpi deps' dist, so order matters.
+// folder order, but a package's declaration build reads its @hneyra deps' dist, so order matters.
 // usage: node frontend/tooling/run-ordered.mjs <script>
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
@@ -8,7 +8,7 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
-// devDependencies never order a build: core tests reach @chawpi/testing through an alias
+// devDependencies never order a build: core tests reach @hneyra/testing through an alias
 const ORDER_FIELDS = ['dependencies', 'peerDependencies']
 
 function subdirs(dir) {

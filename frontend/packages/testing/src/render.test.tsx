@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router'
 import { describe, expect, it } from 'vitest'
-import { coreModule, useAuth, useRegistry } from '@chawpi/core'
+import { coreModule, useAuth, useRegistry } from '@hneyra/core'
 import { renderWithProviders } from './render'
 
 function Who() {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createChawpiI18n, formatAuditValue } from '@chawpi/core'
+import { createChawpiI18n, formatAuditValue } from '@hneyra/core'
 import { gisModule } from '../module'
 import { polygon } from '../test/fixtures'
 import { geometryAuditFormatter } from './audit'

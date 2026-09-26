@@ -1,5 +1,5 @@
 {
-    "name": "@chawpi/testing",
+    "name": "@hneyra/testing",
     "version": "0.1.0",
     "description": "Test helpers for chawpi apps and modules: renderWithProviders and fetch mocks",
     "type": "module",
@@ -27,7 +27,7 @@
         "build": "vite build && tsc -p tsconfig.build.json"
     },
     "peerDependencies": {
-        "@chawpi/core": "*",
+        "@hneyra/core": "*",
         "@tanstack/react-query": "^5.103.1",
         "@testing-library/react": "^16.3.3",
         "react": "^19.3.0",

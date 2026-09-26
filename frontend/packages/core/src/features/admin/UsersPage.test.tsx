@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import type { AuthUser } from '../../types/auth'
 import { UsersPage } from './UsersPage'
 import type { AdminUser, Role } from './types'

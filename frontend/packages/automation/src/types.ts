@@ -83,7 +83,7 @@ export interface AutomationProblem {
 }
 
 // what a rule reads of the object's workflow: state and transition names for the trigger pickers.
-// the full shape belongs to @chawpi/workflow, which this package never imports.
+// the full shape belongs to @hneyra/workflow, which this package never imports.
 export interface WorkflowOutline {
   enabled: boolean
   definition: {
@@ -92,7 +92,7 @@ export interface WorkflowOutline {
   }
 }
 
-// what GENERATE_DOCUMENT offers. the full shape belongs to @chawpi/documents
+// what GENERATE_DOCUMENT offers. the full shape belongs to @hneyra/documents
 export interface DocumentTypeOption {
   id: string
   name: string

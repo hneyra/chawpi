@@ -1,5 +1,5 @@
 import { FileSignature } from 'lucide-react'
-import type { ChawpiModule, HistoryEntryProps, RecordPanelProps } from '@chawpi/core'
+import type { ChawpiModule, HistoryEntryProps, RecordPanelProps } from '@hneyra/core'
 import { documentsMessages } from './i18n'
 import { IssuedDocumentLink } from './IssuedDocumentLink'
 import { RecordDocuments } from './RecordDocuments'

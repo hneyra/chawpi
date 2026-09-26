@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { coreModule } from '../app/coreModule'
 import type { ChawpiModule } from '../registry/contract'
 import { AppShell } from './AppShell'

@@ -1,4 +1,4 @@
-import type { AuditValueFormatter } from '@chawpi/core'
+import type { AuditValueFormatter } from '@hneyra/core'
 import { isGeometryValue } from '../types'
 
 // a polygon is thousands of numbers: the log says a shape changed, never prints it

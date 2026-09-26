@@ -19,10 +19,10 @@ test('maps sapgis locations to paths relative to the target inside core', () => 
 })
 
 test('maps shared code to packages', () => {
-  assert.equal(mapSpecifier('@/components/ui/button', inCore), '@chawpi/ui')
-  assert.equal(mapSpecifier('@/lib/utils', inCore), '@chawpi/ui')
-  assert.equal(mapSpecifier('@/test/render', inCore), '@chawpi/testing')
-  assert.equal(mapSpecifier('@/lib/queries', inGis), '@chawpi/core')
+  assert.equal(mapSpecifier('@/components/ui/button', inCore), '@hneyra/ui')
+  assert.equal(mapSpecifier('@/lib/utils', inCore), '@hneyra/ui')
+  assert.equal(mapSpecifier('@/test/render', inCore), '@hneyra/testing')
+  assert.equal(mapSpecifier('@/lib/queries', inGis), '@hneyra/core')
 })
 
 test('leaves what it cannot place for a human', () => {
@@ -46,7 +46,7 @@ test('rewrites vi.mock paths, drops i18n side-effect imports and renames sapgis'
   assert.equal(
     text,
     [
-      "import { Button } from '@chawpi/ui'",
+      "import { Button } from '@hneyra/ui'",
       "vi.mock('../../queries', async (importOriginal) => importOriginal<typeof import('../../queries')>())",
       "const email = 'ana@chawpi.test' // Chawpi Chawpi",
       ''
@@ -73,10 +73,10 @@ test('maps a module location inside its own package to a relative path', () => {
 test('leaves a cross-module import for a human, and keeps what stayed in core in core', () => {
   assert.equal(mapSpecifier('@/features/workflows/api', inPagesBuilder), null)
   assert.equal(mapSpecifier('@/lib/geo', inPagesBuilder), null)
-  assert.equal(mapSpecifier('@/features/pages/builder/templates', inPagesBuilder), '@chawpi/core')
-  assert.equal(mapSpecifier('@/features/views/viewColumns', inViews), '@chawpi/core')
-  assert.equal(mapSpecifier('@/features/history/changes', inWorkflow), '@chawpi/core')
-  assert.equal(mapSpecifier('@/features/admin/api', inWorkflow), '@chawpi/core')
+  assert.equal(mapSpecifier('@/features/pages/builder/templates', inPagesBuilder), '@hneyra/core')
+  assert.equal(mapSpecifier('@/features/views/viewColumns', inViews), '@hneyra/core')
+  assert.equal(mapSpecifier('@/features/history/changes', inWorkflow), '@hneyra/core')
+  assert.equal(mapSpecifier('@/features/admin/api', inWorkflow), '@hneyra/core')
   const { unmapped } = portSource("import { useWorkflow } from '@/features/workflows/api'\n", inPagesBuilder)
   assert.deepEqual(unmapped, ['@/features/workflows/api'])
 })

@@ -1,6 +1,6 @@
-import { ChawpiApp } from '@chawpi/core'
+import { ChawpiApp } from '@hneyra/core'
 
-// core alone. every @chawpi module is opt-in and this sample opts into none.
+// core alone. every @hneyra module is opt-in and this sample opts into none.
 export function App() {
   return (
     <ChawpiApp

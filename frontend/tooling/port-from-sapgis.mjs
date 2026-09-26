@@ -14,9 +14,9 @@ const PACKAGES_DIR = join(REPO_ROOT, 'frontend/packages')
 
 // shared code that became its own package
 const PACKAGE_MAP = [
-  [/^@\/components\/ui\/.+$/, '@chawpi/ui'],
-  [/^@\/lib\/utils$/, '@chawpi/ui'],
-  [/^@\/test\/render$/, '@chawpi/testing']
+  [/^@\/components\/ui\/.+$/, '@hneyra/ui'],
+  [/^@\/lib\/utils$/, '@hneyra/ui'],
+  [/^@\/test\/render$/, '@hneyra/testing']
 ]
 
 // sapgis location -> location under core/src. the specific rules win over MODULE_MAP (builder files
@@ -73,7 +73,7 @@ export function mapSpecifier(specifier, targetFile) {
   for (const [pattern, replacement] of PACKAGE_MAP) if (pattern.test(specifier)) return replacement
   // outside core (P5 packages) everything core owns comes from its public api
   const toCore = (pattern, replacement) =>
-    isInside(CORE_SRC, targetFile) ? relativeImport(targetFile, join(CORE_SRC, specifier.replace(pattern, replacement))) : '@chawpi/core'
+    isInside(CORE_SRC, targetFile) ? relativeImport(targetFile, join(CORE_SRC, specifier.replace(pattern, replacement))) : '@hneyra/core'
   for (const [pattern, replacement] of CORE_SPECIFIC) if (pattern.test(specifier)) return toCore(pattern, replacement)
   for (const [pattern, pkg, replacement] of MODULE_MAP) {
     if (!pattern.test(specifier)) continue

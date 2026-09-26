@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ArrowDown, ArrowUp, RotateCcw, Trash2 } from 'lucide-react'
-import { ApiError, PageHeader, fallbackView, pickView, useDeleteView, useObjectDefinition, useObjects, useSaveView, useViews } from '@chawpi/core'
-import type { FieldMeta, SortDirection, View } from '@chawpi/core'
-import { Badge, Button, Card, CardBody, CardHeader, CardTitle, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
+import { ApiError, PageHeader, fallbackView, pickView, useDeleteView, useObjectDefinition, useObjects, useSaveView, useViews } from '@hneyra/core'
+import type { FieldMeta, SortDirection, View } from '@hneyra/core'
+import { Badge, Button, Card, CardBody, CardHeader, CardTitle, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
 
 // radix has no empty value, so "nothing selected" needs a sentinel
 const NEW = '__new__'

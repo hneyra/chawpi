@@ -1,8 +1,8 @@
 import { Map as MapIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { useChawpiLinks, type RecordListActionProps } from '@chawpi/core'
-import { Button } from '@chawpi/ui'
+import { useChawpiLinks, type RecordListActionProps } from '@hneyra/core'
+import { Button } from '@hneyra/ui'
 import { objectGeometry } from '../types'
 
 export function OpenOnMap({ objectName, definition }: RecordListActionProps) {

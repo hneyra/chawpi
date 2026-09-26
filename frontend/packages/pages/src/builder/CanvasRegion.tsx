@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { columnEntries, type Node, type Path } from './pageTree'
 import { Slots } from './Slots'
 import type { NodeRenderer, SharedCanvasProps } from './Slots'
-import { cn } from '@chawpi/ui'
+import { cn } from '@hneyra/ui'
 
 export interface CanvasRegionProps extends SharedCanvasProps {
   node: Node

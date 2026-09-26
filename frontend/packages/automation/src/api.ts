@@ -1,5 +1,5 @@
 import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { api } from '@chawpi/core'
+import { api } from '@hneyra/core'
 import type { Automation, AutomationPayload, AutomationRun, DocumentTypeOption, WorkflowOutline } from './types'
 
 export function useAutomations(objectName: string | undefined) {
@@ -56,7 +56,7 @@ export function useRecentRuns(limit = 100) {
   })
 }
 
-// same key, path and retry as @chawpi/workflow's useWorkflow: one cache entry, no package import.
+// same key, path and retry as @hneyra/workflow's useWorkflow: one cache entry, no package import.
 // an object without a workflow (or an app without the workflow module) answers 404: pickers stay empty.
 export function workflowOutlineQuery(objectName: string | undefined) {
   return queryOptions({
@@ -71,7 +71,7 @@ export function useWorkflowOutline(objectName: string | undefined) {
   return useQuery(workflowOutlineQuery(objectName))
 }
 
-// same key and path as @chawpi/documents' useDocumentTypes. retry off: without the documents module
+// same key and path as @hneyra/documents' useDocumentTypes. retry off: without the documents module
 // the server answers 404, and that only means there is nothing to pick.
 export function documentTypeOptionsQuery(objectName: string | undefined) {
   return queryOptions({

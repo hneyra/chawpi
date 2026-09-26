@@ -14,7 +14,7 @@ implementation("chawpi:chawpi-spring-boot-starter-pages")
 This starter brings `chawpi-forms` with it.
 
 ```bash
-yarn add @chawpi/pages
+yarn add @hneyra/pages
 ```
 
 ```tsx
@@ -80,7 +80,7 @@ Migration location `classpath:db/chawpi/pages`, history table `flyway_history_pa
 
 ## Frontend package
 
-`@chawpi/pages`: the `pagesModule(options)` factory, with one option, `basePath` (default `'builder'`, the url
+`@hneyra/pages`: the `pagesModule(options)` factory, with one option, `basePath` (default `'builder'`, the url
 prefix of the builder route). Main exports from `index.ts`: `PAGES_MODULE_ID`, `pagesModule`, the
 `PagesModuleOptions` type, and `pagesMessages`. i18n namespace `pages` (`es`, `en`); it carries no `MAP`,
 `WORKFLOW` or `TRANSITION` strings — gis and workflow ship their own.

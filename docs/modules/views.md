@@ -16,7 +16,7 @@ implementation("chawpi:chawpi-spring-boot-starter-views")
 Frontend:
 
 ```bash
-yarn add @chawpi/views
+yarn add @hneyra/views
 ```
 
 ```tsx
@@ -71,7 +71,7 @@ partial unique index). It does not change any core table.
 
 ## Frontend package
 
-`@chawpi/views`: the `viewsModule(options)` factory, with one option, `basePath` (default `'builder'`), the url
+`@hneyra/views`: the `viewsModule(options)` factory, with one option, `basePath` (default `'builder'`), the url
 prefix of the builder route. Main export from `index.ts` besides the module factory: `ViewBuilderPage`. i18n
 namespace `views` (`es`, `en`).
 

@@ -1,5 +1,5 @@
 // fixture: two packages on disk, one depending on the other plus an external package,
-// so we can assert internal @chawpi/* ranges get bumped and external ones don't.
+// so we can assert internal @hneyra/* ranges get bumped and external ones don't.
 import assert from 'node:assert/strict'
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -18,20 +18,20 @@ function readPackage(root, name) {
   return JSON.parse(readFileSync(join(root, name, 'package.json'), 'utf8'))
 }
 
-test('bumps own version and internal @chawpi/* deps, leaves external deps alone', () => {
+test('bumps own version and internal @hneyra/* deps, leaves external deps alone', () => {
   const root = mkdtempSync(join(tmpdir(), 'set-version-'))
   try {
     writePackage(root, 'core', {
-      name: '@chawpi/core',
+      name: '@hneyra/core',
       version: '0.1.0',
       dependencies: { react: '^19.0.0' }
     })
     writePackage(root, 'ui', {
-      name: '@chawpi/ui',
+      name: '@hneyra/ui',
       version: '0.1.0',
-      dependencies: { '@chawpi/core': '^0.1.0', lodash: '^4.17.21' },
-      peerDependencies: { '@chawpi/core': '^0.1.0' },
-      optionalDependencies: { '@chawpi/core': '^0.1.0', 'left-pad': '^1.3.0' }
+      dependencies: { '@hneyra/core': '^0.1.0', lodash: '^4.17.21' },
+      peerDependencies: { '@hneyra/core': '^0.1.0' },
+      optionalDependencies: { '@hneyra/core': '^0.1.0', 'left-pad': '^1.3.0' }
     })
 
     setVersion('0.2.0', root)
@@ -42,10 +42,10 @@ test('bumps own version and internal @chawpi/* deps, leaves external deps alone'
 
     const ui = readPackage(root, 'ui')
     assert.equal(ui.version, '0.2.0')
-    assert.equal(ui.dependencies['@chawpi/core'], '0.2.0')
+    assert.equal(ui.dependencies['@hneyra/core'], '0.2.0')
     assert.equal(ui.dependencies.lodash, '^4.17.21')
-    assert.equal(ui.peerDependencies['@chawpi/core'], '0.2.0')
-    assert.equal(ui.optionalDependencies['@chawpi/core'], '0.2.0')
+    assert.equal(ui.peerDependencies['@hneyra/core'], '0.2.0')
+    assert.equal(ui.optionalDependencies['@hneyra/core'], '0.2.0')
     assert.equal(ui.optionalDependencies['left-pad'], '^1.3.0')
   } finally {
     rmSync(root, { recursive: true, force: true })

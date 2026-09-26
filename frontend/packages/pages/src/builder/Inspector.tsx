@@ -1,5 +1,5 @@
-import { useRegistry, type ActionStyle, type Form, type ObjectDefinition, type PageLayout, type RelatedSide } from '@chawpi/core'
-import { Button, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Textarea } from '@chawpi/ui'
+import { useRegistry, type ActionStyle, type Form, type ObjectDefinition, type PageLayout, type RelatedSide } from '@hneyra/core'
+import { Button, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Textarea } from '@hneyra/ui'
 import { Trash2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import type { Node } from './pageTree'

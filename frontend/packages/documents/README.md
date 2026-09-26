@@ -1,4 +1,4 @@
-# @chawpi/documents
+# @hneyra/documents
 
 Module guide: [docs/modules/documents.md](../../../docs/modules/documents.md).
 
@@ -10,11 +10,11 @@ issued document has a printable page. Issuing shows up in the record's history.
 
 ```ini
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```bash
-yarn add @chawpi/core @chawpi/ui @chawpi/documents
+yarn add @hneyra/core @hneyra/ui @hneyra/documents
 ```
 
 `@tiptap/core`, `@tiptap/react` and `@tiptap/starter-kit` come with it. The template editor is
@@ -23,16 +23,16 @@ loaded lazily, so tiptap stays out of your first bundle.
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { documentsModule } from '@chawpi/documents'
-import '@chawpi/documents/print.css'
+import { ChawpiApp } from '@hneyra/core'
+import { documentsModule } from '@hneyra/documents'
+import '@hneyra/documents/print.css'
 
 export function App() {
   return <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'Catastro' }} modules={[documentsModule()]} />
 }
 ```
 
-Import `@chawpi/documents/print.css` once, anywhere in the app. It gives the printed sheet its
+Import `@hneyra/documents/print.css` once, anywhere in the app. It gives the printed sheet its
 A4 page, heading sizes and table reflow, and it keeps the ARCHIVED mark visible on paper. It is
 plain, unlayered CSS on purpose: it must win over Tailwind's preflight without `!important`.
 

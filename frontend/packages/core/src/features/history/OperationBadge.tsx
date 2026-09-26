@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Badge } from '@chawpi/ui'
-import { cn } from '@chawpi/ui'
+import { Badge } from '@hneyra/ui'
+import { cn } from '@hneyra/ui'
 import { useRegistry } from '../../app/context'
 import type { HistoryTone } from '../../registry/contract'
 import type { AuditOperation } from '../../types/audit'

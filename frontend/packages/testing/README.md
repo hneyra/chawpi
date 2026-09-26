@@ -1,11 +1,11 @@
-# @chawpi/testing
+# @hneyra/testing
 
 Module guide: [docs/modules/testing.md](../../../docs/modules/testing.md).
 
-Test helpers for apps and modules built on `@chawpi/core`. Framework-agnostic (no vitest import),
+Test helpers for apps and modules built on `@hneyra/core`. Framework-agnostic (no vitest import),
 used with vitest + jsdom + Testing Library.
 
-Peer dependencies: `@chawpi/core`, `@tanstack/react-query`, `@testing-library/react`, `react`,
+Peer dependencies: `@hneyra/core`, `@tanstack/react-query`, `@testing-library/react`, `react`,
 `react-dom`, `react-router`.
 
 ## renderWithProviders
@@ -20,7 +20,7 @@ naming it. Passing it explicitly in `modules` is still fine, it is only prepende
 leftover `coreModule` from before this change does not register it twice.
 
 ```tsx
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { myModule } from './module'
 
 renderWithProviders(<MyScreen />, {

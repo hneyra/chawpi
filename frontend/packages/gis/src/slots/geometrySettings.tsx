@@ -1,7 +1,7 @@
 import { useId } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { FieldSettingsProps } from '@chawpi/core'
-import { Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
+import type { FieldSettingsProps } from '@hneyra/core'
+import { Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
 
 export const GEOMETRY_TYPES = ['POINT', 'LINESTRING', 'POLYGON', 'MULTIPOINT', 'MULTILINESTRING', 'MULTIPOLYGON'] as const
 

@@ -2,9 +2,9 @@ import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { WorkflowPanel } from './WorkflowPanel'
-import { ApiError, coreModule } from '@chawpi/core'
+import { ApiError, coreModule } from '@hneyra/core'
 import type { ReactElement } from 'react'
-import { renderWithProviders as renderBase } from '@chawpi/testing'
+import { renderWithProviders as renderBase } from '@hneyra/testing'
 import { workflowModule } from './module'
 import type { AvailableTransition, RecordWithState, Workflow } from './types'
 
@@ -34,8 +34,8 @@ vi.mock('./api', () => ({
   })
 }))
 
-vi.mock('@chawpi/core', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@chawpi/core')>()),
+vi.mock('@hneyra/core', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@hneyra/core')>()),
   useRecord: () => ({ data: state.record })
 }))
 

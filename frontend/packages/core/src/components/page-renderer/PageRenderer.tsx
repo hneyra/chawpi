@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Card, CardBody, CardHeader, CardTitle, cn, Tabs } from '@chawpi/ui'
+import { Card, CardBody, CardHeader, CardTitle, cn, Tabs } from '@hneyra/ui'
 import { useRegistry } from '../../app/context'
 import { RecordHistory } from '../../features/history/RecordHistory'
 import { useObjectRelationships, useStoredForm } from '../../queries'

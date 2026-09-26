@@ -18,5 +18,5 @@ export function applyMapWorkerUrl(apply: (url: string) => void): void {
   }
   if (settled) return
   settled = true
-  console.warn('@chawpi/gis: gisModule() got no workerUrl, so maplibre may never load map data. See the @chawpi/gis README, "MapLibre worker".')
+  console.warn('@hneyra/gis: gisModule() got no workerUrl, so maplibre may never load map data. See the @hneyra/gis README, "MapLibre worker".')
 }

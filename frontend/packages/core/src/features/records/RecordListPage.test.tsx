@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import type { ChawpiModule } from '../../registry/contract'
 import { RecordListPage } from './RecordListPage'
 

@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it } from 'vitest'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import type { ChawpiModule } from '../registry/contract'
 import { ChawpiRoutes } from './ChawpiRoutes'
 import { coreModule } from './coreModule'

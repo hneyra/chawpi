@@ -2,7 +2,7 @@ import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { DynamicForm } from './DynamicForm'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { sketchModule } from '../../test/fakeModules'
 import type { FieldMeta, Form, ObjectDefinition } from '../../types/metadata'
 

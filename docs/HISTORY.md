@@ -2,6 +2,15 @@
 
 Newest first. Architectural reasoning lives in `docs/adr/`; this file records what shipped.
 
+## 2026-09-25 — The npm packages are published under `@hneyra`
+
+GitHub Packages only accepts an npm package whose scope matches the repository owner, and the `chawpi` organization
+name is taken, so the frontend packages moved from `@chawpi/*` to `@hneyra/*`: `@hneyra/ui`, `@hneyra/core`, one
+package per module and `@hneyra/testing`. Every import, alias, Tailwind `@source` path, sample web, release script,
+the `.npmrc` line and the publish workflow follow. The product, the Maven group `chawpi`, the Kotlin packages and
+the `chawpi-*` artifacts are unchanged. Earlier entries, plans and ADR text keep the old scope; ADR-029 has an
+addendum.
+
 ## 2026-09-25 — The libraries are documented, guarded and ready to publish
 
 Every module now has a page saying what it adds, how to switch it on and off, which properties and routes it owns

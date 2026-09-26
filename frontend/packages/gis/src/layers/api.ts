@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { api } from '@chawpi/core'
+import { api } from '@hneyra/core'
 import type { GeoServerServices, LayerStatus } from './types'
 
 const LAYERS_KEY = ['gis', 'layers']

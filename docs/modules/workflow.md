@@ -16,7 +16,7 @@ implementation("chawpi:chawpi-spring-boot-starter-workflow")
 Frontend:
 
 ```bash
-yarn add @chawpi/workflow
+yarn add @hneyra/workflow
 ```
 
 ```tsx
@@ -80,7 +80,7 @@ the `workflow_state` column to that object's physical table at that point, not a
 
 ## Frontend package
 
-`@chawpi/workflow`: the `workflowModule(options)` factory, with one option, `basePath` (default `'automation'`),
+`@hneyra/workflow`: the `workflowModule(options)` factory, with one option, `basePath` (default `'automation'`),
 the url prefix of the builder route. Main exports from `index.ts`: `WorkflowPanel` (the record panel), the
 `useWorkflow` / `useAvailableTransitions` / `useApplyTransition` / `useSaveWorkflow` / `useDeleteWorkflow` query
 hooks, and the workflow types. i18n namespace `workflow` (`es`, `en`), with a `pages.*` block reused by the

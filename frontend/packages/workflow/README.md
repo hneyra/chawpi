@@ -1,4 +1,4 @@
-# @chawpi/workflow
+# @hneyra/workflow
 
 Module guide: [docs/modules/workflow.md](../../../docs/modules/workflow.md).
 
@@ -11,11 +11,11 @@ Record workflows for a Chawpi app:
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```bash
-yarn add @chawpi/core @chawpi/ui @chawpi/workflow
+yarn add @hneyra/core @hneyra/ui @hneyra/workflow
 ```
 
 `@xyflow/react` comes in as a dependency of this package. Its stylesheet is imported by the canvas, so a
@@ -26,9 +26,9 @@ bundle.
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { pagesModule } from '@chawpi/pages'
-import { workflowModule } from '@chawpi/workflow'
+import { ChawpiApp } from '@hneyra/core'
+import { pagesModule } from '@hneyra/pages'
+import { workflowModule } from '@hneyra/workflow'
 
 export function App() {
   return <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'Catastro' }} modules={[pagesModule(), workflowModule()]} />
@@ -46,7 +46,7 @@ export function App() {
 | object flag `workflow` | `true` when the object has a workflow (core's object editor shows the state column's scope) |
 | i18n namespace | `workflow` (es, en) |
 
-With `@chawpi/pages` installed, a freshly dropped ACTION defaults to TRANSITION, as it did in the original
+With `@hneyra/pages` installed, a freshly dropped ACTION defaults to TRANSITION, as it did in the original
 app. Without this module, the page builder offers NAVIGATE only, and a stored TRANSITION button draws nothing.
 
 ## Options

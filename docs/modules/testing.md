@@ -61,9 +61,9 @@ auto-configurations, a mocked `DatabaseClient` bean, a plain `JsonMapper` bean, 
 consumer that calls `ChawpiContextRunner.core()` must put `chawpi-core` (or any chawpi starter, which already
 bundles it) on its own test classpath.
 
-## Frontend: @chawpi/testing
+## Frontend: @hneyra/testing
 
-Peer dependencies: `@chawpi/core`, `@tanstack/react-query`, `@testing-library/react`, `react`, `react-dom`,
+Peer dependencies: `@hneyra/core`, `@tanstack/react-query`, `@testing-library/react`, `react`, `react-dom`,
 `react-router`.
 
 `renderWithProviders(ui, options)` mounts the same providers `ChawpiApp` does — registry, api client, i18n,

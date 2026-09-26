@@ -1,4 +1,4 @@
-# @chawpi/views
+# @hneyra/views
 
 Module guide: [docs/modules/views.md](../../../docs/modules/views.md).
 
@@ -10,26 +10,26 @@ adds the screen that edits them.
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```
-yarn add @chawpi/core @chawpi/ui @chawpi/views
+yarn add @hneyra/core @hneyra/ui @hneyra/views
 ```
 
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { viewsModule } from '@chawpi/views'
+import { ChawpiApp } from '@hneyra/core'
+import { viewsModule } from '@hneyra/views'
 
 export function App() {
   return <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'My App' }} modules={[viewsModule()]} />
 }
 ```
 
-Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source
-"../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
+Tailwind: the app's stylesheet already has `@import "@hneyra/ui/theme.css"` and `@source
+"../node_modules/@hneyra"` (see `@hneyra/ui`), which covers this package's classes too.
 
 ## What it adds
 

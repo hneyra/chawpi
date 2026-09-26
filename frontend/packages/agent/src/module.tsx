@@ -1,4 +1,4 @@
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 import { Sparkles } from 'lucide-react'
 import { agentMessages } from './i18n'
 

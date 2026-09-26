@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 import { DataTable } from './DataTable'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { annotationModule, sketchModule } from '../../test/fakeModules'
 import type { FieldMeta, Paged, RecordItem } from '../../types/metadata'
 

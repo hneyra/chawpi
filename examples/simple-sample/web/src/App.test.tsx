@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { mockFetch, type FetchMock } from '@chawpi/testing'
+import { mockFetch, type FetchMock } from '@hneyra/testing'
 import { App } from './App'
 
 const admin = { id: 'u1', email: 'admin@chawpi.local', displayName: 'Admin', organizationId: 'o1', roles: ['ADMIN'] }

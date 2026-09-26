@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import type { PageComponentSettingsProps } from '@chawpi/core'
-import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
+import type { PageComponentSettingsProps } from '@hneyra/core'
+import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
 import { useWorkflow } from '../api'
 
 // which transition a TRANSITION button fires. the page builder draws it under the kind picker.

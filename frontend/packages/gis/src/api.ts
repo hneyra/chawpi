@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { api } from '@chawpi/core'
+import { api } from '@hneyra/core'
 import type { FeatureCollection } from './types'
 
 // a geojson Feature holds one geometry, so a request carries one. the name is part of the key,

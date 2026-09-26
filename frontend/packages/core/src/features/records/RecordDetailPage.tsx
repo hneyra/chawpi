@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@chawpi/ui'
+import { Button } from '@hneyra/ui'
 import { ApiError } from '../../api/client'
 import { useChawpiLinks, useRegistry } from '../../app/context'
 import { fallbackPage } from '../../components/page-renderer/fallbackPage'

@@ -19,11 +19,11 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     include: ['src/**/*.test.tsx'],
     alias: {
-      '@chawpi/ui': source('ui'),
-      '@chawpi/core': source('core'),
-      '@chawpi/testing': source('testing'),
-      '@chawpi/documents': source('documents'),
-      '@chawpi/automation': source('automation')
+      '@hneyra/ui': source('ui'),
+      '@hneyra/core': source('core'),
+      '@hneyra/testing': source('testing'),
+      '@hneyra/documents': source('documents'),
+      '@hneyra/automation': source('automation')
     }
   }
 })

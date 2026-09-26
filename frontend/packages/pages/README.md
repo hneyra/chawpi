@@ -1,20 +1,20 @@
-# @chawpi/pages
+# @hneyra/pages
 
 Module guide: [docs/modules/pages.md](../../../docs/modules/pages.md).
 
 Drag-and-drop builder for the record detail page of every object: a palette of components, a canvas laid out
 by the page template, and an inspector for the selected component. Pages it saves are drawn by
-`@chawpi/core`'s record detail page.
+`@hneyra/core`'s record detail page.
 
 ## Install
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```bash
-yarn add @chawpi/core @chawpi/ui @chawpi/pages
+yarn add @hneyra/core @hneyra/ui @hneyra/pages
 ```
 
 It brings `@dnd-kit/core`. It needs no other chawpi module.
@@ -22,10 +22,10 @@ It brings `@dnd-kit/core`. It needs no other chawpi module.
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { pagesModule } from '@chawpi/pages'
-import { gisModule } from '@chawpi/gis'
-import { workflowModule } from '@chawpi/workflow'
+import { ChawpiApp } from '@hneyra/core'
+import { pagesModule } from '@hneyra/pages'
+import { gisModule } from '@hneyra/gis'
+import { workflowModule } from '@hneyra/workflow'
 
 export function App() {
   return <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'Catastro' }} modules={[pagesModule(), gisModule(), workflowModule()]} />

@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react'
 import { screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { gisModule } from '../module'
 import { node, predio } from '../test/fixtures'
 import { MapPreview } from './MapPreview'

@@ -1,7 +1,7 @@
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import type { ChawpiModule } from '../registry/contract'
 import type { RecordPayload } from '../types/metadata'
 import { useDeleteField, useResolvedPage, useSaveRecord } from './index'

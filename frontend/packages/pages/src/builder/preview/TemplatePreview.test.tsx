@@ -1,9 +1,9 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { pagesModule } from '../../module'
 import { TemplatePreview } from './TemplatePreview'
-import { coreModule, type PageTemplate } from '@chawpi/core'
+import { coreModule, type PageTemplate } from '@hneyra/core'
 
 const sidebar: PageTemplate = {
   name: 'header-and-right-sidebar',

@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { LayersPage } from './LayersPage'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { gisModule } from '../module'
 import type { GeoServerServices, LayerStatus } from './types'
 
@@ -36,8 +36,8 @@ vi.mock('./api', () => ({
   })
 }))
 
-vi.mock('@chawpi/core', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@chawpi/core')>()),
+vi.mock('@hneyra/core', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@hneyra/core')>()),
   useObjects: () => ({ data: [] })
 }))
 

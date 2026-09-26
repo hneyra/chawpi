@@ -1,5 +1,5 @@
 // workflow shapes. mirrors the /api/objects/{object}/workflow contract.
-import type { RecordItem } from '@chawpi/core'
+import type { RecordItem } from '@hneyra/core'
 
 export type StateType = 'INITIAL' | 'INTERMEDIATE' | 'FINAL'
 

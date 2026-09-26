@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { regionStyle } from '@chawpi/core'
-import { cn } from '@chawpi/ui'
-import type { PageTemplate } from '@chawpi/core'
+import { regionStyle } from '@hneyra/core'
+import { cn } from '@hneyra/ui'
+import type { PageTemplate } from '@hneyra/core'
 
 export interface TemplatePreviewProps {
   template: PageTemplate

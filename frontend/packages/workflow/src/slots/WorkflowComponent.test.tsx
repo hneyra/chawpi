@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { coreModule, createRegistry, PageRenderer, type ObjectDefinition, type Page, type PageComponent, type RecordItem } from '@chawpi/core'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { coreModule, createRegistry, PageRenderer, type ObjectDefinition, type Page, type PageComponent, type RecordItem } from '@hneyra/core'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import { workflowModule } from '../module'
 
 const definition: ObjectDefinition = { id: 'o1', name: 'predio', label: 'Predio', pluralLabel: 'Predios', description: null, enabled: true, fields: [] }

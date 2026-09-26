@@ -3,7 +3,7 @@
 ## Shape
 
 An app is its own Spring Boot main class plus the chawpi starters it chooses, and its own React entry point plus
-the `@chawpi/*` packages behind those starters. Chawpi ships nothing runnable by itself.
+the `@hneyra/*` packages behind those starters. Chawpi ships nothing runnable by itself.
 
 ```
                  React app (ChawpiApp + registered modules)
@@ -30,16 +30,16 @@ automation  ->  documents, only through the optional DocumentIssuer port (docume
 
 | Module | Maven artifact | Starter | npm package | Doc |
 |---|---|---|---|---|
-| core | `chawpi-core` | `chawpi-spring-boot-starter` | `@chawpi/core` (+ `@chawpi/ui`) | [core](../modules/core.md) |
-| views | `chawpi-views` | `chawpi-spring-boot-starter-views` | `@chawpi/views` | [views](../modules/views.md) |
-| forms | `chawpi-forms` | `chawpi-spring-boot-starter-forms` | `@chawpi/forms` | [forms](../modules/forms.md) |
-| pages | `chawpi-pages` | `chawpi-spring-boot-starter-pages` | `@chawpi/pages` | [pages](../modules/pages.md) |
-| workflow | `chawpi-workflow` | `chawpi-spring-boot-starter-workflow` | `@chawpi/workflow` | [workflow](../modules/workflow.md) |
-| automation | `chawpi-automation` | `chawpi-spring-boot-starter-automation` | `@chawpi/automation` | [automation](../modules/automation.md) |
-| documents | `chawpi-documents` | `chawpi-spring-boot-starter-documents` | `@chawpi/documents` | [documents](../modules/documents.md) |
-| gis | `chawpi-gis` | `chawpi-spring-boot-starter-gis` | `@chawpi/gis` | [gis](../modules/gis.md) |
-| agent | `chawpi-agent` | `chawpi-spring-boot-starter-agent` | `@chawpi/agent` | [agent](../modules/agent.md) |
-| testing | `chawpi-test` | — | `@chawpi/testing` | [testing](../modules/testing.md) |
+| core | `chawpi-core` | `chawpi-spring-boot-starter` | `@hneyra/core` (+ `@hneyra/ui`) | [core](../modules/core.md) |
+| views | `chawpi-views` | `chawpi-spring-boot-starter-views` | `@hneyra/views` | [views](../modules/views.md) |
+| forms | `chawpi-forms` | `chawpi-spring-boot-starter-forms` | `@hneyra/forms` | [forms](../modules/forms.md) |
+| pages | `chawpi-pages` | `chawpi-spring-boot-starter-pages` | `@hneyra/pages` | [pages](../modules/pages.md) |
+| workflow | `chawpi-workflow` | `chawpi-spring-boot-starter-workflow` | `@hneyra/workflow` | [workflow](../modules/workflow.md) |
+| automation | `chawpi-automation` | `chawpi-spring-boot-starter-automation` | `@hneyra/automation` | [automation](../modules/automation.md) |
+| documents | `chawpi-documents` | `chawpi-spring-boot-starter-documents` | `@hneyra/documents` | [documents](../modules/documents.md) |
+| gis | `chawpi-gis` | `chawpi-spring-boot-starter-gis` | `@hneyra/gis` | [gis](../modules/gis.md) |
+| agent | `chawpi-agent` | `chawpi-spring-boot-starter-agent` | `@hneyra/agent` | [agent](../modules/agent.md) |
+| testing | `chawpi-test` | — | `@hneyra/testing` | [testing](../modules/testing.md) |
 
 `pages` also depends on `forms`; `gis`, `workflow` and `agent` compile against `pages` only optionally
 (`compileOnly`), to register a page component or record transitions when pages is present. `chawpi-core` depends on
@@ -84,9 +84,9 @@ installed, not a null pointer. See [ADR-025](../adr/0025-extension-spis.md).
 
 ## Frontend packages
 
-`@chawpi/ui` (Tailwind primitives), `@chawpi/core` (the app shell, `ChawpiApp`, the registry, everything that works
-with no module installed), one package per backend module (`@chawpi/views`, `forms`, `pages`, `workflow`,
-`automation`, `documents`, `gis`, `agent`) and `@chawpi/testing`.
+`@hneyra/ui` (Tailwind primitives), `@hneyra/core` (the app shell, `ChawpiApp`, the registry, everything that works
+with no module installed), one package per backend module (`@hneyra/views`, `forms`, `pages`, `workflow`,
+`automation`, `documents`, `gis`, `agent`) and `@hneyra/testing`.
 
 A module is a `ChawpiModule` value, usually built by a factory (`gisModule({ workerUrl })`), passed to
 `<ChawpiApp modules={[...]} />`. `createRegistry` merges the list once, at mount, into routes, nav groups and

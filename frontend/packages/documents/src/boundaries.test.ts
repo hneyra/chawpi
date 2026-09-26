@@ -30,7 +30,7 @@ describe('documents boundaries', () => {
             .slice(0, specifier.startsWith('@') ? 2 : 1)
             .join('/')
         )
-        .filter((pkg) => (pkg.startsWith('@chawpi/') && pkg !== '@chawpi/core' && pkg !== '@chawpi/ui') || (HEAVY.test(pkg) && !OWN.test(pkg)))
+        .filter((pkg) => (pkg.startsWith('@hneyra/') && pkg !== '@hneyra/core' && pkg !== '@hneyra/ui') || (HEAVY.test(pkg) && !OWN.test(pkg)))
         .map((pkg) => `${relative(SRC, file)} -> ${pkg}`)
     )
     expect(offenders).toEqual([])

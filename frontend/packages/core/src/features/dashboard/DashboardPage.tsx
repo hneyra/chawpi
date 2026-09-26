@@ -1,7 +1,7 @@
 import { Boxes } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { Card, CardBody } from '@chawpi/ui'
+import { Card, CardBody } from '@hneyra/ui'
 import { useChawpiLinks, useRegistry } from '../../app/context'
 import { useObjects } from '../../queries'
 import { PageHeader } from '../../shell/PageHeader'

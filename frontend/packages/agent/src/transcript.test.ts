@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { ApiError } from '@chawpi/core'
+import { ApiError } from '@hneyra/core'
 import { answeredTurn, describeError, failedTurn, formatStepInput, formatValue, pendingTurn, replaceTurn, turnStatus } from './transcript'
 import type { AgentAnswer } from './types'
 

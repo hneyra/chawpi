@@ -2,7 +2,7 @@ import { Children, cloneElement, createContext, isValidElement, useContext } fro
 import type { ReactElement, ReactNode } from 'react'
 
 // native stand-ins for the two radix primitives jsdom cannot drive (portal, pointer capture). tests
-// spread them over the real module: vi.mock('@chawpi/ui', async (orig) => ({ ...(await orig()), ...(await import('…/uiDoubles')) }))
+// spread them over the real module: vi.mock('@hneyra/ui', async (orig) => ({ ...(await orig()), ...(await import('…/uiDoubles')) }))
 
 export function SelectTrigger({ children }: { children?: ReactNode; 'aria-label'?: string }) {
   return <>{children}</>

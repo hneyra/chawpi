@@ -1,6 +1,6 @@
 import { useDraggable } from '@dnd-kit/core'
-import { useRegistry, type FieldMeta, type ObjectDefinition, type PageComponentType } from '@chawpi/core'
-import { cn, Tabs } from '@chawpi/ui'
+import { useRegistry, type FieldMeta, type ObjectDefinition, type PageComponentType } from '@hneyra/core'
+import { cn, Tabs } from '@hneyra/ui'
 import {
   ClipboardList,
   FormInput,

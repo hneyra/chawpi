@@ -6,7 +6,7 @@ assistant (agent), on PostGIS. The same app as the [original](../../docs/sapgis-
 | | |
 |---|---|
 | Server | `server/`, project `:full-sample-server`, port 8093. Dependencies: `chawpi-bom`, `chawpi-spring-boot-starter` and the eight `-<module>` starters |
-| Web | `web/`, workspace `full-sample-web`, port 5174. Dependencies: `@chawpi/core`, `@chawpi/ui` and all eight module packages, `maplibre-gl` 6.10.0 |
+| Web | `web/`, workspace `full-sample-web`, port 5174. Dependencies: `@hneyra/core`, `@hneyra/ui` and all eight module packages, `maplibre-gl` 6.10.0 |
 | Login | `admin@chawpi.local` / `admin` (dev seed, `CHAWPI_SEED_DEV=true` by default here) |
 
 ## Run
@@ -23,7 +23,7 @@ docker exec chawpi-postgres createdb -U chawpi chawpi_full
 #    ANTHROPIC_API_KEY switches the assistant on.
 CHAWPI_DB_PORT=5432 ./gradlew :full-sample-server:bootRun
 
-# 3. the web (the first time: yarn install && yarn build, to build the @chawpi packages)
+# 3. the web (the first time: yarn install && yarn build, to build the @hneyra packages)
 yarn workspace full-sample-web dev            # http://localhost:5174, /api proxied to :8093
 ```
 

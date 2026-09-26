@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@chawpi/ui'
+import { Button } from '@hneyra/ui'
 import { DocumentView } from './DocumentView'
 import { useIssuedDocument } from './api'
 

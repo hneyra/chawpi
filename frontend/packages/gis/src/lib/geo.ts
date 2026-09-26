@@ -1,4 +1,4 @@
-import type { FieldMeta, ObjectDefinition } from '@chawpi/core'
+import type { FieldMeta, ObjectDefinition } from '@hneyra/core'
 import type { GeoJsonGeometry } from '../types'
 
 export type Bounds = [[number, number], [number, number]]

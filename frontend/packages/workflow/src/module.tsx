@@ -1,5 +1,5 @@
 import { Workflow } from 'lucide-react'
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 import { workflowMessages } from './i18n'
 import { TransitionAction } from './slots/TransitionAction'
 import { TransitionSettings } from './slots/TransitionSettings'

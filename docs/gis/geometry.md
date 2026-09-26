@@ -1,7 +1,7 @@
 # GIS and geometry
 
 Everything on this page needs the gis module: `chawpi-spring-boot-starter-gis` on the backend,
-`gisModule()` from `@chawpi/gis` on the frontend, and a PostgreSQL with PostGIS. Without it, chawpi
+`gisModule()` from `@hneyra/gis` on the frontend, and a PostgreSQL with PostGIS. Without it, chawpi
 runs on plain PostgreSQL and none of these routes, types or parameters exist
 ([gis module](../modules/gis.md), ADR-027).
 

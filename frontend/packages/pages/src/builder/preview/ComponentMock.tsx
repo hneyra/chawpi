@@ -1,5 +1,5 @@
-import { useRegistry, type FieldMeta, type ObjectDefinition, type PageComponent, type RelatedSide } from '@chawpi/core'
-import { cn } from '@chawpi/ui'
+import { useRegistry, type FieldMeta, type ObjectDefinition, type PageComponent, type RelatedSide } from '@hneyra/core'
+import { cn } from '@hneyra/ui'
 import { useTranslation } from 'react-i18next'
 import { isCoreType, useTypeLabel } from '../registrySlots'
 

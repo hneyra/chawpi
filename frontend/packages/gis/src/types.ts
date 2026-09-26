@@ -1,4 +1,4 @@
-import type { FieldMeta, ObjectSummary, PageComponent, RecordItem } from '@chawpi/core'
+import type { FieldMeta, ObjectSummary, PageComponent, RecordItem } from '@hneyra/core'
 
 // the gis half of the original app's types/metadata.ts. core carries these keys untyped through its
 // index signatures; the accessors below are the only place gis reads them back.

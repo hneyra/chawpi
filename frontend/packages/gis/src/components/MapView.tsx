@@ -15,7 +15,7 @@ import { TerraDrawMapLibreGLAdapter } from 'terra-draw-maplibre-gl-adapter'
 import { WMS_TILE_SIZE, wmsTileUrl } from '../lib/wms'
 import { boundsOf } from '../lib/geo'
 import { applyMapWorkerUrl } from '../lib/mapWorker'
-import { cn } from '@chawpi/ui'
+import { cn } from '@hneyra/ui'
 import type { Feature, FeatureCollection, GeoJsonGeometry } from '../types'
 
 const SOURCE = 'chawpi-features'

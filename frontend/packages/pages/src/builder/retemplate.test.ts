@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import type { PageTemplate } from '@chawpi/core'
+import type { PageTemplate } from '@hneyra/core'
 import type { Node } from './pageTree'
 import { orphans, retemplate } from './retemplate'
 

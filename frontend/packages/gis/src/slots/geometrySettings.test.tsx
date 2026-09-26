@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { ModuleFieldSettings } from '@chawpi/core'
-import { renderWithProviders } from '@chawpi/testing'
+import { ModuleFieldSettings } from '@hneyra/core'
+import { renderWithProviders } from '@hneyra/testing'
 import { gisModule } from '../module'
 import { GEOMETRY_SETTING_DEFAULTS, geometryPayload } from './geometrySettings'
 

@@ -1,7 +1,7 @@
 import { screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
-import { coreModule, useObjectFlags } from '@chawpi/core'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { coreModule, useObjectFlags } from '@hneyra/core'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import { workflowModule } from '../module'
 
 function Probe() {

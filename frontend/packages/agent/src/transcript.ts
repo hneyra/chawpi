@@ -1,4 +1,4 @@
-import { ApiError } from '@chawpi/core'
+import { ApiError } from '@hneyra/core'
 import type { AgentAnswer } from './types'
 
 export type TurnStatus = 'pending' | 'answered' | 'failed'

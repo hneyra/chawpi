@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { api } from '@chawpi/core'
+import { api } from '@hneyra/core'
 import type { AgentAnswer, AgentStatus } from './types'
 
 // no model key configured, or the endpoint does not exist yet. do not retry, just report it.

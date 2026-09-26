@@ -1,8 +1,8 @@
-import { ChawpiApp } from '@chawpi/core'
-import { gisModule } from '@chawpi/gis'
+import { ChawpiApp } from '@hneyra/core'
+import { gisModule } from '@hneyra/gis'
 
 export interface AppProps {
-  // maplibre's worker script url: main.tsx passes the one vite bundles. see @chawpi/gis "MapLibre worker"
+  // maplibre's worker script url: main.tsx passes the one vite bundles. see @hneyra/gis "MapLibre worker"
   workerUrl?: string
 }
 

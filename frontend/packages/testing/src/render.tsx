@@ -14,7 +14,7 @@ import {
   type CallerPermissions,
   type ChawpiConfig,
   type ChawpiModule
-} from '@chawpi/core'
+} from '@hneyra/core'
 
 export const TEST_USER: AuthUser = {
   id: 'u-test',

@@ -5,7 +5,7 @@ import { currentTab, hoverTarget, HOVER_OPEN_MS, tabHandleId } from './openTabs'
 import type { Node, Path } from './pageTree'
 import { Slots } from './Slots'
 import type { NodeRenderer, SharedCanvasProps } from './Slots'
-import { cn } from '@chawpi/ui'
+import { cn } from '@hneyra/ui'
 
 export interface CanvasTabsProps extends SharedCanvasProps {
   node: Node

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { mockFetch, type FetchMock } from '@chawpi/testing'
+import { mockFetch, type FetchMock } from '@hneyra/testing'
 import { CORE_ROUTE_PATHS } from '../links/links'
 import { joinPath } from '../links/paths'
 import { RegistryError } from '../registry/createRegistry'

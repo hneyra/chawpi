@@ -1,26 +1,26 @@
-# @chawpi/core
+# @hneyra/core
 
 Module guide: [docs/modules/core.md](../../../docs/modules/core.md).
 
 The chawpi app in one component: shell, login, dashboard, objects, relationships, records, dynamic
 forms, the record detail page renderer, history/audit and administration. Plus the module registry
-that lets `@chawpi/gis`, `@chawpi/workflow`, `@chawpi/documents`, … plug in.
+that lets `@hneyra/gis`, `@hneyra/workflow`, `@hneyra/documents`, … plug in.
 
 Peer dependencies: `react`, `react-dom`, `react-router`, `@tanstack/react-query`, `i18next`,
-`react-i18next`. Styling: set up Tailwind as described in `@chawpi/ui`'s README.
+`react-i18next`. Styling: set up Tailwind as described in `@hneyra/ui`'s README.
 
 ## Install
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```
-yarn add @chawpi/core @chawpi/ui @chawpi/testing -D
+yarn add @hneyra/core @hneyra/ui @hneyra/testing -D
 ```
 
-`@chawpi/core` and `@chawpi/ui` are runtime dependencies of your app; `@chawpi/testing` is dev-only,
+`@hneyra/core` and `@hneyra/ui` are runtime dependencies of your app; `@hneyra/testing` is dev-only,
 for tests. Your `tsconfig.json` needs `"moduleResolution": "bundler"`: these packages resolve through
 their `package.json` `exports` map, which the older `node`/`classic` resolutions do not read.
 
@@ -28,8 +28,8 @@ their `package.json` `exports` map, which the older `node`/`classic` resolutions
 
 ```tsx
 import { createRoot } from 'react-dom/client'
-import { ChawpiApp } from '@chawpi/core'
-import './index.css' // tailwind + @chawpi/ui/theme.css + @source, see @chawpi/ui
+import { ChawpiApp } from '@hneyra/core'
+import './index.css' // tailwind + @hneyra/ui/theme.css + @source, see @hneyra/ui
 
 createRoot(document.getElementById('root')!).render(
   <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'Catastro', storagePrefix: 'catastro' }} modules={[]} />
@@ -50,23 +50,23 @@ client of the mounted app.
 
 ## Full app
 
-Assembling core, `@chawpi/ui` and all 8 optional modules into one app:
+Assembling core, `@hneyra/ui` and all 8 optional modules into one app:
 
 ```tsx
 // src/main.tsx
 import { createRoot } from 'react-dom/client'
-import { ChawpiApp } from '@chawpi/core'
-import { agentModule } from '@chawpi/agent'
-import { automationModule } from '@chawpi/automation'
-import { documentsModule } from '@chawpi/documents'
-import { formsModule } from '@chawpi/forms'
-import { gisModule } from '@chawpi/gis'
-import { pagesModule } from '@chawpi/pages'
-import { viewsModule } from '@chawpi/views'
-import { workflowModule } from '@chawpi/workflow'
+import { ChawpiApp } from '@hneyra/core'
+import { agentModule } from '@hneyra/agent'
+import { automationModule } from '@hneyra/automation'
+import { documentsModule } from '@hneyra/documents'
+import { formsModule } from '@hneyra/forms'
+import { gisModule } from '@hneyra/gis'
+import { pagesModule } from '@hneyra/pages'
+import { viewsModule } from '@hneyra/views'
+import { workflowModule } from '@hneyra/workflow'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import 'maplibre-gl/dist/maplibre-gl.css'
-import '@chawpi/documents/print.css'
+import '@hneyra/documents/print.css'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
@@ -89,13 +89,13 @@ createRoot(document.getElementById('root')!).render(
 ```css
 /* src/index.css */
 @import 'tailwindcss';
-@import '@chawpi/ui/theme.css';
-@source '../node_modules/@chawpi';
+@import '@hneyra/ui/theme.css';
+@source '../node_modules/@hneyra';
 ```
 
-`@source` must see every `@chawpi/*` package's class names, ui's theme tokens and documents' print
+`@source` must see every `@hneyra/*` package's class names, ui's theme tokens and documents' print
 sheet CSS are separate imports (not run through Tailwind, see their own READMEs), and the maplibre
-worker/CSS setup is `@chawpi/gis`'s (see its README for the exact-version pin and bundler recipe).
+worker/CSS setup is `@hneyra/gis`'s (see its README for the exact-version pin and bundler recipe).
 Drop modules you do not need from both the `import` list and `modules={[...]}`; nothing else in the
 snippet changes.
 
@@ -110,7 +110,7 @@ field.
 A module is a plain object; every slot is optional.
 
 ```tsx
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 
 export function plansModule(): ChawpiModule {
   return {
@@ -155,7 +155,7 @@ overriding a shipped string is spreading a new object over the module's `i18n` b
 `modules`. Each module also exports its messages object (`gisMessages`, `pagesMessages`, …) for this:
 
 ```tsx
-import { gisMessages, gisModule } from '@chawpi/gis'
+import { gisMessages, gisModule } from '@hneyra/gis'
 
 const gis = { ...gisModule(), i18n: { ...gisMessages, pt: { nav: { gis: 'GIS', maps: 'Mapas' /* … */ } } } }
 
@@ -167,4 +167,4 @@ List every language you ship, including the shipped ones, in `config.languages`:
 through, not the union of what the modules happen to carry. Overriding one key of a shipped
 language works the same way: spread `{ ...gisMessages, es: { ...gisMessages.es, map: { ...gisMessages.es.map, title: 'Mapa base' } } }`.
 
-Testing: see `@chawpi/testing`.
+Testing: see `@hneyra/testing`.

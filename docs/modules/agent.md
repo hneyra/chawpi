@@ -13,7 +13,7 @@ implementation("chawpi:chawpi-spring-boot-starter-agent")
 ```
 
 ```bash
-yarn add @chawpi/agent
+yarn add @hneyra/agent
 ```
 
 ```tsx
@@ -79,12 +79,12 @@ None.
 
 ## Frontend package
 
-`@chawpi/agent`: `agentModule(options)`, with `options.basePath` (default `'automation'`) prefixing the route.
+`@hneyra/agent`: `agentModule(options)`, with `options.basePath` (default `'automation'`) prefixing the route.
 Main exports from `index.ts`: `agentModule`, `AGENT_MODULE_ID`, the `AgentModuleOptions` type, `agentMessages`,
 `AssistantPage`, the query hooks `useAgentStatus` and `useAskAgent` (for an app that wants to ask from its own
 screens), and the `AgentAnswer`/`AgentStatus`/`AgentStep` types. i18n namespace `agent`.
 
-The only runtime dependency is `lucide-react` (the nav icon); `@chawpi/core`, `@chawpi/ui`, `@tanstack/react-query`,
+The only runtime dependency is `lucide-react` (the nav icon); `@hneyra/core`, `@hneyra/ui`, `@tanstack/react-query`,
 `i18next`, `react`, `react-dom`, `react-i18next` and `react-router` are peers.
 
 See [../../frontend/packages/agent/README.md](../../frontend/packages/agent/README.md) for the full API.

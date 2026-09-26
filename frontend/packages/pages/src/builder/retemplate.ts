@@ -2,9 +2,9 @@
 // the template's, exactly. this is where an admin's work would be silently destroyed, so it is
 // pure, exported, and tested rule by rule instead of through the dom. the client decides where
 // orphaned children go and sends an already-valid tree; the server never learns what an orphan is.
-import type { PageTemplate } from '@chawpi/core'
+import type { PageTemplate } from '@hneyra/core'
 import type { Node } from './pageTree'
-import { regionKeys } from '@chawpi/core'
+import { regionKeys } from '@hneyra/core'
 
 // only REGION children carry a name. narrows the type so callers don't juggle string | null.
 function named(regions: Node[]): (Node & { region: string })[] {

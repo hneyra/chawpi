@@ -1,13 +1,13 @@
 import { fireEvent, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { coreModule, type ChawpiModule, type FieldMeta, type ObjectDefinition, type Page, type PageComponent, type PageTemplate } from '@chawpi/core'
-import { renderWithProviders } from '@chawpi/testing'
+import { coreModule, type ChawpiModule, type FieldMeta, type ObjectDefinition, type Page, type PageComponent, type PageTemplate } from '@hneyra/core'
+import { renderWithProviders } from '@hneyra/testing'
 import { pagesModule } from './module'
 import { pinModule, stampModule } from './test/fakeModules'
 
 // radix select and dialog need a layout and pointer capture jsdom lacks: native doubles, every other ui export real
-vi.mock('@chawpi/ui', async (importOriginal) => ({ ...(await importOriginal<typeof import('@chawpi/ui')>()), ...(await import('./test/uiDoubles')) }))
+vi.mock('@hneyra/ui', async (importOriginal) => ({ ...(await importOriginal<typeof import('@hneyra/ui')>()), ...(await import('./test/uiDoubles')) }))
 
 const { state } = vi.hoisted(() => ({
   state: {
@@ -31,8 +31,8 @@ const objectDefinition: ObjectDefinition = {
 }
 
 // only the queries the builder reads: the providers renderWithProviders mounts stay real
-vi.mock('@chawpi/core', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@chawpi/core')>()),
+vi.mock('@hneyra/core', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@hneyra/core')>()),
   useObjects: () => ({ data: [{ id: 'o-1', name: 'predio', label: 'Predio' }] }),
   useObjectDefinition: () => ({ data: { ...objectDefinition, fields: state.fields }, isLoading: false }),
   useObjectRelationships: () => ({ data: [] }),

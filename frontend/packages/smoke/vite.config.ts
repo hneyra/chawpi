@@ -12,6 +12,6 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/test/setup.ts',
-    alias: Object.fromEntries(PACKAGES.map((name) => [`@chawpi/${name}`, here(`../${name}/src/index.ts`)]))
+    alias: Object.fromEntries(PACKAGES.map((name) => [`@hneyra/${name}`, here(`../${name}/src/index.ts`)]))
   }
 })

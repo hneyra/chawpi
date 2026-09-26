@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FileText, Printer } from 'lucide-react'
-import { Dialog, DialogContent, DialogTitle } from '@chawpi/ui'
+import { Dialog, DialogContent, DialogTitle } from '@hneyra/ui'
 import { DocumentView } from './DocumentView'
 import { useIssuedDocument } from './api'
-import { useChawpiLinks } from '@chawpi/core'
+import { useChawpiLinks } from '@hneyra/core'
 
 // the body of an ISSUE history entry (core draws it through historyRenderers.ISSUE): a link to
 // the document it named. opens the same dialog RecordDocuments uses to show a document -- one way

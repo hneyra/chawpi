@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { RecordHistory, coreModule, createRegistry, type AuditEntry, type ObjectDefinition, type RecordItem } from '@chawpi/core'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { RecordHistory, coreModule, createRegistry, type AuditEntry, type ObjectDefinition, type RecordItem } from '@hneyra/core'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import { documentsModule } from './module'
 
 const { recordDocuments } = vi.hoisted(() => ({ recordDocuments: vi.fn(() => ({ data: [], isLoading: false })) }))

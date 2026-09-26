@@ -11,7 +11,7 @@ implementation("chawpi:chawpi-spring-boot-starter-automation")
 ```
 
 ```bash
-yarn add @chawpi/automation
+yarn add @hneyra/automation
 ```
 
 ```tsx
@@ -94,14 +94,14 @@ with `FOR UPDATE SKIP LOCKED`, so more than one instance can drain the same queu
 
 ## Frontend package
 
-`@chawpi/automation`: `automationModule(options)`, with `options.basePath` (default `'automation'`) prefixing both
+`@hneyra/automation`: `automationModule(options)`, with `options.basePath` (default `'automation'`) prefixing both
 routes. Main exports from `index.ts`: `automationModule`, `automationMessages`, `AutomationBuilderPage`,
 `AutomationRunsPage`, `RunTable`, the query hooks (`useAutomations`, `useSaveAutomation`, `useDeleteAutomation`,
 `useAutomationRuns`, `useRecentRuns`, `useWorkflowOutline`, `useDocumentTypeOptions`, plus their query-key
 factories `workflowOutlineQuery` and `documentTypeOptionsQuery`), and the automation types. i18n namespace
 `automation`.
 
-The package works with or without `@chawpi/workflow` and `@chawpi/documents`: it reads an object's workflow and
+The package works with or without `@hneyra/workflow` and `@hneyra/documents`: it reads an object's workflow and
 document types under the same query keys those modules use, so the cache is shared; when either module is absent
 its endpoint answers 404 and the corresponding picker in the builder stays empty.
 

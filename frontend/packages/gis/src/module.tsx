@@ -1,5 +1,5 @@
 import { Globe2, Layers, Map as MapIcon } from 'lucide-react'
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 import { gisMessages } from './i18n'
 import { setMapWorkerUrl } from './lib/mapWorker'
 import { GEOMETRY_AUDIT_FIELD_LABELS, geometryAuditFormatter } from './slots/audit'

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import type { PageActionProps } from '@chawpi/core'
-import { Button } from '@chawpi/ui'
+import type { PageActionProps } from '@hneyra/core'
+import { Button } from '@hneyra/ui'
 import { useApplyTransition, useAvailableTransitions } from '../api'
 
 // the one transition an admin placed as a button. WORKFLOW draws every transition at once; this

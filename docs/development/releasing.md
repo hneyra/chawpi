@@ -38,7 +38,7 @@ versioning.
 Two scripts stop a release from publishing the wrong thing. CI runs both on every pull request, and `publish.yml`
 runs both right before uploading:
 
-- `node frontend/tooling/check-release.mjs [--pack <version>]` checks that exactly the eleven public `@chawpi/*`
+- `node frontend/tooling/check-release.mjs [--pack <version>]` checks that exactly the eleven public `@hneyra/*`
   packages would be published, that release-please bumps each of them, and that every workspace app is private.
   With `--pack`, it copies the packages, applies `set-version.mjs`, and runs `npm pack --dry-run` on each: every
   internal range must be the release version and every entry point must be in the tarball.
@@ -67,7 +67,7 @@ repositories {
 npm (`.npmrc`):
 
 ```
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=<PAT with read:packages>
 ```
 

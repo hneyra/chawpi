@@ -1,5 +1,5 @@
 /* chawpi design tokens. the app imports tailwind first, then this file, and adds
-   `@source` over node_modules/@chawpi so the classes used inside the packages get generated. */
+   `@source` over node_modules/@hneyra so the classes used inside the packages get generated. */
 @theme {
     --color-surface: oklch(99% 0.002 260);
     --color-surface-muted: oklch(97% 0.004 260);

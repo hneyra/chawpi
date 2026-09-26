@@ -1,7 +1,7 @@
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { ApiError } from '../../api/client'
 import type { ChawpiModule } from '../../registry/contract'
 import type { ObjectDefinition, Relationship, SystemField } from '../../types/metadata'

@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
-import { coreModule } from '@chawpi/core'
-import { mockFetch, renderWithProviders, type FetchMock } from '@chawpi/testing'
+import { coreModule } from '@hneyra/core'
+import { mockFetch, renderWithProviders, type FetchMock } from '@hneyra/testing'
 import { DocumentTypesPage } from './DocumentTypesPage'
 import { documentsModule } from './module'
 

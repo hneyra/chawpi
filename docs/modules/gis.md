@@ -13,11 +13,11 @@ Needs a PostgreSQL server with PostGIS: the image `postgis/postgis:18-3.6`, as `
 `postgres` service builds on (`infra/docker/postgres/Dockerfile`).
 
 ```bash
-yarn add @chawpi/gis
+yarn add @hneyra/gis
 yarn add maplibre-gl@6.10.0
 ```
 
-`terra-draw` and `terra-draw-maplibre-gl-adapter` are regular dependencies of `@chawpi/gis`, not peers to add
+`terra-draw` and `terra-draw-maplibre-gl-adapter` are regular dependencies of `@hneyra/gis`, not peers to add
 yourself — see the package README for the exact versions and why `maplibre-gl` is pinned in the app too.
 
 ```tsx
@@ -111,7 +111,7 @@ dimension are each one of a fixed set).
 
 ## Frontend package
 
-`@chawpi/gis`: `gisModule(options)`, with `options.basePath` (default `'gis'`) and `options.workerUrl` (MapLibre's
+`@hneyra/gis`: `gisModule(options)`, with `options.basePath` (default `'gis'`) and `options.workerUrl` (MapLibre's
 worker script URL). Main exports from `index.ts`: `gisModule`, `gisMessages`, `MapView`, `GeometryField`,
 `useFeatures`, `featureIdOf`, `geometryFields`, `wmsTileUrl`, and the `Feature`/`FeatureCollection`/
 `GeoJsonGeometry`/`GeometryMeta`/`GeometryType` types.

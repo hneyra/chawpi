@@ -21,9 +21,9 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     // tests run against sibling sources, so nothing has to be built first
     alias: {
-      '@chawpi/ui': here('../ui/src/index.ts'),
-      '@chawpi/core': here('./src/index.ts'),
-      '@chawpi/testing': here('../testing/src/index.ts')
+      '@hneyra/ui': here('../ui/src/index.ts'),
+      '@hneyra/core': here('./src/index.ts'),
+      '@hneyra/testing': here('../testing/src/index.ts')
     }
   }
 })

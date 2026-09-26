@@ -3,8 +3,8 @@ import type { ReactElement, ReactNode } from 'react'
 import { act, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { coreModule } from '@chawpi/core'
-import { renderWithProviders as renderBase } from '@chawpi/testing'
+import { coreModule } from '@hneyra/core'
+import { renderWithProviders as renderBase } from '@hneyra/testing'
 import { workflowModule } from './module'
 import type { Workflow, WorkflowPayload } from './types'
 
@@ -33,8 +33,8 @@ vi.mock('./WorkflowCanvas', () => ({
 
 // radix opens its listbox in a portal behind pointer capture jsdom does not implement.
 // a native select answers the same question: which value did the page receive.
-vi.mock('@chawpi/ui', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@chawpi/ui')>()
+vi.mock('@hneyra/ui', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@hneyra/ui')>()
   const SelectTrigger = ({ children }: { children?: ReactNode }) => <>{children}</>
   return {
     ...actual,
@@ -63,8 +63,8 @@ vi.mock('./api', () => ({
   useDeleteWorkflow: () => ({ mutateAsync: state.remove, isPending: false })
 }))
 
-vi.mock('@chawpi/core', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@chawpi/core')>()),
+vi.mock('@hneyra/core', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@hneyra/core')>()),
   useObjects: () => ({ data: [{ id: 'o-1', name: 'predio', label: 'Predio' }] }),
   useRoles: () => ({ data: [{ name: 'SUPERVISOR', label: 'Supervisor' }] })
 }))

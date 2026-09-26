@@ -54,3 +54,12 @@ scripts compare what would be published with the expected set and fail the job o
   `extra-files` (npm). The guard scripts fail CI until both lists agree.
 - GitHub Packages needs a token even to read, so consumers configure credentials (`releasing.md`, "Consuming a
   published library").
+
+## Addendum (2026-09-25): npm scope renamed to `@hneyra`
+
+GitHub Packages requires an npm package's scope to equal the repository owner, and the `chawpi` organization name
+is taken. The repository is `hneyra/chawpi`, so the npm packages are published as `@hneyra/ui`, `@hneyra/core`,
+`@hneyra/<module>` and `@hneyra/testing`, and consumers write `@hneyra:registry=https://npm.pkg.github.com` in their
+`.npmrc`. The decision text above keeps `@chawpi/*` as it was written; read it as `@hneyra/*`. Nothing else moves:
+the Maven group stays `chawpi`, the Kotlin packages `chawpi.*`, the artifacts `chawpi-*`, and the product is still
+chawpi.

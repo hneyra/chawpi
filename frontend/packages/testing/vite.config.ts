@@ -20,9 +20,9 @@ export default defineConfig({
     globals: true,
     setupFiles: './src/test/setup.ts',
     alias: {
-      '@chawpi/ui': here('../ui/src/index.ts'),
-      '@chawpi/core': here('../core/src/index.ts'),
-      '@chawpi/testing': here('./src/index.ts')
+      '@hneyra/ui': here('../ui/src/index.ts'),
+      '@hneyra/core': here('../core/src/index.ts'),
+      '@hneyra/testing': here('./src/index.ts')
     }
   }
 })

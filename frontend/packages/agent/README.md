@@ -1,4 +1,4 @@
-# @chawpi/agent
+# @hneyra/agent
 
 Module guide: [docs/modules/agent.md](../../../docs/modules/agent.md).
 
@@ -9,26 +9,26 @@ answers as the signed-in user (it sees only what that user may see) and lists th
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```
-yarn add @chawpi/core @chawpi/ui @chawpi/agent
+yarn add @hneyra/core @hneyra/ui @hneyra/agent
 ```
 
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { agentModule } from '@chawpi/agent'
+import { ChawpiApp } from '@hneyra/core'
+import { agentModule } from '@hneyra/agent'
 
 export function App() {
   return <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'My App' }} modules={[agentModule()]} />
 }
 ```
 
-Tailwind: the app's stylesheet already has `@import "@chawpi/ui/theme.css"` and `@source
-"../node_modules/@chawpi"` (see `@chawpi/ui`), which covers this package's classes too.
+Tailwind: the app's stylesheet already has `@import "@hneyra/ui/theme.css"` and `@source
+"../node_modules/@hneyra"` (see `@hneyra/ui`), which covers this package's classes too.
 
 ## What it adds
 

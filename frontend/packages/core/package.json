@@ -1,5 +1,5 @@
 {
-    "name": "@chawpi/core",
+    "name": "@hneyra/core",
     "version": "0.1.0",
     "description": "Chawpi app shell, module registry, api client, auth, i18n and the core metadata features",
     "type": "module",
@@ -27,7 +27,7 @@
         "build": "vite build && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "@chawpi/ui": "*",
+        "@hneyra/ui": "*",
         "@hookform/resolvers": "5.9.1",
         "lucide-react": "^1.47.0",
         "react-hook-form": "^7.88.0",

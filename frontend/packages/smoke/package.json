@@ -1,5 +1,5 @@
 {
-    "name": "@chawpi/smoke",
+    "name": "@hneyra/smoke",
     "version": "0.1.0",
     "private": true,
     "description": "Cross-package smoke test: ChawpiApp with core and all eight modules. Never published.",

@@ -1,4 +1,4 @@
-import type { FieldMeta, ObjectDefinition, PageComponent, RecordItem } from '@chawpi/core'
+import type { FieldMeta, ObjectDefinition, PageComponent, RecordItem } from '@hneyra/core'
 
 export function field(name: string, label: string, extra: Partial<FieldMeta> = {}): FieldMeta {
   return {

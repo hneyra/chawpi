@@ -1,5 +1,5 @@
 {
-    "name": "@chawpi/workflow",
+    "name": "@hneyra/workflow",
     "version": "0.1.0",
     "description": "Chawpi workflow module: builder, canvas, WORKFLOW page component and TRANSITION action",
     "type": "module",
@@ -31,8 +31,8 @@
         "@xyflow/react": "12.11.6"
     },
     "peerDependencies": {
-        "@chawpi/core": "*",
-        "@chawpi/ui": "*",
+        "@hneyra/core": "*",
+        "@hneyra/ui": "*",
         "@tanstack/react-query": "^5.103.1",
         "i18next": "^26.4.2",
         "react": "^19.3.0",

@@ -2,7 +2,7 @@
     "name": "gis-sample-web",
     "version": "0.1.0",
     "private": true,
-    "description": "gis-sample web: @chawpi/core and @chawpi/gis",
+    "description": "gis-sample web: @hneyra/core and @hneyra/gis",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -13,9 +13,9 @@
         "typecheck": "tsc -p tsconfig.json"
     },
     "dependencies": {
-        "@chawpi/core": "*",
-        "@chawpi/gis": "*",
-        "@chawpi/ui": "*",
+        "@hneyra/core": "*",
+        "@hneyra/gis": "*",
+        "@hneyra/ui": "*",
         "@tanstack/react-query": "5.103.1",
         "i18next": "26.4.2",
         "maplibre-gl": "6.10.0",
@@ -25,7 +25,7 @@
         "react-router": "8.4.0"
     },
     "devDependencies": {
-        "@chawpi/testing": "*",
+        "@hneyra/testing": "*",
         "@tailwindcss/vite": "4.3.3",
         "@testing-library/dom": "10.4.1",
         "@testing-library/jest-dom": "7.0.1",

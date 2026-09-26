@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Badge, Table, Td, Th } from '@chawpi/ui'
-import { cn } from '@chawpi/ui'
-import { absoluteTime, relativeTime } from '@chawpi/core'
+import { Badge, Table, Td, Th } from '@hneyra/ui'
+import { cn } from '@hneyra/ui'
+import { absoluteTime, relativeTime } from '@hneyra/core'
 import { statusTone } from './automationDraft'
 import type { AutomationRun } from './types'
 

@@ -2,14 +2,14 @@ import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import type { ReactNode } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { coreModule } from '@chawpi/core'
-import { mockFetch, renderWithProviders, type FetchMock, type MockRoute } from '@chawpi/testing'
+import { coreModule } from '@hneyra/core'
+import { mockFetch, renderWithProviders, type FetchMock, type MockRoute } from '@hneyra/testing'
 
 // radix's select cannot be driven in jsdom (pointer-events: none on its trigger), so it is doubled by
 // a real <select>. the trigger's id keeps the <Label htmlFor> link; a select without one is named by
 // its placeholder, the way the original app's TemplateEditor test does it.
-vi.mock('@chawpi/ui', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@chawpi/ui')>()
+vi.mock('@hneyra/ui', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@hneyra/ui')>()
   const find = (node: unknown, prop: 'id' | 'placeholder'): string | undefined => {
     if (Array.isArray(node)) return node.map((child) => find(child, prop)).find(Boolean)
     if (!node || typeof node !== 'object') return undefined

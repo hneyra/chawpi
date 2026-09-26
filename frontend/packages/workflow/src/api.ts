@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { api } from '@chawpi/core'
+import { api } from '@hneyra/core'
 import type { AvailableTransition, RecordWithState, Workflow, WorkflowPayload } from './types'
 
 // an object without a workflow answers 404, which is an answer, not a failure: never retry it.

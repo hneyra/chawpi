@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { api } from '@chawpi/core'
+import { api } from '@hneyra/core'
 import type { DocumentType, DocumentTypePayload, IssuedDocument } from './types'
 
 export function useDocumentTypes(objectName: string | undefined) {

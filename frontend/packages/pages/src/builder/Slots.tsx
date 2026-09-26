@@ -3,8 +3,8 @@ import { Fragment } from 'react'
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { Node, Path } from './pageTree'
-import { cn } from '@chawpi/ui'
-import type { ObjectDefinition, RelatedSide } from '@chawpi/core'
+import { cn } from '@hneyra/ui'
+import type { ObjectDefinition, RelatedSide } from '@hneyra/core'
 
 // props every level of the tree needs to keep passing down
 export interface SharedCanvasProps {

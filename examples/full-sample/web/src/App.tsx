@@ -1,19 +1,19 @@
-import { agentModule } from '@chawpi/agent'
-import { automationModule } from '@chawpi/automation'
-import { ChawpiApp } from '@chawpi/core'
-import { documentsModule } from '@chawpi/documents'
-import { formsModule } from '@chawpi/forms'
-import { gisModule } from '@chawpi/gis'
-import { pagesModule } from '@chawpi/pages'
-import { viewsModule } from '@chawpi/views'
-import { workflowModule } from '@chawpi/workflow'
+import { agentModule } from '@hneyra/agent'
+import { automationModule } from '@hneyra/automation'
+import { ChawpiApp } from '@hneyra/core'
+import { documentsModule } from '@hneyra/documents'
+import { formsModule } from '@hneyra/forms'
+import { gisModule } from '@hneyra/gis'
+import { pagesModule } from '@hneyra/pages'
+import { viewsModule } from '@hneyra/views'
+import { workflowModule } from '@hneyra/workflow'
 
 export interface AppProps {
-  // maplibre's worker script url: main.tsx passes the one vite bundles. see @chawpi/gis "MapLibre worker"
+  // maplibre's worker script url: main.tsx passes the one vite bundles. see @hneyra/gis "MapLibre worker"
   workerUrl?: string
 }
 
-// core plus all eight modules, as in @chawpi/core's README "Full app"
+// core plus all eight modules, as in @hneyra/core's README "Full app"
 export function App({ workerUrl }: AppProps) {
   return (
     <ChawpiApp

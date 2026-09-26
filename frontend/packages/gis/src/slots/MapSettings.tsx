@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import type { PageComponent, PageComponentSettingsProps } from '@chawpi/core'
-import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
+import type { PageComponent, PageComponentSettingsProps } from '@hneyra/core'
+import { Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
 import { geometryFields } from '../lib/geo'
 import { componentGeometry } from '../types'
 

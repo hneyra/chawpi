@@ -4,10 +4,10 @@
         "noEmit": true,
         "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
         "paths": {
-            "@chawpi/ui": ["../ui/src/index.ts"],
-            "@chawpi/core": ["../core/src/index.ts"],
-            "@chawpi/testing": ["../testing/src/index.ts"],
-            "@chawpi/automation": ["./src/index.ts"]
+            "@hneyra/ui": ["../ui/src/index.ts"],
+            "@hneyra/core": ["../core/src/index.ts"],
+            "@hneyra/testing": ["../testing/src/index.ts"],
+            "@hneyra/automation": ["./src/index.ts"]
         }
     },
     "include": ["src", "vite.config.ts"]

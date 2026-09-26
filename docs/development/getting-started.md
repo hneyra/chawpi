@@ -10,7 +10,7 @@ Java 25, Node 26, Yarn 1, Docker. The Gradle wrapper pins Gradle 9.7.1.
   (`chawpi-spring-boot-starter-*`, one per module plus the base starter), `chawpi-bom`, `chawpi-test`
   (shared test support), `chawpi-integration-tests` (the original app's API tests, run against assembled
   test apps).
-- `frontend/` — `packages/` (`@chawpi/*`, one per module plus `core`, `ui`, `testing`), `tooling/`
+- `frontend/` — `packages/` (`@hneyra/*`, one per module plus `core`, `ui`, `testing`), `tooling/`
   (release and scaffolding scripts).
 - `examples/` — runnable sample apps (`server/` + `web/`) that assemble the libraries into a real app.
 - `infra/` — `docker/compose.yml` for local Postgres, PostGIS and GeoServer.

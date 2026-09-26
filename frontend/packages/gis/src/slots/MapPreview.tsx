@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import type { ObjectDefinition, PageComponent } from '@chawpi/core'
+import type { ObjectDefinition, PageComponent } from '@hneyra/core'
 import { geometryFields } from '../lib/geo'
 import { componentGeometry, fieldGeometry } from '../types'
 

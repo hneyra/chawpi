@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Card, CardBody, CardHeader, CardTitle } from '@chawpi/ui'
+import { Card, CardBody, CardHeader, CardTitle } from '@hneyra/ui'
 import { useRegistry } from '../../app/context'
 import type { ObjectDefinition } from '../../types/metadata'
 import { useRecordHistory } from './api'

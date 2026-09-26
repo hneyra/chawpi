@@ -3,12 +3,12 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown, ChevronRight, Plus, Trash2 } from 'lucide-react'
 import { PageHeader } from '../../shell/PageHeader'
-import { Button } from '@chawpi/ui'
-import { Card, CardBody, CardHeader, CardTitle } from '@chawpi/ui'
-import { Input, Textarea } from '@chawpi/ui'
-import { Label } from '@chawpi/ui'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
-import { Badge, Table, Td, Th } from '@chawpi/ui'
+import { Button } from '@hneyra/ui'
+import { Card, CardBody, CardHeader, CardTitle } from '@hneyra/ui'
+import { Input, Textarea } from '@hneyra/ui'
+import { Label } from '@hneyra/ui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
+import { Badge, Table, Td, Th } from '@hneyra/ui'
 import {
   useAddField,
   useDeleteField,

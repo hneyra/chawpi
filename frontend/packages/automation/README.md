@@ -1,4 +1,4 @@
-# @chawpi/automation
+# @hneyra/automation
 
 Module guide: [docs/modules/automation.md](../../../docs/modules/automation.md).
 
@@ -9,20 +9,20 @@ builder (trigger, conditions, actions) and the organisation-wide run log.
 
 ```
 # .npmrc
-@chawpi:registry=https://npm.pkg.github.com
+@hneyra:registry=https://npm.pkg.github.com
 ```
 
 ```bash
-yarn add @chawpi/core @chawpi/ui @chawpi/automation
+yarn add @hneyra/core @hneyra/ui @hneyra/automation
 ```
 
-Peers: `@chawpi/core`, `@chawpi/ui`, `react`, `react-dom`, `@tanstack/react-query`, `i18next`, `react-i18next`, `react-router`.
+Peers: `@hneyra/core`, `@hneyra/ui`, `react`, `react-dom`, `@tanstack/react-query`, `i18next`, `react-i18next`, `react-router`.
 
 ## Usage
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { automationModule } from '@chawpi/automation'
+import { ChawpiApp } from '@hneyra/core'
+import { automationModule } from '@hneyra/automation'
 
 export function App() {
   return <ChawpiApp config={{ apiBaseUrl: '/api', appName: 'My App' }} modules={[automationModule()]} />
@@ -37,7 +37,7 @@ export function App() {
 | nav | group `automation` (core's): "Reglas" (order 20), "Ejecuciones" (order 30) |
 | i18n | namespace `automation` (es, en) |
 
-It works with or without `@chawpi/workflow` and `@chawpi/documents`. It reads an object's workflow
+It works with or without `@hneyra/workflow` and `@hneyra/documents`. It reads an object's workflow
 (`GET /objects/{object}/workflow`) and its document types (`GET /objects/{object}/document-types`)
 under the same query keys those modules use, so the cache is shared. When either module is absent,
 its endpoint answers 404, and the state, transition and document-type pickers stay empty.

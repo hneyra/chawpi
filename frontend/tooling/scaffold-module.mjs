@@ -37,7 +37,7 @@ export const MODULES = [
 export function moduleManifest(spec, core) {
   const css = spec.css ?? []
   return {
-    name: `@chawpi/${spec.name}`,
+    name: `@hneyra/${spec.name}`,
     version: core.version,
     description: spec.description,
     type: 'module',
@@ -59,7 +59,7 @@ export function moduleManifest(spec, core) {
       build: [core.scripts.build, ...css.map((file) => `cp src/${file} dist/${file}`)].join(' && ')
     },
     dependencies: { 'lucide-react': core.dependencies['lucide-react'], ...spec.dependencies },
-    peerDependencies: { '@chawpi/core': '*', '@chawpi/ui': '*', ...core.peerDependencies },
+    peerDependencies: { '@hneyra/core': '*', '@hneyra/ui': '*', ...core.peerDependencies },
     devDependencies: core.devDependencies
   }
 }
@@ -71,10 +71,10 @@ function tsconfig(name) {
       noEmit: true,
       types: ['node', 'vitest/globals', '@testing-library/jest-dom'],
       paths: {
-        '@chawpi/ui': ['../ui/src/index.ts'],
-        '@chawpi/core': ['../core/src/index.ts'],
-        '@chawpi/testing': ['../testing/src/index.ts'],
-        [`@chawpi/${name}`]: ['./src/index.ts']
+        '@hneyra/ui': ['../ui/src/index.ts'],
+        '@hneyra/core': ['../core/src/index.ts'],
+        '@hneyra/testing': ['../testing/src/index.ts'],
+        [`@hneyra/${name}`]: ['./src/index.ts']
       }
     },
     include: ['src', 'vite.config.ts']
@@ -114,10 +114,10 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     // tests run against sibling sources, so nothing has to be built first
     alias: {
-      '@chawpi/ui': here('../ui/src/index.ts'),
-      '@chawpi/core': here('../core/src/index.ts'),
-      '@chawpi/testing': here('../testing/src/index.ts'),
-      '@chawpi/${name}': here('./src/index.ts')
+      '@hneyra/ui': here('../ui/src/index.ts'),
+      '@hneyra/core': here('../core/src/index.ts'),
+      '@hneyra/testing': here('../testing/src/index.ts'),
+      '@hneyra/${name}': here('./src/index.ts')
     }
   }
 })
@@ -145,7 +145,7 @@ function main() {
     // a css file is a build target (see moduleManifest's `scripts.build`): write a placeholder so
     // `yarn build` never fails on a missing source file before its owning task fills it in
     for (const file of spec.css ?? []) write(join(dir, `src/${file}`), `/* ${spec.name}: Task 5 fills this in */\n`, { keep: true })
-    console.log(`scaffolded @chawpi/${spec.name}`)
+    console.log(`scaffolded @hneyra/${spec.name}`)
   }
 }
 

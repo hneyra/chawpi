@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { RecordHistory } from './RecordHistory'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import { issueModule } from '../../test/fakeModules'
 import type { ChawpiModule } from '../../registry/contract'
 import type { AuditEntry } from '../../types/audit'

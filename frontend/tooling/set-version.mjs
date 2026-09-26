@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// bumps every frontend package to one lockstep version and keeps internal @chawpi/* deps in sync.
+// bumps every frontend package to one lockstep version and keeps internal @hneyra/* deps in sync.
 // npm version only touches a package's own version, so publish.yml calls this instead.
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
@@ -8,7 +8,7 @@ import { dirname, join } from 'node:path'
 const DEP_FIELDS = ['dependencies', 'peerDependencies', 'optionalDependencies']
 
 // rewrites every frontend/packages/*/package.json in place: own version, and any
-// @chawpi/* dependency entry, to `version`. leaves external deps and `private` untouched -
+// @hneyra/* dependency entry, to `version`. leaves external deps and `private` untouched -
 // whether a private package gets published is publish.yml's call, not this script's.
 export function setVersion(version, packagesRoot) {
   const entries = readdirSync(packagesRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory())
@@ -27,7 +27,7 @@ export function setVersion(version, packagesRoot) {
       const deps = pkg[field]
       if (!deps) continue
       for (const name of Object.keys(deps)) {
-        if (name.startsWith('@chawpi/')) deps[name] = version
+        if (name.startsWith('@hneyra/')) deps[name] = version
       }
     }
 

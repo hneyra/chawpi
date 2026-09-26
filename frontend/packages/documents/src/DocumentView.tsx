@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { getI18n } from 'react-i18next'
-import { Table, Td, Th } from '@chawpi/ui'
+import { Table, Td, Th } from '@hneyra/ui'
 import type { DocumentSnapshot, TemplateNode } from './types'
 
 // walks the frozen node tree and draws it. no html parser anywhere in here: a template is

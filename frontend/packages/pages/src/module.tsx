@@ -1,5 +1,5 @@
 import { LayoutTemplate } from 'lucide-react'
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 import { pagesMessages } from './i18n'
 
 export const PAGES_MODULE_ID = 'pages'

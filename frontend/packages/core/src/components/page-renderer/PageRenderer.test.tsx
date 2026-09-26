@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { PageRenderer } from './PageRenderer'
 import type { ReactElement } from 'react'
-import { renderWithProviders as renderBase } from '@chawpi/testing'
+import { renderWithProviders as renderBase } from '@hneyra/testing'
 import { noteModule, sketchModule } from '../../test/fakeModules'
 import type { FieldMeta, ObjectDefinition, Page, PageComponent, PageLayout, PageTemplate, RecordItem } from '../../types/metadata'
 

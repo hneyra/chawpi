@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { Trash2 } from 'lucide-react'
-import { Button } from '@chawpi/ui'
-import { Card, CardBody, CardHeader, CardTitle } from '@chawpi/ui'
-import { Input } from '@chawpi/ui'
-import { Label } from '@chawpi/ui'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
-import { useRoles } from '@chawpi/core'
+import { Button } from '@hneyra/ui'
+import { Card, CardBody, CardHeader, CardTitle } from '@hneyra/ui'
+import { Input } from '@hneyra/ui'
+import { Label } from '@hneyra/ui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
+import { useRoles } from '@hneyra/core'
 import type { StateType, WorkflowPayload, WorkflowState, WorkflowTransition } from './types'
 
 const STATE_TYPES: StateType[] = ['INITIAL', 'INTERMEDIATE', 'FINAL']

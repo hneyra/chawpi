@@ -7,7 +7,7 @@ default. `perene/` is a real cadastre model (13 objects, 11 spatial, EPSG:32718)
 | | |
 |---|---|
 | Server | `server/`, project `:gis-sample-server`, port 8090. Dependencies: `chawpi-bom`, `chawpi-spring-boot-starter`, `-gis` |
-| Web | `web/`, workspace `gis-sample-web`, port 5173. Dependencies: `@chawpi/core`, `@chawpi/ui`, `@chawpi/gis`, `maplibre-gl` 6.10.0 (as `@chawpi/gis`) |
+| Web | `web/`, workspace `gis-sample-web`, port 5173. Dependencies: `@hneyra/core`, `@hneyra/ui`, `@hneyra/gis`, `maplibre-gl` 6.10.0 (as `@hneyra/gis`) |
 | Login | `admin@chawpi.local` / `admin` (dev seed, `CHAWPI_SEED_DEV=true` by default here) |
 
 ## Run
@@ -23,7 +23,7 @@ docker exec chawpi-postgres createdb -U chawpi chawpi_gis
 # 2. the server. CHAWPI_DB_PORT has no default: compose publishes postgres on 5432, so say it
 CHAWPI_DB_PORT=5432 ./gradlew :gis-sample-server:bootRun
 
-# 3. the web (the first time: yarn install && yarn build, to build the @chawpi packages)
+# 3. the web (the first time: yarn install && yarn build, to build the @hneyra packages)
 yarn workspace gis-sample-web dev             # http://localhost:5173, /api proxied to :8090
 ```
 

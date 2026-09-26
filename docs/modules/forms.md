@@ -16,7 +16,7 @@ implementation("chawpi:chawpi-spring-boot-starter-forms")
 Frontend:
 
 ```bash
-yarn add @chawpi/forms
+yarn add @hneyra/forms
 ```
 
 ```tsx
@@ -74,7 +74,7 @@ Migration location `classpath:db/chawpi/forms`, history table `flyway_history_fo
 
 ## Frontend package
 
-`@chawpi/forms`: the `formsModule(options)` factory, with one option, `basePath` (default `'builder'`), the url
+`@hneyra/forms`: the `formsModule(options)` factory, with one option, `basePath` (default `'builder'`), the url
 prefix of the builder route. Main export from `index.ts` besides the module factory: `FormBuilderPage`. i18n
 namespace `forms` (`es`, `en`).
 

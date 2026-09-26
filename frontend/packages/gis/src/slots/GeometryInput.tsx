@@ -1,4 +1,4 @@
-import type { FieldInputProps } from '@chawpi/core'
+import type { FieldInputProps } from '@hneyra/core'
 import { GeometryField } from '../components/GeometryField'
 import { asGeometry, fieldGeometry } from '../types'
 

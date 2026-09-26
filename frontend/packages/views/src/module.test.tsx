@@ -1,4 +1,4 @@
-import { coreModule, createLinks, createRegistry } from '@chawpi/core'
+import { coreModule, createLinks, createRegistry } from '@hneyra/core'
 import { describe, expect, it } from 'vitest'
 import { viewsModule } from './module'
 

@@ -1,5 +1,5 @@
 import { MapPin } from 'lucide-react'
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 
 // a page component with every builder slot filled, the way gis offers MAP
 export const pinModule: ChawpiModule = {

@@ -4,9 +4,9 @@ import { accepts, countOf, depthOf, insert, move, nodeAt, MAX_COMPONENTS, MAX_DE
 import type { Node, Path } from './pageTree'
 import { parseTabHandle } from './openTabs'
 import { NO_SEED, sanitizeModulePatch, type Seed } from './registrySlots'
-import { ROW_CLASS, regionStyle } from '@chawpi/core'
+import { ROW_CLASS, regionStyle } from '@hneyra/core'
 import type { NodeRenderer, SharedCanvasProps } from './Slots'
-import type { PageComponentType, PageTemplate } from '@chawpi/core'
+import type { PageComponentType, PageTemplate } from '@hneyra/core'
 
 export interface Drop {
   active: string

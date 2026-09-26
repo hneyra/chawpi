@@ -1,4 +1,4 @@
-import type { ChawpiModule } from '@chawpi/core'
+import type { ChawpiModule } from '@hneyra/core'
 import { FileText } from 'lucide-react'
 import { formsMessages } from './i18n'
 

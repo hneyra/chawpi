@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ArrowDown, ArrowUp, Plus, RotateCcw, Trash2 } from 'lucide-react'
-import { ApiError, PageHeader, useDeleteForm, useForms, useObjectDefinition, useObjects, useSaveStoredForm } from '@chawpi/core'
-import type { FieldMeta, Form, FormSection } from '@chawpi/core'
-import { Badge, Button, Card, CardBody, CardHeader, CardTitle, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
+import { ApiError, PageHeader, useDeleteForm, useForms, useObjectDefinition, useObjects, useSaveStoredForm } from '@hneyra/core'
+import type { FieldMeta, Form, FormSection } from '@hneyra/core'
+import { Badge, Button, Card, CardBody, CardHeader, CardTitle, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
 
 const NEW = '__new__'
 

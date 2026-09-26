@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
-import { coreModule } from '@chawpi/core'
+import { coreModule } from '@hneyra/core'
 import { IssuedDocumentLink } from './IssuedDocumentLink'
 import { documentsModule } from './module'
-import { renderWithProviders } from '@chawpi/testing'
+import { renderWithProviders } from '@hneyra/testing'
 import type { IssuedDocument } from './types'
 
 const document: IssuedDocument = {

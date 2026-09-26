@@ -1,5 +1,5 @@
 {
-    "name": "@chawpi/gis",
+    "name": "@hneyra/gis",
     "version": "0.1.0",
     "description": "Chawpi GIS module: map and layers pages, the GEOMETRY field and the MAP page component",
     "type": "module",
@@ -33,8 +33,8 @@
         "terra-draw-maplibre-gl-adapter": "1.4.1"
     },
     "peerDependencies": {
-        "@chawpi/core": "*",
-        "@chawpi/ui": "*",
+        "@hneyra/core": "*",
+        "@hneyra/ui": "*",
         "@tanstack/react-query": "^5.103.1",
         "i18next": "^26.4.2",
         "react": "^19.3.0",

@@ -1,6 +1,6 @@
 import { Controller, type Control, type UseFormRegister } from 'react-hook-form'
-import { Input, Textarea } from '@chawpi/ui'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@chawpi/ui'
+import { Input, Textarea } from '@hneyra/ui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@hneyra/ui'
 import { RelationField } from './RelationField'
 import type { FieldMeta } from '../../../types/metadata'
 

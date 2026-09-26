@@ -6,7 +6,7 @@ import { CanvasTabs } from './CanvasTabs'
 import { ComponentMock } from './preview/ComponentMock'
 import { Slots } from './Slots'
 import type { SharedCanvasProps } from './Slots'
-import { cn } from '@chawpi/ui'
+import { cn } from '@hneyra/ui'
 
 export interface CanvasNodeProps extends SharedCanvasProps {
   node: Node

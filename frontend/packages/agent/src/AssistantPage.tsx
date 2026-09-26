@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AlertTriangle, BotOff, Loader2, Send, ShieldCheck, Wrench } from 'lucide-react'
-import { PageHeader } from '@chawpi/core'
-import { Badge, Button, Card, CardBody, Input } from '@chawpi/ui'
+import { PageHeader } from '@hneyra/core'
+import { Badge, Button, Card, CardBody, Input } from '@hneyra/ui'
 import { useAgentStatus, useAskAgent } from './api'
 import { answeredTurn, failedTurn, formatStepInput, pendingTurn, replaceTurn, turnStatus, type Turn } from './transcript'
 

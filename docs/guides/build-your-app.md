@@ -1,7 +1,7 @@
 # Build your app
 
 An app is your own Spring Boot main class plus one or more chawpi starters, and your own React entry plus one or
-more `@chawpi/*` packages. Start minimal — the core starter and a plain PostgreSQL database — and add modules one
+more `@hneyra/*` packages. Start minimal — the core starter and a plain PostgreSQL database — and add modules one
 line at a time as you need them.
 
 ## Before you start
@@ -90,8 +90,8 @@ backend:
 ```json
 {
   "dependencies": {
-    "@chawpi/core": "0.1.0",
-    "@chawpi/ui": "0.1.0",
+    "@hneyra/core": "0.1.0",
+    "@hneyra/ui": "0.1.0",
     "@tanstack/react-query": "^5.103.1",
     "i18next": "^26.4.2",
     "react": "^19.3.0",
@@ -106,7 +106,7 @@ backend:
 // src/main.tsx
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ChawpiApp } from '@chawpi/core'
+import { ChawpiApp } from '@hneyra/core'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
@@ -119,8 +119,8 @@ createRoot(document.getElementById('root')!).render(
 ```css
 /* src/index.css */
 @import 'tailwindcss';
-@import '@chawpi/ui/theme.css';
-@source '../node_modules/@chawpi';
+@import '@hneyra/ui/theme.css';
+@source '../node_modules/@hneyra';
 ```
 
 Point your dev server's proxy at the backend: Vite, `server.proxy['/api'] = 'http://localhost:8090'` (or whatever
@@ -137,21 +137,21 @@ below).
 
 | Module | Backend starter | Frontend package | Extra requirements | Doc |
 |---|---|---|---|---|
-| views | `chawpi-spring-boot-starter-views` | `@chawpi/views` | None | [views.md](../modules/views.md) |
-| forms | `chawpi-spring-boot-starter-forms` | `@chawpi/forms` | None | [forms.md](../modules/forms.md) |
-| pages | `chawpi-spring-boot-starter-pages` | `@chawpi/pages` | Backend starter pulls in `chawpi-forms` | [pages.md](../modules/pages.md) |
-| workflow | `chawpi-spring-boot-starter-workflow` | `@chawpi/workflow` | None | [workflow.md](../modules/workflow.md) |
-| automation | `chawpi-spring-boot-starter-automation` | `@chawpi/automation` | Calls `DocumentIssuer` | [automation.md](../modules/automation.md) |
-| documents | `chawpi-spring-boot-starter-documents` | `@chawpi/documents` | Implements `DocumentIssuer` | [documents.md](../modules/documents.md) |
-| gis | `chawpi-spring-boot-starter-gis` | `@chawpi/gis` | PostGIS database; frontend also needs `maplibre-gl`, a `workerUrl` | [gis.md](../modules/gis.md) |
-| agent | `chawpi-spring-boot-starter-agent` | `@chawpi/agent` | Needs `ANTHROPIC_API_KEY` (or another provider) | [agent.md](../modules/agent.md) |
+| views | `chawpi-spring-boot-starter-views` | `@hneyra/views` | None | [views.md](../modules/views.md) |
+| forms | `chawpi-spring-boot-starter-forms` | `@hneyra/forms` | None | [forms.md](../modules/forms.md) |
+| pages | `chawpi-spring-boot-starter-pages` | `@hneyra/pages` | Backend starter pulls in `chawpi-forms` | [pages.md](../modules/pages.md) |
+| workflow | `chawpi-spring-boot-starter-workflow` | `@hneyra/workflow` | None | [workflow.md](../modules/workflow.md) |
+| automation | `chawpi-spring-boot-starter-automation` | `@hneyra/automation` | Calls `DocumentIssuer` | [automation.md](../modules/automation.md) |
+| documents | `chawpi-spring-boot-starter-documents` | `@hneyra/documents` | Implements `DocumentIssuer` | [documents.md](../modules/documents.md) |
+| gis | `chawpi-spring-boot-starter-gis` | `@hneyra/gis` | PostGIS database; frontend also needs `maplibre-gl`, a `workerUrl` | [gis.md](../modules/gis.md) |
+| agent | `chawpi-spring-boot-starter-agent` | `@hneyra/agent` | Needs `ANTHROPIC_API_KEY` (or another provider) | [agent.md](../modules/agent.md) |
 
 `documents` and `automation` connect through `DocumentIssuer`: `automation`'s `GENERATE_DOCUMENT` action calls it,
 `documents` implements it, and installing only one of the two still works — the call is optional. `gis` needs a
 PostGIS-enabled PostgreSQL; `terra-draw` and its adapter come as regular dependencies of
-`@chawpi/gis`, but `maplibre-gl` is a peer you add yourself, and `gisModule` takes a `workerUrl` pointing at
+`@hneyra/gis`, but `maplibre-gl` is a peer you add yourself, and `gisModule` takes a `workerUrl` pointing at
 MapLibre's worker script — see [gis.md](../modules/gis.md) for the exact recipe. `pages`' backend starter brings in
-`chawpi-forms`; the frontend needs no `@chawpi/forms` package, because `@chawpi/core` draws the `FORM` page
+`chawpi-forms`; the frontend needs no `@hneyra/forms` package, because `@hneyra/core` draws the `FORM` page
 component itself. `agent` falls back to
 `ANTHROPIC_API_KEY` for `chawpi.agent.api-key`; another Embabel provider starter works too, see
 [agent.md](../modules/agent.md).
@@ -174,15 +174,15 @@ dependencies {
 ```
 
 ```tsx
-import { ChawpiApp } from '@chawpi/core'
-import { agentModule } from '@chawpi/agent'
-import { automationModule } from '@chawpi/automation'
-import { documentsModule } from '@chawpi/documents'
-import { formsModule } from '@chawpi/forms'
-import { gisModule } from '@chawpi/gis'
-import { pagesModule } from '@chawpi/pages'
-import { viewsModule } from '@chawpi/views'
-import { workflowModule } from '@chawpi/workflow'
+import { ChawpiApp } from '@hneyra/core'
+import { agentModule } from '@hneyra/agent'
+import { automationModule } from '@hneyra/automation'
+import { documentsModule } from '@hneyra/documents'
+import { formsModule } from '@hneyra/forms'
+import { gisModule } from '@hneyra/gis'
+import { pagesModule } from '@hneyra/pages'
+import { viewsModule } from '@hneyra/views'
+import { workflowModule } from '@hneyra/workflow'
 
 <ChawpiApp
   config={{ apiBaseUrl: '/api', appName: 'My App' }}
@@ -199,7 +199,7 @@ import { workflowModule } from '@chawpi/workflow'
 />
 ```
 
-That order, and the rest of the setup (worker/CSS imports, `@source`), is `@chawpi/core`'s README "Full app"
+That order, and the rest of the setup (worker/CSS imports, `@source`), is `@hneyra/core`'s README "Full app"
 section — follow it exactly; this guide only lists the pieces. [full-sample](../../examples/full-sample/README.md)
 shows the whole setup in a running app.
 
@@ -240,7 +240,7 @@ method, so the library's `PasswordEncoder` never gets created.
 Backend: a library with an `@AutoConfiguration` class registered in
 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`, beans implementing core's SPIs
 (for example a `FieldTypeHandler`), its own `ModuleMigration` for schema changes, and a `chawpi.<name>.enabled`
-switch. Frontend: a `ChawpiModule` factory (routes, nav, field renderers, page components — see `@chawpi/core`'s
+switch. Frontend: a `ChawpiModule` factory (routes, nav, field renderers, page components — see `@hneyra/core`'s
 README, "Writing a module"). [ADR-025](../adr/0025-extension-spis.md) documents the SPIs and
 [ADR-028](../adr/0028-frontend-module-registry.md) the frontend registry; `views` is the smallest shipped module
 and a good model to copy from.

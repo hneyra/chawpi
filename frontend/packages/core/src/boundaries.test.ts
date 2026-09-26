@@ -29,7 +29,7 @@ describe('core boundaries', () => {
   })
 
   it('never imports a heavy library or another module package', () => {
-    expect(offenders(/from '(maplibre-gl|terra-draw[^']*|@xyflow\/[^']*|@tiptap\/[^']*|@dnd-kit\/[^']*|@chawpi\/(?!ui')[^']*)'/)).toEqual([])
+    expect(offenders(/from '(maplibre-gl|terra-draw[^']*|@xyflow\/[^']*|@tiptap\/[^']*|@dnd-kit\/[^']*|@hneyra\/(?!ui')[^']*)'/)).toEqual([])
   })
 
   it('never names gis concepts outside tests', () => {

@@ -1,4 +1,4 @@
-import type { PageComponent, PageComponentType } from '@chawpi/core'
+import type { PageComponent, PageComponentType } from '@hneyra/core'
 
 // the same bounds the server enforces. refusing at the cursor beats refusing at the request.
 export const MAX_DEPTH = 12
